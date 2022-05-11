@@ -4,7 +4,10 @@
 using namespace std;
 
 class Menu{
-
+    int playerOption;
+    public:
+        Menu();
+        void displayMenu();
 
 
 }
