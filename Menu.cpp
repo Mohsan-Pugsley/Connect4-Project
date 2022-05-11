@@ -7,8 +7,8 @@ Menu::Menu(){
 
 }
 
-Menu::displayMenu(){
 
+Menu::displayMenu(){
     // display menu
     cout << "\t\tWelcome to Connect 4!\n\n";
     cout << "Please Select a Player Option" << endl;
@@ -20,9 +20,11 @@ Menu::displayMenu(){
     // respong to user's choice
     if(playerOption == 1){
         cout << "You have selected a Person opponent" << endl;
+        // .playGame()
     }
     else if(playerOption == 2){
         cout << "You have selected a Computer opponent" << endl;
+        // .playGame()
     }
     else{
         cout << "Please enter a valid option" << endl;
