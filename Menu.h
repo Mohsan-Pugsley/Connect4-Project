@@ -14,6 +14,6 @@ class Menu{
         int getboardRows(); \\ Returns the number of rows
         void setboardColumns(int newBoardColumns); \\ Sets the number of columns from user
         int getboardColumns(); \\ Returns the number of columns
-}
+};
 
 #endif
