@@ -14,7 +14,7 @@ class Menu{
         void setPlayerOption(int newPlayerOption); // Sets the player option
         int getPlayerOption(); // Returns the player option
         void setBoardSize(int newBoardRows, int newBoardColumns);
-        int getBoardSize(); // Returns the number of rows
+        int getBoardSize(); // Returns the board row and column
         ~Menu();
 };
 
