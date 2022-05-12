@@ -47,3 +47,34 @@ void Board::displayEmptyBoard(){
         }   
     }
 }
+
+void Board::printBoard(){ // found this off the internet - just testing it out
+   // Print the Connect4 board
+    for (int r = nRows-1; r >= 0; r--)
+   {
+      // Draw dashed line
+      cout << "+";
+      for (int c = 0; c < nCols; c++)
+         cout << "---+";
+      cout << "\n";
+
+      // Draw board contents
+      cout << "| ";
+      for (int c = 0; c < nCols; c++)
+         cout << board[r][c] << " | ";
+      cout << "\n";
+   }
+
+   // Draw dashed line
+   cout << "+";
+   for (int c = 0; c < nCols; c++)
+      cout << "---+";
+   cout << "\n";
+
+   // Draw column numbers
+   cout << "  ";
+   for (int c = 0; c < nCols; c++)
+      cout << c << "   ";
+   cout << "\n\n";
+}
+

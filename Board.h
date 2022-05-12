@@ -12,7 +12,7 @@ class Board{
     public:
         Board();
         void displayEmptyBoard();
-        
+        void printBoard();
 };
 
 #endif
