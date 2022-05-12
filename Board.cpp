@@ -7,11 +7,11 @@ using namespace std;
 void Board::displayEmptyBoard(){
     
     // Object Board aggregate to Menu class
-    Menu Board;
+    Menu M;
 
-    int nRows=Board.getBoardRows();
-    int nCols=Board.getBoardColumns();
-    int playerOption=Board.getPlayerOption();
+    int nRows=M.getBoardRows();
+    int nCols=M.getBoardColumns();
+    int playerOption=M.getPlayerOption();
     
     if(playerOption==1){
         char board[nRows][nCols];
@@ -21,5 +21,6 @@ void Board::displayEmptyBoard(){
                 board[row][col]=' ';
             }
         }
+        board[0][0]=' ';
     }
 }
