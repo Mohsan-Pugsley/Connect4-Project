@@ -27,6 +27,7 @@ int Menu::getPlayerOption(){
     return playerOption;
 }
 
+
 void Menu::setBoardRows(int newBoardRows){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
