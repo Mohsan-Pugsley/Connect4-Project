@@ -35,7 +35,7 @@ void refresh() { // Method that refreshes the screen with all the draw changes
 
 }
 
-Game() { // Destructor that deletes any memory if necessary before exiting the game
+~Game() { // Destructor that deletes any memory if necessary before exiting the game
 
 
 }

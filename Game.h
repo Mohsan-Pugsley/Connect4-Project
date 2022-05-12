@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include <iostream>
+#include "Menu.h"
 
 class Game {
     private:
@@ -13,7 +14,7 @@ class Game {
         void initialize();
         void runGame();
         void setState();
-        void getState();
+        int getState();
         void draw();
         void refresh();
         ~Game();
