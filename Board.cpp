@@ -19,13 +19,31 @@ Board::Board(){
 }
 
 void Board::displayEmptyBoard(){
-    cout<<playerOption<<endl;
-
+    //create empty board with input dimensions
     if(playerOption==1){
        for (int row=0; row<nRows; row++){
             for (int col=0; col<nCols; col++){
                 board[row][col]=' ';
             }
         }
+    //display empty board
+    for (int row=0; row<nRows+2; row++){
+        for (int col=0; col<nCols; col++){
+            if(row<=nRows-1 && col!=nCols-1){
+                cout<<'|'<<board[row][col];
+            } else if (row<=nRows-1 && col==nCols-1){
+                cout<<'|'<<board[row][col]<<'|';
+            } else if(row==nRows && col!=nCols-1){
+                cout<<'='<<'=';
+            } else if (row==nRows && col==nCols-1){
+                cout<<'='<<'='<<'=';
+            } else if (row==nRows+1 && col!=nCols-1){
+                cout<<'|'<<col+1;
+            } else if (row==nRows+1 && col==nCols-1){
+                cout<<'|'<<col+1<<'|';
+            }
+        }
+        cout<<endl;
+        }   
     }
 }
