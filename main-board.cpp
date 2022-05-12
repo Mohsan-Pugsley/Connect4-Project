@@ -16,6 +16,7 @@ int main(){
 
     Board B;
     B.displayEmptyBoard();
+    B.printBoard();
 
     return 0;
 }

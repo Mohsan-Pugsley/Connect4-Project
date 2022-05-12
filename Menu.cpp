@@ -17,8 +17,8 @@ void Menu::displayMenu(){
 }
 
 void Menu::setPlayerOption(int newPlayerOption){
-    cout << "Enter the number for the corresponding option above: " << endl;
-    cin >> playerOption;
+    cout<<"Enter the number for the corresponding option above: " << endl;
+    cin>>newPlayerOption;
 
     playerOption = newPlayerOption;
 }
@@ -27,11 +27,15 @@ int Menu::getPlayerOption(){
     return playerOption;
 }
 
+void Menu::displayPlayerOption(){
+    cout << playerOption << endl;
+}
+
 void Menu::setBoardRows(int newBoardRows){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>newBoardRows; 
-    // need to validate - cannot be less than 4 and cannot be greater than 8 - perhaps a while loop?
+    // need to validate - cannot be less than 4 and cannot be greater than 8 
     if((newBoardRows >= 4) && (newBoardRows <= 8)){
         boardRows = newBoardRows;
     }
@@ -39,11 +43,16 @@ void Menu::setBoardRows(int newBoardRows){
         cout << "Please try again!: " << endl;
         cout<<"Enter number of rows (min:4, max:8): ";
         cin>>newBoardRows; 
+        boardRows = newBoardRows;
     }
 }
 
 int Menu::getBoardRows(){
     return boardRows;  
+}
+
+void Menu::displayBoardRows(){
+    cout << boardRows << endl;
 }
 
 void Menu::setBoardColumns(int newBoardColumns){
@@ -58,13 +67,17 @@ void Menu::setBoardColumns(int newBoardColumns){
         cout << "Please try again!: " << endl;
         cout<<"Enter number of columns (min:4, max:8): ";
         cin>>newBoardColumns; 
+        boardColumns = newBoardColumns;
     }
-    boardColumns = newBoardColumns;
+    
+}
+
+void Menu::displayBoardColumns(){
+    cout << boardColumns << endl;
 }
 
 int Menu::getBoardColumns(){
     return boardColumns;  
 }
-
 
 
