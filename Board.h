@@ -13,8 +13,6 @@ class Board{
     public:
         void displayEmptyBoard();
         
-
-
 };
 
 #endif
