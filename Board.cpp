@@ -6,23 +6,20 @@ using namespace std;
 
 void Board::displayEmptyBoard(){
     
-    Menu board;
+    // Object Board aggregate to Menu class
+    Menu Board;
 
-    int nRows=board.getBoardRows();
-    int nCols=board.getBoardColumns();
+    int nRows=Board.getBoardRows();
+    int nCols=Board.getBoardColumns();
+    int playerOption=Board.getPlayerOption();
     
-    
-    if(Menu::getPlayerOption==1){
+    if(playerOption==1){
         char board[nRows][nCols];
-    }
-   
-    
-    //create empty board with input dimensions
-        
 
-        for (int row=0; row<nRows; row++){
+       for (int row=0; row<nRows; row++){
             for (int col=0; col<nCols; col++){
                 board[row][col]=' ';
             }
         }
+    }
 }

@@ -28,13 +28,18 @@ int Menu::getPlayerOption(){
 }
 
 void Menu::setBoardRows(int newBoardRows){
-    if (playerOption==1){
-        //board size: input and store rows
-        int newBoardRows;
-        cout<<"Enter number of rows (min:4, max:8): ";
-        cin>>newBoardRows;   
+    //board size: input and store rows
+    cout<<"Enter number of rows (min:4, max:8): ";
+    cin>>newBoardRows; 
+    // need to validate - cannot be less than 4 and cannot be greater than 8
+    if((newBoardRows > 4) && (newBoardRows < 8)){
+        boardRows = newBoardRows;
     }
-    boardRows = newBoardRows;
+    else{
+        cout << "Please try again!: " << endl;
+        cout<<"Enter number of rows (min:4, max:8): ";
+        cin>>newBoardRows; 
+    }
 }
 
 int Menu::getBoardRows(){
@@ -42,11 +47,17 @@ int Menu::getBoardRows(){
 }
 
 void Menu::setBoardColumns(int newBoardColumns){
-    if (PlayerOption==1){
-        //board size: input and store cols
-        int newBoardColumns;
+    //board size: input and store cols
+    cout<<"Enter number of columns (min:4, max:8): ";
+    cin>>newBoardColumns;   
+    // need to validate - cannot be less than 4 and cannot be greater than 8
+    if((newBoardColumns > 4) && (newBoardColumns < 8)){
+        boardColumns = newBoardColumns;
+    }
+    else{
+        cout << "Please try again!: " << endl;
         cout<<"Enter number of columns (min:4, max:8): ";
-        cin>>newBoardColumns;   
+        cin>>newBoardColumns; 
     }
     boardColumns = newBoardColumns;
 }
@@ -54,9 +65,6 @@ void Menu::setBoardColumns(int newBoardColumns){
 int Menu::getBoardColumns(){
     return boardColumns;  
 }
-
-
-
 
 
 
