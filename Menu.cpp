@@ -32,7 +32,14 @@ void Menu::setBoardRows(int newBoardRows){
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>newBoardRows; 
     // need to validate - cannot be less than 4 and cannot be greater than 8
-    boardRows = newBoardRows;
+    if((newBoardRows > 4) && (newBoardRows < 8)){
+        boardRows = newBoardRows;
+    }
+    else{
+        cout << "Please try again!: " << endl;
+        cout<<"Enter number of rows (min:4, max:8): ";
+        cin>>newBoardRows; 
+    }
 }
 
 int Menu::getBoardRows(){
@@ -44,6 +51,14 @@ void Menu::setBoardColumns(int newBoardColumns){
     cout<<"Enter number of columns (min:4, max:8): ";
     cin>>newBoardColumns;   
     // need to validate - cannot be less than 4 and cannot be greater than 8
+    if((newBoardColumns > 4) && (newBoardColumns < 8)){
+        boardColumns = newBoardColumns;
+    }
+    else{
+        cout << "Please try again!: " << endl;
+        cout<<"Enter number of columns (min:4, max:8): ";
+        cin>>newBoardColumns; 
+    }
     boardColumns = newBoardColumns;
 }
 
