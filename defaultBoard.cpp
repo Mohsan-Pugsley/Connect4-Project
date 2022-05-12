@@ -3,6 +3,10 @@ using namespace std;
 
 int main(){
 
+    int playerOption=0;
+    cout<<"Enter 1 for person vs person\n" <<
+          "Enter 2 for person vs computer"<< endl;
+
     //board size: input and store rows/cols
     int nRows;
     cout<<"Enter number of rows: ";
