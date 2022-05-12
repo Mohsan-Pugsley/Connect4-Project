@@ -20,7 +20,6 @@ void Board::displayEmptyBoard(){
             for (int col=0; col<nCols; col++){
                 board[row][col]=' ';
             }
-        } 
-
-    }   
+        }
+    }
 }
