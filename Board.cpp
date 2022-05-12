@@ -9,11 +9,11 @@ void Board::displayEmptyBoard(){
     // Object Board aggregate to Menu class
     Menu M;
 
-    int nRows=M.getBoardRows();
-    //int nCols=M.getBoardColumns();
+    //int nRows=M.getBoardRows();
+    int nCols=M.getBoardColumns();
     //int playerOption=M.getPlayerOption();
 
-    cout<<nRows<<endl;
+    cout<<nCols<<endl;
 
     //board[nRows][nCols];
     
