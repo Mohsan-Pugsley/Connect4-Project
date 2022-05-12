@@ -4,16 +4,21 @@
 #include <iostream>
 using namespace std;
 
+Board::Board(){
+    Menu M;    
+    playerOption=M.getPlayerOption();    
+}
+
 void Board::displayEmptyBoard(){
     
     // Object Board aggregate to Menu class
-    Menu M;
+
 
     //int nRows=M.getBoardRows();
-    int nCols=M.getBoardColumns();
-    //int playerOption=M.getPlayerOption();
+    //int nCols=M.getBoardColumns();
 
-    cout<<nCols<<endl;
+
+    cout<<playerOption<<endl;
 
     //board[nRows][nCols];
     
@@ -24,6 +29,5 @@ void Board::displayEmptyBoard(){
     //        }
     //    }
     //}
-
 
 }
