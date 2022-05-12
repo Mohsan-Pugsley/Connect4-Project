@@ -1,3 +1,5 @@
+#ifndef GAME_H
+#define GAME_H
 #include <iostream>
 #include "Menu.h"
 
@@ -22,3 +24,5 @@ class Game {
         void refresh();
         ~Game();
 };
+
+#endif
