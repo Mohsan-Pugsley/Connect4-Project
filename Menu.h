@@ -16,7 +16,7 @@ class Menu{
         int getBoardRows();
         void setBoardColumns(int newBoardColumns);
         int getBoardColumns(); 
-        ~Menu();
+        //~Menu();
 };
 
 #endif
