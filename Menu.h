@@ -20,8 +20,12 @@ class Menu{
         int getBoardRows();
         void setBoardColumns(int newBoardColumns);
         int getBoardColumns(); 
+<<<<<<< HEAD
+        //~Menu();
+=======
 >>>>>>> 46a7c3c4b6767d7b73b8e9786ccab8b36930e5c4
         ~Menu();
+>>>>>>> a8a757264a200e96e30b17e1045de713ac3df645
 };
 
 #endif
