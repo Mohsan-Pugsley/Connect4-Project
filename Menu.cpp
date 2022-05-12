@@ -6,12 +6,10 @@ Menu::Menu(){
     playerOption = 0;
     boardRows = 0;
     boardColumns = 0;
-    boardSize = new int[boardRows, boardColumns];
 }
 
 void Menu::displayMenu(){
     // display menu
-    int playerOption=0;
     cout << "\t\tWelcome to Connect 4!\n\n";
     cout << "Please Select a Player Option" << endl;
     cout << "1. Person vs. Person" << endl;
@@ -26,11 +24,11 @@ void Menu::setPlayerOption(int newPlayerOption){
 }
 
 int Menu::getPlayerOption(){
-    return PlayerOption;
+    return playerOption;
 }
 
 void Menu::setBoardRows(int newBoardRows){
-    if (PlayerOption==1){
+    if (playerOption==1){
         //board size: input and store rows
         int newBoardRows;
         cout<<"Enter number of rows (min:4, max:8): ";

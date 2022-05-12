@@ -7,7 +7,6 @@ class Menu{
     int playerOption;
     int boardRows;
     int boardColumns;
-    int *boardSize[2]; 
     public:
         Menu(); // Constructs
         void displayMenu(); // Displays the main menu
