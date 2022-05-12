@@ -3,15 +3,14 @@
 #include "Menu.h"
 
 class Board{
-    Menu M;
+    int playerOption;
     int nRows;
     int nCols;
     char ** board;
-    int playerOption;
-
+    
     public:
         Board();
-        void displayEmptyBoard();
+        void printEmptyBoard(); // displays empty game board with dimension from menu input
         void printBoard();
 };
 
