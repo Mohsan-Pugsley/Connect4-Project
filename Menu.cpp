@@ -9,7 +9,7 @@ Menu::Menu(){
     boardSize = new int[boardRows, boardColumns];
 }
 
-Menu::displayMenu(){
+void Menu::displayMenu(){
     // display menu
     int playerOption=0;
     cout << "\t\tWelcome to Connect 4!\n\n";
@@ -18,45 +18,45 @@ Menu::displayMenu(){
     cout << "2. Person vs. Computer" << endl;
 }
 
-Menu::setPlayerOption(int newPlayerOption){
+void Menu::setPlayerOption(int newPlayerOption){
     cout << "Enter the number for the corresponding option above: " << endl;
     cin >> playerOption;
 
     playerOption = newPlayerOption;
 }
 
-Menu::getPlayerOption(){
+int Menu::getPlayerOption(){
     return PlayerOption;
 }
 
-Menu::setBoardSize(int newBoardRows, int newBoardColumns){
+void Menu::setBoardRows(int newBoardRows){
     if (PlayerOption==1){
-        //board size: input and store rows/cols
-        int nRows;
-        cout<<"Enter number of rows: ";
-        cin>>nRows;
-
-        int nCols;
-        cout<<"Enter number of columns: ";
-        cin>>nCols;
+        //board size: input and store rows
+        int newBoardRows;
+        cout<<"Enter number of rows (min:4, max:8): ";
+        cin>>newBoardRows;   
     }
-    else if(PlayerOption == 2){
-        cout << "You have selected a Computer opponent" << endl;
-    }
-    else{
-        cout << "Please enter a valid option" << endl;
-    }
-
-    
-    
-
-
+    boardRows = newBoardRows;
 }
 
-Menu::getBoardSize(){
-    return boardSize;
-    
+int Menu::getBoardRows(){
+    return boardRows;  
 }
+
+void Menu::setBoardColumns(int newBoardColumns){
+    if (PlayerOption==1){
+        //board size: input and store cols
+        int newBoardColumns;
+        cout<<"Enter number of columns (min:4, max:8): ";
+        cin>>newBoardColumns;   
+    }
+    boardColumns = newBoardColumns;
+}
+
+int Menu::getBoardColumns(){
+    return boardColumns;  
+}
+
 
 
 

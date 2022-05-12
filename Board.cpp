@@ -6,10 +6,11 @@ using namespace std;
 
 void Board::displayEmptyBoard(){
     
-    Menu() board
+    Menu board;
 
-    int nRows=Menu::getBoardRows;
-    int nCols=Menu::getBoardColumns;
+    int nRows=board.getBoardRows();
+    int nCols=board.getBoardColumns();
+    
     
     if(Menu::getPlayerOption==1){
         char board[nRows][nCols];
