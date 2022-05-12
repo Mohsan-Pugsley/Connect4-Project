@@ -6,6 +6,7 @@ Menu::Menu(){
     playerOption = 0;
     boardRows = 0;
     boardColumns = 0;
+    boardSize = new int[boardRows, boardColumns];
 }
 
 Menu::displayMenu(){
@@ -25,7 +26,36 @@ Menu::setPlayerOption(int newPlayerOption){
 }
 
 Menu::getPlayerOption(){
-    return newPlayerOption;
+    return PlayerOption;
+}
+
+Menu::setBoardSize(int newBoardRows, int newBoardColumns){
+    if (PlayerOption==1){
+        //board size: input and store rows/cols
+        int nRows;
+        cout<<"Enter number of rows: ";
+        cin>>nRows;
+
+        int nCols;
+        cout<<"Enter number of columns: ";
+        cin>>nCols;
+    }
+    else if(PlayerOption == 2){
+        cout << "You have selected a Computer opponent" << endl;
+    }
+    else{
+        cout << "Please enter a valid option" << endl;
+    }
+
+    
+    
+
+
+}
+
+Menu::getBoardSize(){
+    return boardSize;
+    
 }
 
 

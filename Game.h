@@ -1,3 +1,5 @@
+#ifndef GAME_H
+#define GAME_H
 #include <iostream>
 
 class Game {
@@ -16,3 +18,5 @@ class Game {
         void refresh();
         ~Game();
 };
+
+#endif
