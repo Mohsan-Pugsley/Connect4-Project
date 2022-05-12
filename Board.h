@@ -4,17 +4,15 @@
 #include "Menu.h"
 
 class Board{
-    bool player1Won;
-    bool player2Won;
-    bool gameDraw;
 
     char ** board;
 
+    int playerOption;
+
     public:
+        Board();
         void displayEmptyBoard();
         
-
-
 };
 
 #endif

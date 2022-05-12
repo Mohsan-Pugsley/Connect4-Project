@@ -19,7 +19,7 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     menu.setBoardSize();
 
     // Construct board
-    board = Board(menu.getBoardColumns, menu.getBoardRows);
+    board = Board(menu.getBoardColumns(), menu.getBoardRows());
     board.displayEmptyBoard();
     
     while(player1Won==false || player2Won==false || gameDraw==false){
@@ -35,15 +35,15 @@ int Game::getState() { // Returns the state of the game, e.g. 0: Menu, 1: In Pro
 
 }
 
-void draw() { // Method that runs the necessary code to render the game after an update
+void Game::draw() { // Method that runs the necessary code to render the game after an update
 
 }
 
-void refresh() { // Method that refreshes the screen with all the draw changes
+void Game::refresh() { // Method that refreshes the screen with all the draw changes
 
 }
 
-~Game() { // Destructor that deletes any memory if necessary before exiting the game
+Game::~Game() { // Destructor that deletes any memory if necessary before exiting the game
 
 
 }

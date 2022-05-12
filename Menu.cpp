@@ -31,7 +31,7 @@ void Menu::setBoardRows(int newBoardRows){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>newBoardRows; 
-    // need to validate - cannot be less than 4 and cannot be greater than 8 - perhaps a while loop?
+    // need to validate - cannot be less than 4 and cannot be greater than 8 
     if((newBoardRows >= 4) && (newBoardRows <= 8)){
         boardRows = newBoardRows;
     }

@@ -2,8 +2,6 @@
 using namespace std;
 
 int main(){
-
-    //menu introduction: player options
     int playerOption=0;
     cout << "\t\tWelcome to Connect 4!\n\n";
     cout << "Please Select a Player Option" << endl;
@@ -12,7 +10,6 @@ int main(){
     cout << "Enter the number for the corresponding option above: " << endl;
     cin >> playerOption;
 
-    // user chooses person vs person
     if (playerOption==1){
         //board size: input and store rows/cols
         int nRows;
@@ -57,7 +54,7 @@ int main(){
         bool player2Won=false;
         bool gameDraw=false;
 
-        //column counter: used to stack the tokens
+        //column counter: used to stack the tokens 
         int col1Counter=nRows-1;
         int col2Counter=nRows-1;
         int col3Counter=nRows-1;
