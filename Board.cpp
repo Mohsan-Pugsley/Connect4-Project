@@ -12,15 +12,14 @@ void Board::displayEmptyBoard(){
     int nRows=M.getBoardRows();
     int nCols=M.getBoardColumns();
     int playerOption=M.getPlayerOption();
+
+    board[nRows][nCols];
     
     if(playerOption==1){
-        char board[nRows][nCols];
-
        for (int row=0; row<nRows; row++){
             for (int col=0; col<nCols; col++){
                 board[row][col]=' ';
             }
         }
-        board[0][0]=' ';
     }
 }

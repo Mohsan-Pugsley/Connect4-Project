@@ -8,6 +8,8 @@ class Board{
     bool player2Won;
     bool gameDraw;
 
+    char ** board;
+
     public:
         void displayEmptyBoard();
         
