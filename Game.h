@@ -6,7 +6,8 @@
 
 class Game {
     private:
-        bool gameState;
+        int gameState;
+        bool gameRunning;
         //Player player1;
         //Player player2;
         Menu menu;
@@ -16,7 +17,7 @@ class Game {
         Game();
         void initialize();
         void runGame();
-        void setState();
+        void setState(int state);
         int getState();
         void draw();
         void refresh();
