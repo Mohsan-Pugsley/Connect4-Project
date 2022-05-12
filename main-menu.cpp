@@ -9,8 +9,9 @@ int main(){
     m.getPlayerOption();
     m.setBoardRows(0);
     m.getBoardRows();
-    m.setBoardColumns(0);
-    m.getBoardColumns();
+    m.printRows();
+    //m.setBoardColumns(0);
+    //m.getBoardColumns();
 
     return 0;
 }
