@@ -1,18 +1,25 @@
 #include "Game.h"
+#include "Menu.h"
 
 Game::Game() { // Constructor capable of taking parameters for the default game settings
-    bool player1Won=false;
-    bool player2Won=false;
-    bool gameDraw=false;
+    player1Won = false;
+    player2Won = false;
+    gameDraw = false;
+    menu = Menu;
+    board = Board;
+    // player1 = Player;
+    // player2 = Player;
 }
 
 void Game::initialize() { // Runs code for the initial output of the game, including runGame()
 
-
 }
 
 void Game::runGame() {  // Runs the code for the game, including the main game loop
-
+    // Initial gets
+    menu.displayMenu();
+    menu.setPlayerOption();
+    menu.setBoardSize();
     
     while(player1Won==false || player2Won==false || gameDraw==false){
         
