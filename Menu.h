@@ -13,8 +13,10 @@ class Menu{
         void displayMenu(); // Displays the main menu
         void setPlayerOption(int newPlayerOption); // Sets the player option
         int getPlayerOption(); // Returns the player option
-        void setBoardSize(int newBoardRows, int newBoardColumns);
-        int getBoardSize(); // Returns the number of rows
+        void setBoardRows(int newBoardRows); // 
+        int getBoardRows();
+        void setBoardColumns(int newBoardColumns);
+        int getBoardColumns(); 
         ~Menu();
 };
 
