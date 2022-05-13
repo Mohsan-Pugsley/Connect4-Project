@@ -18,7 +18,7 @@ void Game::initialize() { // Runs code for the initial output of the game, inclu
 void Game::runGame() {  // Runs the code for the game, including the main game loop
     // Construct board
     board = Board(menu.getBoardColumns(), menu.getBoardRows()); // Pass x cols, y rows ERR: Board expecting 0 arguments
-    board.displayEmptyBoard();
+    board.printEmptyBoard();
     gameRunning = true;
 
     // ERR: Won/draw vars don't exist in this scope currently

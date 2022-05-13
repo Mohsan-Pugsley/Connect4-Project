@@ -7,15 +7,14 @@ int main(){
 
     Menu m;
     m.displayMenu();
-    m.setPlayerOption(0);
-    m.getPlayerOption();
-    m.setBoardRows(0);
-    m.getBoardRows();
-    m.setBoardColumns(0);
-    m.getBoardColumns();
 
     Board B;
+<<<<<<< HEAD
     B.displayEmptyBoard();
+=======
+    B.printEmptyBoard();
+    //B.printBoard();
+>>>>>>> 2ac01bf62a22072f20afdfbb609b63ab944ef993
 
     return 0;
 }

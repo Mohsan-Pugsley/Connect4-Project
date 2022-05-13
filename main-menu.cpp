@@ -5,11 +5,11 @@ using namespace std;
 int main(){
     Menu m;
     m.displayMenu();
-    m.setPlayerOption(0);
+    m.setPlayerOption();
     m.getPlayerOption();
-    m.setBoardRows(0);
+    m.setBoardRows();
     m.getBoardRows();
-    m.setBoardColumns(0);
+    m.setBoardColumns();
     m.getBoardColumns();
     m.displayPlayerOption();
     m.displayBoardRows();

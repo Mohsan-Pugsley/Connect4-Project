@@ -16,11 +16,9 @@ void Menu::displayMenu(){
     cout << "2. Person vs. Computer" << endl;
 }
 
-void Menu::setPlayerOption(int newPlayerOption){
+void Menu::setPlayerOption(){
     cout<<"Enter the number for the corresponding option above: " << endl;
-    cin>>newPlayerOption;
-
-    playerOption = newPlayerOption;
+    cin>>playerOption;
 }
 
 int Menu::getPlayerOption(){
@@ -31,19 +29,15 @@ void Menu::displayPlayerOption(){
     cout << playerOption << endl;
 }
 
-void Menu::setBoardRows(int newBoardRows){
+void Menu::setBoardRows(){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
-    cin>>newBoardRows; 
+    cin>>boardRows; 
     // need to validate - cannot be less than 4 and cannot be greater than 8 
-    if((newBoardRows >= 4) && (newBoardRows <= 8)){
-        boardRows = newBoardRows;
-    }
-    else{
+    if((boardRows < 4) && (boardRows > 8)){
         cout << "Please try again!: " << endl;
         cout<<"Enter number of rows (min:4, max:8): ";
-        cin>>newBoardRows; 
-        boardRows = newBoardRows;
+        cin>>boardRows; 
     }
 }
 
@@ -55,19 +49,15 @@ void Menu::displayBoardRows(){
     cout << boardRows << endl;
 }
 
-void Menu::setBoardColumns(int newBoardColumns){
+void Menu::setBoardColumns(){
     //board size: input and store cols
     cout<<"Enter number of columns (min:4, max:8): ";
-    cin>>newBoardColumns;   
+    cin>>boardColumns;   
     // need to validate - cannot be less than 4 and cannot be greater than 8
-    if((newBoardColumns >= 4) && (newBoardColumns <= 8)){
-        boardColumns = newBoardColumns;
-    }
-    else{
+    if((boardColumns < 4) && (boardColumns > 8)){
         cout << "Please try again!: " << endl;
         cout<<"Enter number of columns (min:4, max:8): ";
-        cin>>newBoardColumns; 
-        boardColumns = newBoardColumns;
+        cin>>boardColumns; 
     }
     
 }

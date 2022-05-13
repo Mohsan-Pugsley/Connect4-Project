@@ -10,14 +10,14 @@ class Menu{
     public:
         Menu(); // Constructs
         void displayMenu(); // Displays the main menu
-        void setPlayerOption(int newPlayerOption); // Sets the player option
+        void setPlayerOption(); // Sets the player option
         int getPlayerOption(); // Returns the player option
         void displayPlayerOption();
         void displayBoardRows();
         void displayBoardColumns();
-        void setBoardRows(int newBoardRows); // 
+        void setBoardRows(); // 
         int getBoardRows();
-        void setBoardColumns(int newBoardColumns);
+        void setBoardColumns();
         int getBoardColumns(); 
 };
 
