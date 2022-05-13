@@ -51,7 +51,7 @@ Game::~Game() { // Destructor that deletes any memory if necessary before exitin
     // TODO?
 }
 
-void p1WonCondition(){
+void Game::p1WonCondition(){
 
     Menu M;
 
