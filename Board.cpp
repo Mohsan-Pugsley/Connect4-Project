@@ -37,7 +37,7 @@ void Board::printEmptyBoard(){
     //create 2d array with dimensions retrieved from menu input
     board = new char*[nRows];
     // dynamically allocate memory of size `nCols` for each row 
-    for (int i = 0; i < nRows; i++) {
+    for (int i = 0; i < nRows; i++){
         board[i] = new char[nCols];
     }
 
@@ -70,6 +70,8 @@ void Board::printEmptyBoard(){
     }   
 }
 
+<<<<<<< HEAD
+=======
 void Board::printBoard(){ // found this off the internet - just testing it out
    // Print the Connect4 board
     for (int r = nRows-1; r >= 0; r--)
@@ -99,3 +101,4 @@ void Board::printBoard(){ // found this off the internet - just testing it out
       cout << c << "   ";
    cout << "\n\n";
 }
+>>>>>>> 2ac01bf62a22072f20afdfbb609b63ab944ef993
