@@ -15,7 +15,6 @@ void Computer::move() {
 }
 void Computer::computeTurn() {
     int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
-    std::cout << randomCol << std::endl;
      if (randomCol < lastMoveCol) {
          if (rand() % 3 + 1 < 3) { // 2/3rds of the time
              randomCol++; // move the randomCol closer to lastMoveCol

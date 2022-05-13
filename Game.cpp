@@ -29,9 +29,9 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     gameRunning = true;
 
     while(gameRunning && (player1Won==false || player2Won==false || gameDraw==false)){
-        // player1->move() // erroring because Board doesn't like Player being an abstract class
+        // player1->move() // Player needs to be an abstract class
         // board.printUpdatedBoard(player1) ?
-        // player2->move(); // erroring because Board doesn't like Player being an abstract class
+        // player2->move(); // Player needs to be an abstract class
         // board.printUpdatedBoard(player2) ?
         gameRunning = false; // break infinite loop
     }
