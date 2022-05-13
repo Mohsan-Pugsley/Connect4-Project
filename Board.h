@@ -14,7 +14,7 @@ class Board{
     public:
         Board();
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void printUpdatedBoard();
+        void printUpdatedBoard(); 
 };
 
 #endif
