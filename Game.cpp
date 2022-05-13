@@ -1,11 +1,9 @@
 #include "Game.h"
 #include "Menu.h"
 #include "Board.h"
+#include <iostream>
 
 Game::Game() { // Constructor capable of taking parameters for the default game settings
-    // player1 = Player;
-    // player2 = Player;
-
     player1Won=false;
     player2Won=false;
     gameDraw=false;
@@ -14,26 +12,33 @@ Game::Game() { // Constructor capable of taking parameters for the default game 
 void Game::initialize() { // Runs code for the initial output of the game, including runGame()
     // Initial sets
     menu.displayMenu();
+    menu.setPlayerOption();
+    menu.setBoardRows();
+    menu.setBoardColumns();
 }
 
 void Game::runGame() {  // Runs the code for the game, including the main game loop
     // Construct board
+    board = Board(menu.getBoardRows(), menu.getBoardColumns(), menu.getPlayerOption());
     board.printEmptyBoard();
-    // sets player 2 based on option
+
+    // sets players based on option
+    player1 = new Person();
     if (menu.getPlayerOption() == 1) {
-        player1 = new Person();
+        player2 = new Person();
     } else if (menu.getPlayerOption() == 2) {
         player2 = new Computer();
     }
-
+    setState(1); // game running
     gameRunning = true;
-
+ 
     while(gameRunning && (player1Won==false || player2Won==false || gameDraw==false)){
-        // player1->move() // Player needs to be an abstract class
-        // board.printUpdatedBoard(player1) ?
-        // player2->move(); // Player needs to be an abstract class
-        // board.printUpdatedBoard(player2) ?
-        gameRunning = false; // break infinite loop
+        player1->p1Input();
+        // player1->move(); not implemented
+        board.printUpdatedBoard(player1->getP1Move());
+        // player2->move(); not implemented
+        // board.printUpdatedBoard(player2) // unsure how to make colCount function as intended
+        //gameRunning = false; // break infinite loop
     }
 }
 
@@ -59,7 +64,7 @@ Game::~Game() { // Destructor that deletes any memory if necessary before exitin
     // TODO?
 }
 
-void Game::p1WonCondition(){ // toggle line comment (ctrl + /), just toggled them out to compile for now
+void Game::p1WonCondition(){ // toggled line comment (ctrl + /), just toggled them out to compile for now
     // Menu M;
 
     // M.setPlayerOption();

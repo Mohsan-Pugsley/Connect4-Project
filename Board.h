@@ -12,8 +12,9 @@ class Board{
     
     public:
         Board();
+        Board(int rows, int cols, int option);
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void printUpdatedBoard(); 
+        void printUpdatedBoard(int inputCol); // updates gameboard given the desired col to place a token
 };
 
 #endif

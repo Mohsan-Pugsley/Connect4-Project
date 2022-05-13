@@ -23,20 +23,28 @@ Board::Board(){
     }*/
 }
 
+Board::Board(int rows, int cols, int option) { // constructs a Board given parameters
+    playerOption = option;
+    nRows = rows;
+    nCols = cols;
+    cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
+}
+
 void Board::printEmptyBoard(){
 
+    // Tried to change the comments to occur in the constructor instead - mohsan
     //create menu object
-    Menu M;
+    //Menu M;
 
     //set and assign menu playerOption, board rows and board columns into variables in board class
-    M.setPlayerOption();
-    playerOption=M.getPlayerOption();
+    //M.setPlayerOption();
+    //playerOption=M.getPlayerOption();
 
-    M.setBoardRows();
-    nRows=M.getBoardRows();
+    //M.setBoardRows();
+    //nRows=M.getBoardRows();
 
-    M.setBoardColumns();
-    nCols=M.getBoardColumns();
+    //M.setBoardColumns();
+    //nCols=M.getBoardColumns();
 
     //create 2d array with dimensions retrieved from menu input
     board = new char*[nRows];
@@ -71,27 +79,24 @@ void Board::printEmptyBoard(){
             }
             cout<<endl;
         }
-    }   
-}
-
-void Board::printUpdatedBoard(){
-
+    }
     //initialise column counter to the bottom row
     for(int i=0; i<nCols; i++){
         colCounter[i]=nRows-1;
     }
+}
 
-    Player P;
-
-    P.p1Input();
-    playerInput=P.getP1Move();
+void Board::printUpdatedBoard(int inputCol){
+    playerInput = inputCol; // col that the a player input
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
                 if(playerInput==1){
                     board[colCounter[0]][playerInput-1]='X';
+                    //cout << colCounter[0] << endl;
                     colCounter[0]=colCounter[0]-1;
+                    //cout << colCounter[0] << endl;
                 } else if (playerInput==2){
-                    board[colCounter[1]][playerInput-1]='X';
+                    board[colCounter[1]][playerInput-1]='X'; 
                     colCounter[1]=colCounter[1]-1;
                 }else if(playerInput==3){
                     board[colCounter[2]][playerInput-1]='X';
