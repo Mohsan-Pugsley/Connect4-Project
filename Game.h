@@ -10,6 +10,11 @@ class Game {
         bool gameRunning;
         //Player player1;
         //Player player2;
+
+        bool player1Won;
+        bool player2Won;
+        bool gameDraw;
+
         Menu menu;
         Board board;
 
@@ -21,6 +26,15 @@ class Game {
         int getState();
         void draw();
         void refresh();
+
+        void p1WonCondition();
+        void p2WonCondition();
+        void drawCondition();
+
+        bool getP1WonFlag();
+        bool getP2WonFlag();
+        bool getDrawFlag();
+
         ~Game();
 };
 
