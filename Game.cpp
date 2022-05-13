@@ -37,7 +37,7 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
         // player1->move(); not implemented
         board.printUpdatedBoard(player1->getP1Move());
         // player2->move(); not implemented
-        // board.printUpdatedBoard(player2) // unsure how to make colCount function as intended
+        // board.printUpdatedBoard(player2) // haven't tried this yet
         //gameRunning = false; // break infinite loop
     }
 }
