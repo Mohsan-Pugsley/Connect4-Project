@@ -7,11 +7,14 @@ class Board{
     int nRows;
     int nCols;
     char ** board;
+    int playerInput;
+
+    int * colCounter;
     
     public:
         Board();
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void printBoard();
+        void printUpdatedBoard();
 };
 
 #endif

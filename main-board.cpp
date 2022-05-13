@@ -10,7 +10,6 @@ int main(){
 
     Board B;
     B.printEmptyBoard();
-    //B.printBoard();
-
+    B.printUpdatedBoard();
     return 0;
 }

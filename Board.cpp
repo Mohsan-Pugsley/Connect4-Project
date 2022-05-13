@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Board.h"
+#include "Player.h"
 
 #include <iostream>
 using namespace std;
@@ -10,6 +11,9 @@ Board::Board(){
     playerOption=0;
     nRows=0;
     nCols=0;
+    playerInput=0;
+
+    colCounter= new int[8];
     // dynamically create an array of size `nRows` - Paris: I searched up how to dynamically allocate a 2D array using new 
                                                 // - Viv: moved creation of 2d arry to printEmptyBoard function
     /*board = new char*[nRows];
@@ -70,35 +74,62 @@ void Board::printEmptyBoard(){
     }   
 }
 
-<<<<<<< HEAD
-=======
-void Board::printBoard(){ // found this off the internet - just testing it out
-   // Print the Connect4 board
-    for (int r = nRows-1; r >= 0; r--)
-   {
-      // Draw dashed line
-      cout << "+";
-      for (int c = 0; c < nCols; c++)
-         cout << "---+";
-      cout << "\n";
+void Board::printUpdatedBoard(){
 
-      // Draw board contents
-      cout << "| ";
-      for (int c = 0; c < nCols; c++)
-         cout << board[r][c] << " | ";
-      cout << "\n";
-   }
+    //initialise column counter to the bottom row
+    for(int i=0; i<nCols; i++){
+        colCounter[i]=nRows-1;
+    }
 
-   // Draw dashed line
-   cout << "+";
-   for (int c = 0; c < nCols; c++)
-      cout << "---+";
-   cout << "\n";
+    Player P;
 
-   // Draw column numbers
-   cout << "  ";
-   for (int c = 0; c < nCols; c++)
-      cout << c << "   ";
-   cout << "\n\n";
+    P.p1Input();
+    playerInput=P.getP1Move();
+
+    //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
+                if(playerInput==1){
+                    board[colCounter[0]][playerInput-1]='X';
+                    colCounter[0]=colCounter[0]-1;
+                } else if (playerInput==2){
+                    board[colCounter[1]][playerInput-1]='X';
+                    colCounter[1]=colCounter[1]-1;
+                }else if(playerInput==3){
+                    board[colCounter[2]][playerInput-1]='X';
+                    colCounter[2]=colCounter[2]-1;
+                }else if (playerInput==4){
+                    board[colCounter[3]][playerInput-1]='X';
+                    colCounter[3]=colCounter[3]-1;
+                }else if(playerInput==5){
+                    board[colCounter[4]][playerInput-1]='X';
+                    colCounter[4]=colCounter[4]-1;
+                }else if(playerInput==6){
+                    board[colCounter[5]][playerInput-1]='X';
+                    colCounter[5]=colCounter[5]-1;
+                }else if(playerInput==7){
+                    board[colCounter[6]][playerInput-1]='X';
+                    colCounter[6]=colCounter[6]-1;
+                }else if(playerInput==8){
+                    board[colCounter[7]][playerInput-1]='X';
+                    colCounter[7]=colCounter[7]-1;
+                } 
+
+                //display the update board
+                for (int row=0; row<nRows+2; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(row<=nRows-1 && col!=nCols-1){
+                            cout<<'|'<<board[row][col];
+                        } else if (row<=nRows-1 && col==nCols-1){
+                            cout<<'|'<<board[row][col]<<'|';
+                        } else if(row==nRows && col!=nCols-1){
+                            cout<<'='<<'=';
+                        } else if (row==nRows && col==nCols-1){
+                            cout<<'='<<'='<<'=';
+                        } else if (row==nRows+1 && col!=nCols-1){
+                            cout<<'|'<<col+1;
+                        } else if (row==nRows+1 && col==nCols-1){
+                            cout<<'|'<<col+1<<'|';
+                        }
+                    }
+                    cout<<endl;
+                }
 }
->>>>>>> 2ac01bf62a22072f20afdfbb609b63ab944ef993
