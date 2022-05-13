@@ -83,8 +83,8 @@ void Board::printUpdatedBoard(){
 
     Player P;
 
-    P.p1Input();
-    playerInput=P.getP1Move();
+    P.cInput();
+    playerInput=P.getCMove();
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
                 if(playerInput==1){
