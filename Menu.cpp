@@ -19,6 +19,20 @@ void Menu::displayMenu(){
 void Menu::setPlayerOption(){
     cout<<"Enter the number for the corresponding option above: " << endl;
     cin>>playerOption;
+    // validate input and assign playerOption
+    switch(playerOption){
+        case 1:
+            cout << "You picked a Person Opponent" << endl;
+            break;
+        case 2:
+            cout << "You picked a Computer Opponent" << endl;
+            break;
+        default: // need to continue to loop until playerOption is valid
+            cout << "Your choice is invalid" << endl;
+            cout<<"Enter the number for the corresponding option above: " << endl;
+            cin>>playerOption;
+    }
+
 }
 
 int Menu::getPlayerOption(){
@@ -33,10 +47,9 @@ void Menu::setBoardRows(){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>boardRows; 
-    // need to validate - cannot be less than 4 and cannot be greater than 8 
-    if((boardRows < 4) && (boardRows > 8)){
-        cout << "Please try again!: " << endl;
-        cout<<"Enter number of rows (min:4, max:8): ";
+    // validate input
+    while ((boardRows < 4) || (boardRows > 8)){
+        cout << "You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardRows; 
     }
 }
@@ -53,13 +66,12 @@ void Menu::setBoardColumns(){
     //board size: input and store cols
     cout<<"Enter number of columns (min:4, max:8): ";
     cin>>boardColumns;   
-    // need to validate - cannot be less than 4 and cannot be greater than 8
-    if((boardColumns < 4) && (boardColumns > 8)){
+    // validate input
+    while ((boardColumns < 4) || (boardColumns > 8)){
         cout << "Please try again!: " << endl;
-        cout<<"Enter number of columns (min:4, max:8): ";
+        cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardColumns; 
     }
-    
 }
 
 void Menu::displayBoardColumns(){
