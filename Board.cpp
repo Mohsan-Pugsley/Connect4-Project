@@ -70,4 +70,7 @@ void Board::printEmptyBoard(){
     }   
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad837a505e56150ce4074dc4dc30a46f8f5adeb1
