@@ -13,7 +13,7 @@ Board::Board(){
     // dynamically create an array of size `nRows` - Paris: I searched up how to dynamically allocate a 2D array using new 
     board = new char*[nRows];
     // dynamically allocate memory of size `nCols` for each row 
-    for (int i = 0; i < nRows; i++) {
+    for (int i = 0; i < nRows; i++){
         board[i] = new char[nCols];
     }
 }
@@ -46,35 +46,5 @@ void Board::displayEmptyBoard(){
         cout<<endl;
         }   
     }
-}
-
-void Board::printBoard(){ // found this off the internet - just testing it out
-   // Print the Connect4 board
-    for (int r = nRows-1; r >= 0; r--)
-   {
-      // Draw dashed line
-      cout << "+";
-      for (int c = 0; c < nCols; c++)
-         cout << "---+";
-      cout << "\n";
-
-      // Draw board contents
-      cout << "| ";
-      for (int c = 0; c < nCols; c++)
-         cout << board[r][c] << " | ";
-      cout << "\n";
-   }
-
-   // Draw dashed line
-   cout << "+";
-   for (int c = 0; c < nCols; c++)
-      cout << "---+";
-   cout << "\n";
-
-   // Draw column numbers
-   cout << "  ";
-   for (int c = 0; c < nCols; c++)
-      cout << c << "   ";
-   cout << "\n\n";
 }
 

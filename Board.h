@@ -14,7 +14,6 @@ class Board{
         // Possible constructor? 
         // Board(int xCols, int yRows);
         void displayEmptyBoard();
-        void printBoard();
 };
 
 #endif
