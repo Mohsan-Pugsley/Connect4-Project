@@ -6,9 +6,9 @@ Game::Game() { // Constructor capable of taking parameters for the default game 
     // player1 = Player;
     // player2 = Player;
 
-    bool player1Won=false;
-    bool player2Won=false;
-    bool gameDraw=false;
+    player1Won=false;
+    player2Won=false;
+    gameDraw=false;
 }
 
 void Game::initialize() { // Runs code for the initial output of the game, including runGame()
@@ -19,11 +19,20 @@ void Game::initialize() { // Runs code for the initial output of the game, inclu
 void Game::runGame() {  // Runs the code for the game, including the main game loop
     // Construct board
     board.printEmptyBoard();
-    //player1 = new Person();
+    // sets player 2 based on option
+    if (menu.getPlayerOption() == 1) {
+        player1 = new Person();
+    } else if (menu.getPlayerOption() == 2) {
+        player2 = new Computer();
+    }
 
     gameRunning = true;
 
     while(gameRunning && (player1Won==false || player2Won==false || gameDraw==false)){
+        // player1->move() // erroring because Board doesn't like Player being an abstract class
+        // board.printUpdatedBoard(player1) ?
+        // player2->move(); // erroring because Board doesn't like Player being an abstract class
+        // board.printUpdatedBoard(player2) ?
         gameRunning = false; // break infinite loop
     }
 }

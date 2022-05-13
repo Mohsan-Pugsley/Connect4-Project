@@ -5,7 +5,7 @@
 #include "Player.h"
 #include <string>
 
-class Computer {// : public Player {
+class Computer : public Player {
     private:
         int colCount;
         int lastMoveCol;

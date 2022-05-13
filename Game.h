@@ -17,8 +17,8 @@ class Game {
         bool player1Won;
         bool player2Won;
         bool gameDraw;
-        Player player1;
-        Player player2;
+        Player* player1;
+        Player* player2;
         Menu menu;
         Board board;
  

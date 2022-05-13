@@ -1,7 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Computer.h"
 #include <iostream>
 using namespace std;
 
@@ -22,7 +21,7 @@ class Player{
         int getP2Move();
         int getCMove();
 
-        // virtual void move() = 0; currently errors
+        // virtual void move() = 0; erroring
 
         bool win(Player*opponent);
         
