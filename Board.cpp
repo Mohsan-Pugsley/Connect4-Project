@@ -74,7 +74,6 @@ void Board::printEmptyBoard(){
     }   
 }
 
-<<<<<<< HEAD
 void Board::printUpdatedBoard(){
 
     //initialise column counter to the bottom row
@@ -134,9 +133,3 @@ void Board::printUpdatedBoard(){
                     cout<<endl;
                 }
 }
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> ad837a505e56150ce4074dc4dc30a46f8f5adeb1
->>>>>>> f8a215fbc113c099bc7c14a66e27558168dc0bd5
