@@ -5,7 +5,8 @@
 #include "Board.h"
 #include "Computer.h"
 #include "Person.h"
- 
+#include <variant>
+
 class Game {
     private:
         int gameState;
@@ -16,8 +17,8 @@ class Game {
         bool player1Won;
         bool player2Won;
         bool gameDraw;
-        Person player1;
-        Computer computer;
+        Player player1;
+        Player player2;
         Menu menu;
         Board board;
  

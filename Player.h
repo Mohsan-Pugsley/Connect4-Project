@@ -22,6 +22,8 @@ class Player{
         int getP2Move();
         int getCMove();
 
+        // virtual void move() = 0; currently errors
+
         bool win(Player*opponent);
         
 };
