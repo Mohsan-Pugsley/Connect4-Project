@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
     connectGame.runGame();
 
     Computer cmp = Computer();
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 25; i++) {
         cmp.move();
         cout << "The computer has chosen column: " << cmp.getTurn() << endl;
     }

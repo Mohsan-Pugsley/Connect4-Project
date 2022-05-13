@@ -8,7 +8,6 @@ class Board{
     int nCols;
     char ** board;
     int playerInput;
-
     int * colCounter;
     
     public:

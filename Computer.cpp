@@ -1,4 +1,6 @@
 #include "Computer.h"
+#include "Board.h"
+#include "Menu.h"
 #include <random>
 #include <time.h>
 
@@ -11,7 +13,7 @@ void Computer::move() {
     computeTurn();
 }
 void Computer::computeTurn() {
-    int randomCol = rand() % colCount + 1; // + 1 offsets from 0
+    int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
      if (randomCol < lastMoveCol) {
          if (rand() % 3 + 1 < 3) { // 2/3rds of the time
              randomCol++; // move the randomCol closer to lastMoveCol
