@@ -55,14 +55,19 @@ int main(){
         bool gameDraw=false;
 
         //column counter: used to stack the tokens 
-        int col1Counter=nRows-1;
+        /*int col1Counter=nRows-1;
         int col2Counter=nRows-1;
         int col3Counter=nRows-1;
         int col4Counter=nRows-1;
         int col5Counter=nRows-1;
         int col6Counter=nRows-1;
         int col7Counter=nRows-1;
-        int col8Counter=nRows-1;
+        int col8Counter=nRows-1;*/
+
+        int colCounter[8];
+        for(int i=0; i<nCols; i++){
+        colCounter[i]=nRows-1;
+        }
 
         //while no one has won yet or game isn't a draw
         while(player1Won==false || player2Won==false || gameDraw==false){
@@ -74,30 +79,39 @@ int main(){
                 cin>>playerInput;
                 
                 //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
-                if(playerInput==1){
-                    board[col1Counter][playerInput-1]='X';
-                    col1Counter--;
-                } else if (playerInput==2){
-                    board[col2Counter][playerInput-1]='X';
-                    col2Counter--;
-                }else if(playerInput==3){
-                    board[col3Counter][playerInput-1]='X';
-                    col3Counter--;
-                }else if (playerInput==4){
-                    board[col4Counter][playerInput-1]='X';
-                    col4Counter--;
-                }else if(playerInput==5){
-                    board[col5Counter][playerInput-1]='X';
-                    col5Counter--;
-                }else if(playerInput==6){
-                    board[col6Counter][playerInput-1]='X';
-                    col6Counter--;
-                }else if(playerInput==7){
-                    board[col7Counter][playerInput-1]='X';
-                    col7Counter--;
-                }else if(playerInput==8){
-                    board[col8Counter][playerInput-1]='X';
-                    col8Counter--;
+                switch (playerInput){
+                    case 1:
+                        board[colCounter[0]][playerInput-1]='X';
+                        colCounter[0]=colCounter[0]-1;
+                        break;    
+                    case 2:
+                        board[colCounter[1]][playerInput-1]='X'; 
+                        colCounter[1]=colCounter[1]-1;
+                        break;
+                    case 3:
+                        board[colCounter[2]][playerInput-1]='X';
+                        colCounter[2]=colCounter[2]-1;
+                        break;
+                    case 4:
+                        board[colCounter[3]][playerInput-1]='X';
+                        colCounter[3]=colCounter[3]-1;
+                        break;
+                    case 5:
+                        board[colCounter[4]][playerInput-1]='X';
+                        colCounter[4]=colCounter[4]-1;
+                        break;
+                    case 6:
+                        board[colCounter[5]][playerInput-1]='X';
+                        colCounter[5]=colCounter[5]-1;
+                        break;
+                    case 7:
+                        board[colCounter[6]][playerInput-1]='X';
+                        colCounter[6]=colCounter[6]-1;
+                        break;
+                    case 8:
+                        board[colCounter[7]][playerInput-1]='X';
+                        colCounter[7]=colCounter[7]-1;
+                        break;
                 } 
 
                 //display the update board
@@ -159,31 +173,40 @@ int main(){
                 cin>>playerInput;
                 
                 //update board: assign token O to the bottom of the chosen column and if there's already a token stack them            
-                if(playerInput==1){
-                    board[col1Counter][playerInput-1]='O';
-                    col1Counter--;
-                } else if (playerInput==2){
-                    board[col2Counter][playerInput-1]='O';
-                    col2Counter--;
-                }else if(playerInput==3){
-                    board[col3Counter][playerInput-1]='O';
-                    col3Counter--;
-                }else if (playerInput==4){
-                    board[col4Counter][playerInput-1]='O';
-                    col4Counter--;
-                }else if(playerInput==5){
-                    board[col5Counter][playerInput-1]='O';
-                    col5Counter--;
-                }else if(playerInput==6){
-                    board[col6Counter][playerInput-1]='O';
-                    col6Counter--;
-                }else if(playerInput==7){
-                    board[col7Counter][playerInput-1]='O';
-                    col7Counter--;
-                }else if(playerInput==8){
-                    board[col8Counter][playerInput-1]='O';
-                    col8Counter--;
-                }
+                switch (playerInput){
+                    case 1:
+                        board[colCounter[0]][playerInput-1]='O';
+                        colCounter[0]=colCounter[0]-1;
+                        break;    
+                    case 2:
+                        board[colCounter[1]][playerInput-1]='O'; 
+                        colCounter[1]=colCounter[1]-1;
+                        break;
+                    case 3:
+                        board[colCounter[2]][playerInput-1]='O';
+                        colCounter[2]=colCounter[2]-1;
+                            break;
+                    case 4:
+                        board[colCounter[3]][playerInput-1]='O';
+                        colCounter[3]=colCounter[3]-1;
+                        break;
+                    case 5:
+                        board[colCounter[4]][playerInput-1]='O';
+                        colCounter[4]=colCounter[4]-1;
+                        break;
+                    case 6:
+                        board[colCounter[5]][playerInput-1]='O';
+                        colCounter[5]=colCounter[5]-1;
+                        break;
+                    case 7:
+                        board[colCounter[6]][playerInput-1]='O';
+                        colCounter[6]=colCounter[6]-1;
+                        break;
+                    case 8:
+                        board[colCounter[7]][playerInput-1]='O';
+                        colCounter[7]=colCounter[7]-1;
+                        break;
+                } 
 
                 //display the update board
                 for (int row=0; row<nRows+2; row++){
