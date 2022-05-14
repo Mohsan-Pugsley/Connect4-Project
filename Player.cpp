@@ -26,7 +26,6 @@ void Player::p2Input(){
 }
 
 void Player::cInput(){
-    Computer C;
 
     cout<<"computer move";
 
