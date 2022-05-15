@@ -12,9 +12,6 @@ class Menu{
         void displayMenu(); // Displays the main menu
         void setPlayerOption(); // Sets the player option
         int getPlayerOption(); // Returns the player option
-        void displayPlayerOption();
-        void displayBoardRows();
-        void displayBoardColumns();
         void setBoardRows(); // 
         int getBoardRows();
         void setBoardColumns();

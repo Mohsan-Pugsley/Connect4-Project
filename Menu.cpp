@@ -47,10 +47,6 @@ int Menu::getPlayerOption(){
     return playerOption;
 }
 
-void Menu::displayPlayerOption(){
-    cout << playerOption << endl;
-}
-
 void Menu::setBoardRows(){
     //board size: input and store rows
     cout<<"Enter number of rows (min:4, max:8): ";
@@ -66,10 +62,6 @@ int Menu::getBoardRows(){
     return boardRows;  
 }
 
-void Menu::displayBoardRows(){
-    cout << boardRows << endl;
-}
-
 void Menu::setBoardColumns(){
     //board size: input and store cols
     cout<<"Enter number of columns (min:4, max:8): ";
@@ -80,10 +72,6 @@ void Menu::setBoardColumns(){
         cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardColumns; 
     }
-}
-
-void Menu::displayBoardColumns(){
-    cout << boardColumns << endl;
 }
 
 int Menu::getBoardColumns(){
