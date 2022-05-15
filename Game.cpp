@@ -53,7 +53,7 @@ Game::~Game() { // Destructor that deletes any memory if necessary before exitin
 
 void p1WonCondition(){
 
-    /*Menu M;
+    Menu M;
 
     M.setPlayerOption();
     playerOption=M.getPlayerOption();
@@ -101,7 +101,7 @@ void p1WonCondition(){
             }
         }
     }
-    */
+    
 }
 
 void p2WonCondition(){

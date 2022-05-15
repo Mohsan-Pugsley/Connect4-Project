@@ -13,6 +13,7 @@ Board::Board(){
     playerOption=0;
     nRows=0;
     nCols=0;
+    playerInput = 0;
 
     colCounter= new int[8];
 }
@@ -23,41 +24,6 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     nCols = cols;
     colCounter= new int[rows];
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
-}
-
-
-int Board::getHumanMove(){
-    int playerInput = 0;
-    cout << "What column will you place your piece?: ";
-    cin>>playerInput;
-    cout << endl;
-
-    while ((ans<nCols)||(ans>nCols)){
-        cout << "Invalid. What column will you place your piece?: ";
-        cin>>playerInput;
-        cout << endl;
-    } 
-    return playerInput;
-}
-
-int Board::getComputerMove(){
-    int colCount = 5;
-    int computerTurn = floor(colCount/2);
-
-    int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
-     if (randomCol < computerTurn) {
-         if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-             randomCol++; // move the randomCol closer to lastMoveCol
-         }
-     } else if (randomCol > computerTurn) {
-         if (rand() % 3 + 1 < 3) {
-             randomCol--; // move the randomCol closer to lastMoveCol
-         }
-     } // current result of this is that the computer chooses the edge columns less as well
-
-    computerTurn = randomCol;
-
-    return computerTurn;
 }
 
 //prints empty board with given parameters
@@ -101,6 +67,40 @@ void Board::printEmptyBoard(){
         colCounter[i]=nRows-1;
     }
 }
+
+int Board::getHumanMove(){
+    cout << "What column will you place your piece?: ";
+    cin>>playerInput;
+    cout << endl;
+
+    while ((playerInput<nCols)||(playerInput>nCols)){
+        cout << "Invalid. What column will you place your piece?: ";
+        cin>>playerInput;
+        cout << endl;
+    } 
+    return playerInput;
+}
+
+int Board::getComputerMove(){
+    int colCount = nCols;
+    int lastMoveCol = floor(colCount/2);
+
+    int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
+     if (randomCol < lastMoveCol) {
+         if (rand() % 3 + 1 < 3) { // 2/3rds of the time
+             randomCol++; // move the randomCol closer to lastMoveCol
+         }
+     } else if (randomCol > lastMoveCol) {
+         if (rand() % 3 + 1 < 3) {
+             randomCol--; // move the randomCol closer to lastMoveCol
+         }
+     } // current result of this is that the computer chooses the edge columns less as well
+
+    lastMoveCol = randomCol;
+
+    return lastMoveCol;
+}
+
 
 //prints updated board with player input
 void Board::printUpdatedBoard(int inputCol){
