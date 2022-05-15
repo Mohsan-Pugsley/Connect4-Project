@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Person.h"
-#include "Computer.h"
+//#include "Person.h"
+//#include "Computer.h"
 #include "Board.h"
 #include <string>
 #include <cstdlib>

@@ -4,9 +4,11 @@
 #include "Board.h"
 #include <string>
 
-class Person : public Player{
+class Person : public Player {
     public:
-        Player(Board B);
+        //Player(Board B);
+        //Person(Board B);
+        Person(Board B):Player(B) {}; // compiler seems to want {} here? not too sure
         virtual int GetMove();
 };
 

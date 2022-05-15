@@ -26,7 +26,7 @@ int main(){
     B.printEmptyBoard();
 
     //create player object
-    Person P;
+    Person P(B);
 
     //player1 input and print updated board
     P.GetMove();

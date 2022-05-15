@@ -1,9 +1,9 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include "Menu.h"
-#include "Player.h"
-#include "Person.h"
-#include "Computer.h"
+//#include "Player.h"
+//#include "Person.h"
+//#include "Computer.h"
 
 //Board class: prints empty board, prints updated board
 class Board{
