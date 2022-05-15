@@ -25,6 +25,38 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
 }
 
+
+int Board::getHumanMove(){
+    int ans = 0;
+    
+    cout << "What column will you place your piece?: ";
+    cin>>ans;
+    cout << endl;
+
+    while ((ans<nCols)||(ans>nCols)){
+        cout << "Invalid. What column will you place your piece?: ";
+        cin>>ans;
+        cout << endl;
+    } 
+    return ans;
+}
+
+int Board::getComputerMove(){
+    int ans = 0;
+
+    cout << "What column will you place your piece?: ";
+    cin>>ans;
+    cout << endl;
+
+    while ((ans<nCols)||(ans>nCols)){
+        cout << "Invalid. What column will you place your piece?: ";
+        cin>>ans;
+        cout << endl;
+    } 
+    return ans;
+}
+
+
 //prints empty board with given parameters
 void Board::printEmptyBoard(){
 

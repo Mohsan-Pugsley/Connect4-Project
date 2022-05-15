@@ -1,17 +1,15 @@
 #include "Person.h"
+#include "Player.h"
 
-Person::Person() {
-
+Person::Person(Board& board,char& piece):Player(board,piece){
 }
 
-int Person::personMove() {
-    return 0;
+int Person::GetMove(){
+    int move=board.getHumanMove();
+    return move;
 }
 
-void Person::move() {
-    
-}
 
-Person::~Person() {
 
-}
+
+

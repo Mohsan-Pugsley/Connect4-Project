@@ -6,15 +6,9 @@
 #include <string>
 
 class Computer : public Player {
-    private:
-        int colCount;
-        int lastMoveCol;
     public:
-        Computer();
-        void move();
-        void computeTurn();
-        int getTurn();
-        ~Computer();
+        Computer(Board& aBoard, const char& piece);
+        virtual int GetMove();
 };
 
 #endif
