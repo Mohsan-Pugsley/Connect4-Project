@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Person.h"
 #include "Computer.h"
 
 #include <iostream>
@@ -25,7 +26,6 @@ void Player::p2Input(){
 }
 
 void Player::cInput(){
-    Computer C;
 
     cout<<"computer move";
 

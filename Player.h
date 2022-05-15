@@ -11,6 +11,7 @@ class Player{
     int comRandCol;
     int comColCount;
     int comLastMoveCol;
+
     public:
         Player(); //constructor
         void p1Input();
@@ -21,7 +22,7 @@ class Player{
         int getP2Move();
         int getCMove();
 
-        virtual void move() = 0;
+        //virtual void move() = 0; //commented virtual to compile menu,board,player and main-board cpp
 
         bool win(Player*opponent);
         

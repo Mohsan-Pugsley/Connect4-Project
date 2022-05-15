@@ -1,7 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
-#include "Menu.h"
 
+//Board class: prints empty board, prints updated board
 class Board{
     int playerOption;
     int nRows;
@@ -12,7 +12,7 @@ class Board{
     
     public:
         Board();
-        Board(int rows, int cols, int option);
+        Board(int rows, int cols, int option); //board constructor with parameters
         void printEmptyBoard(); // displays empty game board with dimension from menu input
         void printUpdatedBoard(int inputCol); // updates gameboard given the desired col to place a token
 };
