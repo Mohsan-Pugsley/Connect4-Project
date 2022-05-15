@@ -4,6 +4,6 @@
 #include "Board.h"
 #include <string>
 
-Player::Player(Board& board,string& name,char& piece){
-    newBoard=board;
+Player::Player(Board B){
+    newBoard=B;
 }

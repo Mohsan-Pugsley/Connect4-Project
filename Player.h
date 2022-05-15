@@ -10,7 +10,7 @@ using namespace std;
 
 class Player{
     public:
-    Player(Board& board);
+    Player(Board B);
     virtual int GetMove()=0;
     Board newBoard;   
 };

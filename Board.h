@@ -1,5 +1,9 @@
 #ifndef BOARD_H
 #define BOARD_H
+#include "Menu.h"
+#include "Player.h"
+#include "Person.h"
+#include "Computer.h"
 
 //Board class: prints empty board, prints updated board
 class Board{
@@ -7,7 +11,6 @@ class Board{
     int nRows;
     int nCols;
     char ** board;
-    int playerInput;
     int * colCounter;
     
     public:

@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "Player.h"
 #include "Person.h"
+#include "Computer.h"
 
 #include <iostream>
 using namespace std;
@@ -12,7 +13,6 @@ Board::Board(){
     playerOption=0;
     nRows=0;
     nCols=0;
-    playerInput=0;
 
     colCounter= new int[8];
 }
@@ -27,38 +27,37 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
 
 
 int Board::getHumanMove(){
-    int ans = 0;
-    
+    int playerInput = 0;
     cout << "What column will you place your piece?: ";
-    cin>>ans;
+    cin>>playerInput;
     cout << endl;
 
     while ((ans<nCols)||(ans>nCols)){
         cout << "Invalid. What column will you place your piece?: ";
-        cin>>ans;
+        cin>>playerInput;
         cout << endl;
     } 
-    return ans;
+    return playerInput;
 }
 
 int Board::getComputerMove(){
     int colCount = 5;
-    int lastMoveCol = floor(colCount/2);
+    int computerTurn = floor(colCount/2);
 
     int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
-     if (randomCol < lastMoveCol) {
+     if (randomCol < computerTurn) {
          if (rand() % 3 + 1 < 3) { // 2/3rds of the time
              randomCol++; // move the randomCol closer to lastMoveCol
          }
-     } else if (randomCol > lastMoveCol) {
+     } else if (randomCol > computerTurn) {
          if (rand() % 3 + 1 < 3) {
              randomCol--; // move the randomCol closer to lastMoveCol
          }
      } // current result of this is that the computer chooses the edge columns less as well
 
-    lastMoveCol = randomCol;
+    computerTurn = randomCol;
 
-    return lastMoveCol;
+    return computerTurn;
 }
 
 //prints empty board with given parameters
@@ -70,7 +69,6 @@ void Board::printEmptyBoard(){
     for (int i = 0; i < nRows; i++){
         board[i] = new char[nCols];
     }
-
     //create empty board with input dimensions
     //if(playerOption==1){
         for (int row=0; row<nRows; row++){

@@ -5,7 +5,7 @@
 
 class Computer : public Player {
     public:
-        Computer(Board& aBoard);
+        Computer(Board B);
         virtual int GetMove();
 };
 

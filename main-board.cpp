@@ -26,11 +26,11 @@ int main(){
     B.printEmptyBoard();
 
     //create player object
-    Player P;
+    Person P;
 
     //player1 input and print updated board
-    P.p1Input();
-    int player1Input=P.getP1Move();
+    P.GetMove();
+    int player1Input=P.GetMove();
     
     B.printUpdatedBoard(player1Input);
     return 0;
