@@ -1,8 +1,8 @@
 #include "Menu.h"
 #include "Board.h"
-#include "Player.h"
-#include "Person.h"
-#include "Computer.h"
+//#include "Player.h"
+//#include "Person.h"
+//#include "Computer.h"
 #include <random>
 #include <time.h>
 #include <iostream>
