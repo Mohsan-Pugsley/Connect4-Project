@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "Player.h"
 #include "Person.h"
+#include "Computer.h"
 
 #include <iostream>
 
@@ -26,12 +27,20 @@ int main(){
     B.printEmptyBoard();
 
     //create player object
-    Player P;
+    //Player P;
+    Person Per;
+    Computer C;
 
-    //player1 input and print updated board
-    P.p1Input();
-    int player1Input=P.getP1Move();
-    
-    B.printUpdatedBoard(player1Input);
+    //person input and print updated board
+    Per.move();
+    B.updateBoard(Per.getMove());
+    B.printUpdatedBoard();
+
+    //computer input and print updated board
+    C.move();
+    B.updateBoard(C.getMove());
+    B.printUpdatedBoard();
+
+
     return 0;
 }

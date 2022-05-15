@@ -10,10 +10,17 @@ class Computer : public Player {
         int colCount;
         int lastMoveCol;
     public:
+        /*
         Computer();
         void move();
         void computeTurn();
         int getTurn();
+        ~Computer();
+        */
+
+        Computer();
+        virtual void move();
+        virtual int getMove();
         ~Computer();
 };
 

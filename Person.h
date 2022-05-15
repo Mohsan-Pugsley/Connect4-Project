@@ -5,13 +5,19 @@
 
 class Person : public Player{
 
-    int personMove();
+    //int personMove();
 
     public:
+        /*
         Person();
         void move();
         ~Person();
-    
+        */
+
+        Person();
+        ~Person();
+        virtual void move();
+        virtual int getMove();
 };
 
 #endif

@@ -7,14 +7,16 @@ class Board{
     int nRows;
     int nCols;
     char ** board;
-    int playerInput;
     int * colCounter;
+    int playerInput;
+
     
     public:
         Board();
         Board(int rows, int cols, int option); //board constructor with parameters
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void printUpdatedBoard(int inputCol); // updates gameboard given the desired col to place a token
+        void updateBoard(int inputCol); // updates gameboard given the desired col to place a token
+        void printUpdatedBoard();//display updated board
 };
 
 #endif

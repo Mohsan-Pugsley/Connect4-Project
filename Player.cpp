@@ -7,6 +7,7 @@
 using namespace std;
 
 Player::Player(){
+    /*
     player1=0;
     player2=0;
 
@@ -14,8 +15,18 @@ Player::Player(){
     comRandCol=0;
     comColCount=0;
     comLastMoveCol=0;
+    */
+    playerInput=0;
 }
 
+Player::~Player(){
+};
+
+int Player::getMove(){
+    return playerInput;
+}
+
+/*
 void Player::p1Input(){
     cout<<"player 1 move: "; 
     cin>>player1;
@@ -71,3 +82,5 @@ int Player::getCMove(){
 //        Player 2 * = new Computer();
 //    }
 //}
+
+*/

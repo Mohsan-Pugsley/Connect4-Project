@@ -11,8 +11,5 @@ int main(){
     m.getBoardRows();
     m.setBoardColumns();
     m.getBoardColumns();
-    m.displayPlayerOption();
-    m.displayBoardRows();
-    m.displayBoardColumns();
     return 0;
 }

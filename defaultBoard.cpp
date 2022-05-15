@@ -54,15 +54,6 @@ int main(){
         bool player2Won=false;
         bool gameDraw=false;
 
-        //column counter: used to stack the tokens 
-        /*int col1Counter=nRows-1;
-        int col2Counter=nRows-1;
-        int col3Counter=nRows-1;
-        int col4Counter=nRows-1;
-        int col5Counter=nRows-1;
-        int col6Counter=nRows-1;
-        int col7Counter=nRows-1;
-        int col8Counter=nRows-1;*/
 
         int colCounter[8];
         for(int i=0; i<nCols; i++){

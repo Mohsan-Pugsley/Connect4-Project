@@ -13,6 +13,12 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput=0;
+    
+    board = new char*[8];
+    // dynamically allocate memory of size `nCols` for each row 
+    for (int i = 0; i < 8; i++){
+        board[i] = new char[8];
+    }
 
     colCounter= new int[8];
 }
@@ -21,59 +27,58 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     playerOption = option;
     nRows = rows;
     nCols = cols;
+
+    //empty board with input dimensions
+    board = new char*[rows];
+    // dynamically allocate memory of size `cols` for each row 
+    for (int i = 0; i < rows; i++){
+        board[i] = new char[cols];
+    }
+    //assign space character to board array
+    for (int r=0; r<rows; r++){
+        for (int c=0; c<cols; c++){
+            board[r][c]=' ';
+        }
+    }
+
+    //column counter with input rows
     colCounter= new int[rows];
+    for(int i=0; i<rows; i++){
+        colCounter[i]=rows-1;
+    }
+
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
 }
 
 //prints empty board with given parameters
 void Board::printEmptyBoard(){
-
-    //create 2d array with dimensions retrieved from menu input
-    board = new char*[nRows];
-    // dynamically allocate memory of size `nCols` for each row 
-    for (int i = 0; i < nRows; i++){
-        board[i] = new char[nCols];
-    }
-
-    //create empty board with input dimensions
-    //if(playerOption==1){
-        for (int row=0; row<nRows; row++){
-            for (int col=0; col<nCols; col++){
-                board[row][col]=' ';
+    //display empty board
+    for (int row=0; row<nRows+2; row++){
+        for (int col=0; col<nCols; col++){
+            if(row<=nRows-1 && col!=nCols-1){
+                cout<<'|'<<board[row][col];
+            } else if (row<=nRows-1 && col==nCols-1){
+                cout<<'|'<<board[row][col]<<'|';
+            } else if(row==nRows && col!=nCols-1){
+                cout<<'='<<'=';
+            } else if (row==nRows && col==nCols-1){
+                cout<<'='<<'='<<'=';
+            } else if (row==nRows+1 && col!=nCols-1){
+                cout<<'|'<<col+1;
+            } else if (row==nRows+1 && col==nCols-1){
+                cout<<'|'<<col+1<<'|';
             }
         }
-        //display empty board
-        for (int row=0; row<nRows+2; row++){
-            for (int col=0; col<nCols; col++){
-                if(row<=nRows-1 && col!=nCols-1){
-                    cout<<'|'<<board[row][col];
-                } else if (row<=nRows-1 && col==nCols-1){
-                    cout<<'|'<<board[row][col]<<'|';
-                } else if(row==nRows && col!=nCols-1){
-                    cout<<'='<<'=';
-                } else if (row==nRows && col==nCols-1){
-                    cout<<'='<<'='<<'=';
-                } else if (row==nRows+1 && col!=nCols-1){
-                    cout<<'|'<<col+1;
-                } else if (row==nRows+1 && col==nCols-1){
-                    cout<<'|'<<col+1<<'|';
-                }
-            }
-            cout<<endl;
-        }
-    //}
-    //initialise column counter to the bottom row
-    for(int i=0; i<nRows; i++){
-        colCounter[i]=nRows-1;
+        cout<<endl;
     }
 }
 
 //prints updated board with player input
-void Board::printUpdatedBoard(int inputCol){
+void Board::updateBoard(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
-        switch (playerInput){
+    switch (playerInput){
             case 1:
                 board[colCounter[0]][playerInput-1]='X';
                 colCounter[0]=colCounter[0]-1;
@@ -106,7 +111,7 @@ void Board::printUpdatedBoard(int inputCol){
                 board[colCounter[7]][playerInput-1]='X';
                 colCounter[7]=colCounter[7]-1;
                 break;
-        }
+    } 
 
         // update board for player 2
         /*switch (playerInput){
@@ -143,24 +148,26 @@ void Board::printUpdatedBoard(int inputCol){
                 colCounter[7]=colCounter[7]-1;
                 break;
         }*/
+}
 
+void Board::printUpdatedBoard(){
     //display the update board
-        for (int row=0; row<nRows+2; row++){
-            for (int col=0; col<nCols; col++){
-                if(row<=nRows-1 && col!=nCols-1){
-                    cout<<'|'<<board[row][col];
-                } else if (row<=nRows-1 && col==nCols-1){
-                    cout<<'|'<<board[row][col]<<'|';
-                } else if(row==nRows && col!=nCols-1){
-                    cout<<'='<<'=';
-                } else if (row==nRows && col==nCols-1){
-                    cout<<'='<<'='<<'=';
-                } else if (row==nRows+1 && col!=nCols-1){
-                    cout<<'|'<<col+1;
-                } else if (row==nRows+1 && col==nCols-1){
-                    cout<<'|'<<col+1<<'|';
-                }
+    for (int row=0; row<nRows+2; row++){
+        for (int col=0; col<nCols; col++){
+            if(row<=nRows-1 && col!=nCols-1){
+                cout<<'|'<<board[row][col];
+            } else if (row<=nRows-1 && col==nCols-1){
+                cout<<'|'<<board[row][col]<<'|';
+            } else if(row==nRows && col!=nCols-1){
+                cout<<'='<<'=';
+            } else if (row==nRows && col==nCols-1){
+            cout<<'='<<'='<<'=';
+            } else if (row==nRows+1 && col!=nCols-1){
+                cout<<'|'<<col+1;
+            } else if (row==nRows+1 && col==nCols-1){
+                cout<<'|'<<col+1<<'|';
             }
-            cout<<endl;
         }
+        cout<<endl;
+    }
 }

@@ -68,7 +68,6 @@ void Menu::setBoardColumns(){
     cin>>boardColumns;   
     // validate input
     while ((boardColumns < 4) || (boardColumns > 8)){
-        cout << "Please try again!: " << endl;
         cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardColumns; 
     }
