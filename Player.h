@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Person.h"
-#include "Computer.h"
+//#include "Person.h"
+//#include "Computer.h"
 #include "Menu.h"
 #include <iostream>
 using namespace std;
