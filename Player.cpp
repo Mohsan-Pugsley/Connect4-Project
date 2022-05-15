@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Person.h"
 #include "Computer.h"
+#include "Menu.h"
 
 #include <iostream>
 using namespace std;
@@ -56,3 +57,17 @@ int Player::getP2Move(){
 int Player::getCMove(){
     return computer;
 }
+
+
+//void Player::setPlayer1(){ - Paris: Just thinking how to set each player as a person or computer depending on the selected playerOption
+//    Player1 * = new Person();
+//}
+
+//void Player::setPlayer2(){
+//    if(playerOption == 1){
+//        Player 2 * = new Person();
+//    }
+//    else if(playerOption == 2){
+//        Player 2 * = new Computer();
+//    }
+//}

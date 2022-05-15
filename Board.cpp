@@ -36,7 +36,7 @@ void Board::printEmptyBoard(){
     }
 
     //create empty board with input dimensions
-    if(playerOption==1){
+    //if(playerOption==1){
         for (int row=0; row<nRows; row++){
             for (int col=0; col<nCols; col++){
                 board[row][col]=' ';
@@ -61,7 +61,7 @@ void Board::printEmptyBoard(){
             }
             cout<<endl;
         }
-    }
+    //}
     //initialise column counter to the bottom row
     for(int i=0; i<nRows; i++){
         colCounter[i]=nRows-1;

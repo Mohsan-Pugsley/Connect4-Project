@@ -27,12 +27,20 @@ void Menu::setPlayerOption(){
         case 2:
             cout << "You picked a Computer Opponent" << endl;
             break;
-        default: // need to continue to loop until playerOption is valid
+        default: 
+            while((playerOption != 1) && (playerOption != 2)){
             cout << "Your choice is invalid" << endl;
             cout<<"Enter the number for the corresponding option above: " << endl;
             cin>>playerOption;
+            if(playerOption == 1){
+                cout << "You picked a Person Opponent" << endl;
+            }
+            else if(playerOption == 2){
+                cout << "You picked a Computer Opponent" << endl;
+            }
+        }
+            break;
     }
-
 }
 
 int Menu::getPlayerOption(){
