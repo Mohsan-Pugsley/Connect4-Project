@@ -42,20 +42,24 @@ int Board::getHumanMove(){
 }
 
 int Board::getComputerMove(){
-    int ans = 0;
+    int colCount = 5;
+    int lastMoveCol = floor(colCount/2);
 
-    cout << "What column will you place your piece?: ";
-    cin>>ans;
-    cout << endl;
+    int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
+     if (randomCol < lastMoveCol) {
+         if (rand() % 3 + 1 < 3) { // 2/3rds of the time
+             randomCol++; // move the randomCol closer to lastMoveCol
+         }
+     } else if (randomCol > lastMoveCol) {
+         if (rand() % 3 + 1 < 3) {
+             randomCol--; // move the randomCol closer to lastMoveCol
+         }
+     } // current result of this is that the computer chooses the edge columns less as well
 
-    while ((ans<nCols)||(ans>nCols)){
-        cout << "Invalid. What column will you place your piece?: ";
-        cin>>ans;
-        cout << endl;
-    } 
-    return ans;
+    lastMoveCol = randomCol;
+
+    return lastMoveCol;
 }
-
 
 //prints empty board with given parameters
 void Board::printEmptyBoard(){

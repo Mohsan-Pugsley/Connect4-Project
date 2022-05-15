@@ -6,13 +6,4 @@
 
 Player::Player(Board& board,string& name,char& piece){
     newBoard=board;
-    newPiece=piece;
-}
-
-void Player::SetPiece(const char& piece){
-    newPiece=piece;
-}
-
-char Player::GetPiece(){
-    return newPiece;
 }

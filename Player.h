@@ -10,11 +10,8 @@ using namespace std;
 
 class Player{
     public:
-    Player(Board& board, char& piece);
+    Player(Board& board);
     virtual int GetMove()=0;
-    void SetPiece(char& piece);
-    inline char GetPiece();
-    char newPiece;
     Board newBoard;   
 };
 

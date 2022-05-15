@@ -11,14 +11,13 @@ class Game {
     private:
         int gameState;
         bool gameRunning;
-        //Player player1;
-        //Player player2;
 
         bool player1Won;
         bool player2Won;
         bool gameDraw;
-        Player* player1;
-        Player* player2;
+        Person* player1;
+        Person* player2;
+        Computer* computer;
         Menu menu;
         Board board;
  
