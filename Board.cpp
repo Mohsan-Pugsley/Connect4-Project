@@ -3,7 +3,8 @@
 #include "Player.h"
 #include "Person.h"
 #include "Computer.h"
-
+#include <random>
+#include <time.h>
 #include <iostream>
 using namespace std;
 
@@ -14,7 +15,6 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput = 0;
-
     colCounter= new int[8];
 }
 
