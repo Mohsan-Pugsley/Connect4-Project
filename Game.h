@@ -1,10 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 #include <iostream>
-#include "Menu.h"
-#include "Board.h"
-#include "Computer.h"
-#include "Person.h"
 #include <variant>
 
 class Game {
@@ -20,8 +16,8 @@ class Game {
         Player* player1;
         Player* player2;
         Menu menu;
-        Board board;
- 
+        Board B;
+
     public:
         Game();
         void initialize();
@@ -31,15 +27,17 @@ class Game {
         void draw();
         void refresh();
 
-        void p1WonCondition();
-        void p2WonCondition();
-        void drawCondition();
+        void p1WonCondition(char ** board, int nRows, int nCols);
+        bool p2WonCondition(int nRows, int nCols);
+        bool drawCondition(int nRows, int nCols);
+
 
         bool getP1WonFlag();
-        bool getP2WonFlag();
+        /*bool getP2WonFlag();
         bool getDrawFlag();
+        */
 
         ~Game();
 };
- 
+
 #endif
