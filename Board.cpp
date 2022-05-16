@@ -111,6 +111,9 @@ void Board::updateBoard(int inputCol){
                 board[colCounter[7]][playerInput-1]='X';
                 colCounter[7]=colCounter[7]-1;
                 break;
+            default:
+                cout<<"Invalid input: Not within range.\nTry again: "<<endl;
+                
     } 
 
         // update board for player 2
