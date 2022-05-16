@@ -9,7 +9,8 @@ class Board{
     char ** board;
     int * colCounter;
     int playerInput;
-
+    bool player1Won;
+    bool player2Won;
     
     public:
         Board();
@@ -18,6 +19,8 @@ class Board{
         void updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
         void updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
+        bool checkWinX();
+        bool checkWinO();
 };
 
 #endif
