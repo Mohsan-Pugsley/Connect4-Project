@@ -42,8 +42,8 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     }
 
     //column counter with input rows
-    colCounter= new int[rows];
-    for(int i=0; i<rows; i++){
+    colCounter= new int[cols];
+    for(int i=0; i<cols; i++){
         colCounter[i]=rows-1;
     }
 
@@ -112,7 +112,8 @@ void Board::updateBoardX(int inputCol){
                 colCounter[7]=colCounter[7]-1;
                 break;
             default:
-                cout<<"Invalid input: Not within range.\nTry again: "<<endl;      
+                cout<<"Invalid input: Not within range.\nTry again: "<<endl; 
+                break;     
     } 
 }
 
@@ -151,6 +152,9 @@ void Board::updateBoardO(int inputCol){
         case 8:
             board[colCounter[7]][playerInput-1]='O';
             colCounter[7]=colCounter[7]-1;
+            break;
+        default:
+            cout<<"Invalid input: Not within range.\nTry again: "<<endl;
             break;
     }
 }
