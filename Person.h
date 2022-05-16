@@ -4,16 +4,9 @@
 #include "Player.h"
 
 class Person : public Player{
-
-    //int personMove();
+    //int nCols;
 
     public:
-        /*
-        Person();
-        void move();
-        ~Person();
-        */
-
         Person();
         ~Person();
         virtual void move();

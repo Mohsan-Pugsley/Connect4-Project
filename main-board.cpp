@@ -27,25 +27,34 @@ int main(){
     B.printEmptyBoard();
     bool gameRunning = true;
 
+    if(playerOption == 1){
     //create player object
     //Player P;
-    Person Per;
-    Computer C;
+    Person Player1;
+    Person Player2;
     while (gameRunning) {
         //person input and print updated board
-        Per.move();
-        B.updateBoardX(Per.getMove());
+        Player1.move();
+        B.updateBoardX(Player1.getMove());
         B.printUpdatedBoard();
 
-        //computer input and print updated board
-        C.setCols(nCols);
-        C.move();
-        B.updateBoardO(C.getMove());
+        //person input and print updated board
+        Player2.move();
+        B.updateBoardO(Player2.getMove());
         B.printUpdatedBoard();
 
-        B.checkWin();
-
+        int win = B.checkWin();
+        if (win == 1){
+            cout << "Player 1 has won" << endl;
+            gameRunning = false;
+        } else if (win == 2){
+            cout << "Player 2 has won " << endl;
+            gameRunning = false;
+        }
     }
-
+    }
+    else if(playerOption == 2){
+        
+    }
     return 0;
 }
