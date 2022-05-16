@@ -42,7 +42,6 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
     }
-    
 
     return 0;
 }
