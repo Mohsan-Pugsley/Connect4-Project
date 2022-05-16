@@ -13,7 +13,8 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput=0;
-    
+    player1Won=false;
+    player2Won=false;
     board = new char*[8];
     // dynamically allocate memory of size `nCols` for each row 
     for (int i = 0; i < 8; i++){
@@ -214,15 +215,17 @@ bool Board::checkWinX(){
                         }
                     }
                 }
+    return 0;
 
 }
 
 bool Board::checkWinO(){
-                    //if player 2 gets 4 in a row horizontally
+                //if player 2 gets 4 in a row horizontally
                 for (int row=0; row<nRows; row++){
                     for (int col=0; col<nCols; col++){
                         if(board[row][col]=='O' && board[row][col+1]=='O' && board[row][col+2]=='O' && board[row][col+3]=='O'){
                             cout<<"Player 2 Wins (4 horizontally)"<<endl;
+
                             return player2Won=true;
                         }
                     }
@@ -250,4 +253,5 @@ bool Board::checkWinO(){
                         }
                     }
                 }
+    return 0;
 }

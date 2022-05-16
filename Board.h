@@ -9,7 +9,8 @@ class Board{
     char ** board;
     int * colCounter;
     int playerInput;
-
+    bool player1Won;
+    bool player2Won;
     
     public:
         Board();
