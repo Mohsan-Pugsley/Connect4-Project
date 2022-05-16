@@ -4,14 +4,17 @@
 #include <random>
 #include <time.h>
 #include <iostream>
+
 Computer::Computer() {
-    colCount = 4;
-    lastMoveCol = floor(colCount/2);
+    colCount = 4; // Minimum cols
+    lastMoveCol = 4; // Guarantees computer will not adjust it's first move to be outside the board
+                     // May find a way to change this so it isn't a problem in version 2
     srand(time(NULL)); // Generates random seed for random using time
 }
 
 void Computer::setCols(int cols) {
-    colCount = cols;
+    colCount = cols; //  new
+    lastMoveCol = floor(colCount/2); // column the computer is more likely to initially place (must be assigned)
 }
 
 void Computer::move(){

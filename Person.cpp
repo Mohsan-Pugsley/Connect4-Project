@@ -3,9 +3,18 @@
 Person::Person() {
 }
 
-void Person::move(){
+void Person::move(){ // validate person input 
     cout<<"Person's move: ";
     cin>>playerInput;
+
+    // need to aggregate Board for nCols to work
+    /*while ((playerInput<nCols)||(playerInput>nCols)){
+        cout << "Invalid. What column will you place your piece?: ";
+        cin>>playerInput;
+        cout << endl;
+    } 
+    */
+
 }
 
 int Person::getMove(){

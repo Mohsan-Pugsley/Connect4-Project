@@ -65,6 +65,10 @@ int main(){
 
             //Player 1 move
                 //prompt user for first move
+                bool isColumnFull(int nCols){
+                    return board[0][nCols] != ' ';
+                }
+
                 int playerInput;
                 cout<<"player 1 move: "; 
                 cin>>playerInput;
