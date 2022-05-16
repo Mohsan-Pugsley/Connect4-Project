@@ -206,6 +206,20 @@ int Board::checkWin(){
             }
         }
     }
+
+    //if player 1 gets 4 in a row diagonally
+        for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (-)slope)"<<endl;
+                            return player1Won=true;
+                        } else if (board[row][col]=='X' && board[row-1][col+1]=='X' && board[row-2][col+2]=='X' && board[row-3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (+)slope)"<<endl;
+                            return player1Won=true;
+                        }
+                    }
+                }
+    return 0;
     return 0;
 }
 

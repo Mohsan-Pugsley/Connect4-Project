@@ -43,8 +43,14 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
-        B.checkWin();
-
+        int win = B.checkWin();
+        if (win == 1){
+            cout << "Player 1 has won" << endl;
+            gameRunning = false;
+        } else if (win == 2){
+            cout << "Player 2 has won " << endl;
+            gameRunning = false;
+        }
     }
 
     return 0;
