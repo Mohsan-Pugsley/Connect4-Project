@@ -33,14 +33,14 @@ int main(){
     Computer C;
     while (gameRunning) {
         //person input and print updated board
-    Per.move();
-    B.updateBoardX(Per.getMove());
-    B.printUpdatedBoard();
+        Per.move();
+        B.updateBoardX(Per.getMove());
+        B.printUpdatedBoard();
 
-    //computer input and print updated board
-    C.move();
-    B.updateBoardO(C.getMove());
-    B.printUpdatedBoard();
+        //computer input and print updated board
+        C.move();
+        B.updateBoardO(C.getMove());
+        B.printUpdatedBoard();
     }
     
 
