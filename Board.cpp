@@ -74,7 +74,7 @@ void Board::printEmptyBoard(){
 }
 
 //prints updated board with player input
-void Board::updateBoard(int inputCol){
+void Board::updateBoardX(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
@@ -112,45 +112,47 @@ void Board::updateBoard(int inputCol){
                 colCounter[7]=colCounter[7]-1;
                 break;
             default:
-                cout<<"Invalid input: Not within range.\nTry again: "<<endl;
-                
+                cout<<"Invalid input: Not within range.\nTry again: "<<endl;      
     } 
+}
 
-        // update board for player 2
-        /*switch (playerInput){
-            case 1:
-                board[colCounter[0]][playerInput-1]='O';
-                colCounter[0]=colCounter[0]-1;
-                break;    
-            case 2:
-                board[colCounter[1]][playerInput-1]='O'; 
-                colCounter[1]=colCounter[1]-1;
-                break;
-            case 3:
-                board[colCounter[2]][playerInput-1]='O';
-                colCounter[2]=colCounter[2]-1;
-                break;
-            case 4:
-                board[colCounter[3]][playerInput-1]='O';
-                colCounter[3]=colCounter[3]-1;
-                break;
-            case 5:
-                board[colCounter[4]][playerInput-1]='O';
-                colCounter[4]=colCounter[4]-1;
-                break;
-            case 6:
-                board[colCounter[5]][playerInput-1]='O';
-                colCounter[5]=colCounter[5]-1;
-                break;
-            case 7:
-                board[colCounter[6]][playerInput-1]='O';
-                colCounter[6]=colCounter[6]-1;
-                break;
-            case 8:
-                board[colCounter[7]][playerInput-1]='O';
-                colCounter[7]=colCounter[7]-1;
-                break;
-        }*/
+void Board::updateBoardO(int inputCol){
+    playerInput = inputCol; // col that the a player input
+
+    switch (playerInput){
+        case 1:
+            board[colCounter[0]][playerInput-1]='O';
+            colCounter[0]=colCounter[0]-1;
+            break;    
+        case 2:
+            board[colCounter[1]][playerInput-1]='O'; 
+            colCounter[1]=colCounter[1]-1;
+            break;
+        case 3:
+            board[colCounter[2]][playerInput-1]='O';
+            colCounter[2]=colCounter[2]-1;
+            break;
+        case 4:
+            board[colCounter[3]][playerInput-1]='O';
+            colCounter[3]=colCounter[3]-1;
+            break;
+        case 5:
+            board[colCounter[4]][playerInput-1]='O';
+            colCounter[4]=colCounter[4]-1;
+            break;
+        case 6:
+            board[colCounter[5]][playerInput-1]='O';
+            colCounter[5]=colCounter[5]-1;
+            break;
+        case 7:
+            board[colCounter[6]][playerInput-1]='O';
+            colCounter[6]=colCounter[6]-1;
+            break;
+        case 8:
+            board[colCounter[7]][playerInput-1]='O';
+            colCounter[7]=colCounter[7]-1;
+            break;
+    }
 }
 
 void Board::printUpdatedBoard(){

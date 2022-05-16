@@ -15,7 +15,8 @@ class Board{
         Board();
         Board(int rows, int cols, int option); //board constructor with parameters
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void updateBoard(int inputCol); // updates gameboard given the desired col to place a token
+        void updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
+        void updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
 };
 
