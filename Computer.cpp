@@ -13,7 +13,7 @@ Computer::Computer() {
 }
 
 void Computer::setCols(int cols) {
-    colCount = cols;
+    colCount = cols; //  new
     lastMoveCol = floor(colCount/2); // column the computer is more likely to initially place (must be assigned)
 }
 
