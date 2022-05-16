@@ -25,13 +25,14 @@ int main(){
     //assign menu inputs (player option, row, cols) into board class parameters
     Board B(playerOption, nRows, nCols);
     B.printEmptyBoard();
+    bool gameRunning = true;
 
     //create player object
     //Player P;
     Person Per;
     Computer C;
-
-    //person input and print updated board
+    while (gameRunning) {
+        //person input and print updated board
     Per.move();
     B.updateBoardX(Per.getMove());
     B.printUpdatedBoard();
@@ -40,7 +41,8 @@ int main(){
     C.move();
     B.updateBoardO(C.getMove());
     B.printUpdatedBoard();
-
+    }
+    
 
     return 0;
 }
