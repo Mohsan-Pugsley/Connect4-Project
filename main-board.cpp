@@ -43,9 +43,6 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
-       // B.checkWinX();
-       // B.checkWinO();
-
     }
 
     return 0;

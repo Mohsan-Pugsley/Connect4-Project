@@ -3,7 +3,7 @@
 Person::Person() {
 }
 
-void Person::move(){
+void Person::move(){ // validate person input 
     cout<<"Person's move: ";
     cin>>playerInput;
 }
