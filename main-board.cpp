@@ -43,6 +43,30 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
+        /*
+        if(playerOption==1){
+            //person1 input and print updated board
+            Per.move();
+            B.updateBoardX(Per.getMove());
+            B.printUpdatedBoard();
+
+            //person2 input and print updated board
+            Per.move();
+            B.updateBoardO(Per.getMove());
+            B.printUpdatedBoard();
+        } else {
+            //person1 input and print updated board
+            Per.move();
+            B.updateBoardX(Per.getMove());
+            B.printUpdatedBoard();
+
+            //computer input and print updated board
+            C.setCols(nCols);
+            C.move();
+            B.updateBoardO(C.getMove());
+            B.printUpdatedBoard();
+        }
+        */
     }
 
     return 0;
