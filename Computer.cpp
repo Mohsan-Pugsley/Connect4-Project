@@ -5,13 +5,12 @@
 #include <time.h>
 #include <iostream>
 Computer::Computer() {
-    colCount = 4;
-    lastMoveCol = floor(colCount/2);
     srand(time(NULL)); // Generates random seed for random using time
 }
 
 void Computer::setCols(int cols) {
     colCount = cols;
+    lastMoveCol = floor(colCount/2);
 }
 
 void Computer::move(){
