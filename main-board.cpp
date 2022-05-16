@@ -38,6 +38,7 @@ int main(){
         B.printUpdatedBoard();
 
         //computer input and print updated board
+        C.setCols(nCols);
         C.move();
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
