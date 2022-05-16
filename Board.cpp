@@ -13,7 +13,8 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput=0;
-    
+    bool player1Won=false;
+    bool player2Won=false;
     board = new char*[8];
     // dynamically allocate memory of size `nCols` for each row 
     for (int i = 0; i < 8; i++){
