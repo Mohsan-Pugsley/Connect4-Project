@@ -31,7 +31,7 @@ int main(){
     //Player P;
     Person Per;
     Computer C;
-    while (gameRunning) {
+    while (gameRunning){
         //person input and print updated board
         Per.move();
         B.updateBoardX(Per.getMove());
@@ -45,13 +45,15 @@ int main(){
 
         int win = B.checkWin();
         if (win == 1){
-            cout << "Player 1 has won" << endl;
+            cout << "Person has won!" << endl;
             gameRunning = false;
         } else if (win == 2){
-            cout << "Player 2 has won " << endl;
+            cout << "Computer has won! " << endl;
             gameRunning = false;
-        }
+        } /*else if (win == 3){
+            cout << "It is a tie!" << endl;
+            gameRunning = false;
+        } */
     }
-
     return 0;
 }

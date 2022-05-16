@@ -5,7 +5,7 @@
 #include <time.h>
 #include <iostream>
 Computer::Computer() {
-    colCount = 4;
+    colCount = 4; // Does this need to be set to nCols?
     lastMoveCol = floor(colCount/2);
     srand(time(NULL)); // Generates random seed for random using time
 }

@@ -75,7 +75,7 @@ void Board::printEmptyBoard(){
 }
 
 //prints updated board with player input
-int Board::updateBoardX(int inputCol){
+void Board::updateBoardX(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
@@ -118,7 +118,7 @@ int Board::updateBoardX(int inputCol){
     } 
 }
 
-int Board::updateBoardO(int inputCol){
+void Board::updateBoardO(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     switch (playerInput){
@@ -219,6 +219,15 @@ int Board::checkWin(){
                 return 2;
             } else if (board[i][j]=='O' && board[i-1][j+1]=='O' && board[i-2][j+2]=='O' && board[i-3][j+3]=='O'){
                 return 2;
+            }
+        }
+    }*/
+
+    // check for draw
+    /*for (int i=0; i<nRows; i++){
+        for (int j=0; j<nCols; j++){
+            if(board[i][j] != ' '){
+                return 3;
             }
         }
     }*/

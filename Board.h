@@ -5,7 +5,6 @@
 class Board{
     int playerOption;
     int nRows;
-    int nCols;
     char ** board;
     int * colCounter;
     int playerInput;
@@ -13,17 +12,14 @@ class Board{
     int player2Won;
     
     public:
+        int nCols;
         Board();
         Board(int rows, int cols, int option); //board constructor with parameters
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        int updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
-        int updateBoardO(int inputCol);
+        void updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
+        void updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
         int checkWin(); 
-        /*
-        bool checkWinX();
-        bool checkWinO();
-        */
 };
 
 #endif
