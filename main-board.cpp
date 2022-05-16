@@ -53,8 +53,27 @@ int main(){
         }
     }
     }
-    else if(playerOption == 2){
-        
+    
+    if(playerOption == 2){
+    //create player object
+    //Player P;
+    Person Per;
+    Computer C;
+    while (gameRunning) {
+        //person input and print updated board
+        Per.move();
+        B.updateBoardX(Per.getMove());
+        B.printUpdatedBoard();
+
+        //computer input and print updated board
+        C.setCols(nCols);
+        C.move();
+        B.updateBoardO(C.getMove());
+        B.printUpdatedBoard();
+
+        B.checkWin();
+
+    }  
     }
     return 0;
 }
