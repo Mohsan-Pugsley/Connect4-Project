@@ -6,9 +6,9 @@ Game::Game() { // Constructor capable of taking parameters for the default game 
     // player1 = Player;
     // player2 = Player;
 
-    bool player1Won=false;
-    bool player2Won=false;
-    bool gameDraw=false;
+    //bool player1Won=false;
+    //bool player2Won=false;
+    //bool gameDraw=false;
 
 }
 
