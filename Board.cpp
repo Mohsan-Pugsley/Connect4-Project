@@ -13,8 +13,8 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput=0;
-    player1Won=false;
-    player2Won=false;
+    player1Won=0;
+    player2Won=0;
     board = new char*[8];
     // dynamically allocate memory of size `nCols` for each row 
     for (int i = 0; i < 8; i++){
@@ -75,7 +75,7 @@ void Board::printEmptyBoard(){
 }
 
 //prints updated board with player input
-void Board::updateBoardX(int inputCol){
+int Board::updateBoardX(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
@@ -116,9 +116,45 @@ void Board::updateBoardX(int inputCol){
                 cout<<"Invalid input: Not within range.\nTry again: "<<endl; 
                 break;     
     } 
+    for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row][col+1]=='X' && board[row][col+2]=='X' && board[row][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 horiztonally)"<<endl;
+                            player1Won=1;
+                            return player1Won;
+                        }
+                    }
+                }
+
+                //if player 1 gets 4 in a row vertically
+                for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row+1][col]=='X' && board[row+2][col]=='X' && board[row+3][col]=='X'){
+                            cout<<"Player 1 Wins (4 vertically)"<<endl;
+                            player1Won=1;
+                            return player1Won;
+                        }
+                    }
+                }
+
+                //if player 1 gets 4 in a row diagonally
+                for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (-)slope)"<<endl;
+                            player1Won=1;
+                            return player1Won;
+                        } else if (board[row][col]=='X' && board[row-1][col+1]=='X' && board[row-2][col+2]=='X' && board[row-3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (+)slope)"<<endl;
+                            player1Won=1;
+                            return player1Won;
+                        }
+                    }
+                }
+    return 0;
 }
 
-void Board::updateBoardO(int inputCol){
+int Board::updateBoardO(int inputCol){
     playerInput = inputCol; // col that the a player input
 
     switch (playerInput){
@@ -158,6 +194,44 @@ void Board::updateBoardO(int inputCol){
             cout<<"Invalid input: Not within range.\nTry again: "<<endl;
             break;
     }
+
+    //if player 1 gets 4 in a row horizontally
+                for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row][col+1]=='X' && board[row][col+2]=='X' && board[row][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 horiztonally)"<<endl;
+                            player2Won=2;
+                            return player2Won;
+                        }
+                    }
+                }
+
+                //if player 1 gets 4 in a row vertically
+                for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row+1][col]=='X' && board[row+2][col]=='X' && board[row+3][col]=='X'){
+                            cout<<"Player 1 Wins (4 vertically)"<<endl;
+                            player2Won=2;
+                            return player2Won;
+                        }
+                    }
+                }
+
+                //if player 1 gets 4 in a row diagonally
+                for (int row=0; row<nRows; row++){
+                    for (int col=0; col<nCols; col++){
+                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (-)slope)"<<endl;
+                            player2Won=2;
+                            return player2Won;
+                        } else if (board[row][col]=='X' && board[row-1][col+1]=='X' && board[row-2][col+2]=='X' && board[row-3][col+3]=='X'){
+                            cout<<"Player 1 Wins (4 diagonally (+)slope)"<<endl;
+                            player2Won=2;
+                            return player2Won;
+                        }
+                    }
+                }
+    return 0;
 }
 
 void Board::printUpdatedBoard(){
@@ -182,6 +256,7 @@ void Board::printUpdatedBoard(){
     }
 }
 
+/*
 bool Board::checkWinX(){
     //if player 1 gets 4 in a row horizontally
                 for (int row=0; row<nRows; row++){
@@ -255,3 +330,4 @@ bool Board::checkWinO(){
                 }
     return 0;
 }
+*/

@@ -9,18 +9,20 @@ class Board{
     char ** board;
     int * colCounter;
     int playerInput;
-    bool player1Won;
-    bool player2Won;
+    int player1Won;
+    int player2Won;
     
     public:
         Board();
         Board(int rows, int cols, int option); //board constructor with parameters
         void printEmptyBoard(); // displays empty game board with dimension from menu input
-        void updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
-        void updateBoardO(int inputCol);
+        int updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
+        int updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
+        /*
         bool checkWinX();
         bool checkWinO();
+        */
 };
 
 #endif
