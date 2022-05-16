@@ -43,17 +43,7 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
-        if(B.updateBoardX(Per.getMove())==1){
-            gameRunning=false;
-            cout<<"Player 1 Won"<<endl;
-        } else if (B.updateBoardO(C.getMove())==2){
-            gameRunning=false;
-            cout<<"Player 2 Won"<<endl;
-        }
-
-
-       // B.checkWinX();
-       // B.checkWinO();
+        B.checkWin();
 
     }
 

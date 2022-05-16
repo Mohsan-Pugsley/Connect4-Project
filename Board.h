@@ -19,6 +19,7 @@ class Board{
         int updateBoardX(int inputCol); // updates gameboard given the desired col to place a token
         int updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
+        int checkWin(); 
         /*
         bool checkWinX();
         bool checkWinO();
