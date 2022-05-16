@@ -19,6 +19,7 @@ class Computer : public Player {
         */
 
         Computer();
+        void setCols(int cols);
         virtual void move();
         virtual int getMove();
         ~Computer();
