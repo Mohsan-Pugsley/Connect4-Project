@@ -13,8 +13,8 @@ Board::Board(){
     nRows=0;
     nCols=0;
     playerInput=0;
-    player1Won=false;
-    player2Won=false;
+    //player1Won=false;
+    //player2Won=false;
     board = new char*[8];
     // dynamically allocate memory of size `nCols` for each row 
     for (int i = 0; i < 8; i++){
@@ -182,6 +182,7 @@ void Board::printUpdatedBoard(){
     }
 }
 
+/*
 bool Board::checkWinX(){
     //if player 1 gets 4 in a row horizontally
                 for (int row=0; row<nRows; row++){
@@ -255,3 +256,4 @@ bool Board::checkWinO(){
                 }
     return 0;
 }
+*/
