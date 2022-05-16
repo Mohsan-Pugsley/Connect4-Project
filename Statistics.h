@@ -3,12 +3,18 @@
 #include <fstream>
 
 class Statistics {
-    public:
-
-    std::string filePath;
-    std::ofstream;
-    
-
     private:
 
+        std::string filePath;
+        std::ofstream outFile; // creating
+        std::ifstream inFile;
+
+        int leastMovesRecord;
+        int computerLoses;
+
+    public:
+        Statistics();
+        void initialize();
+        void saveData();
+        void loadData();
 };
