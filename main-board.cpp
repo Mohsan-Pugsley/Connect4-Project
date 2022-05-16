@@ -33,14 +33,13 @@ int main(){
 
     //person input and print updated board
     Per.move();
-    B.updateBoard(Per.getMove());
+    B.updateBoardX(Per.getMove());
     B.printUpdatedBoard();
 
     //computer input and print updated board
     C.move();
-    B.updateBoard(C.getMove());
+    B.updateBoardO(C.getMove());
     B.printUpdatedBoard();
-
 
     return 0;
 }

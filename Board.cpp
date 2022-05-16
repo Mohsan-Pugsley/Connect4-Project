@@ -42,8 +42,8 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     }
 
     //column counter with input rows
-    colCounter= new int[rows];
-    for(int i=0; i<rows; i++){
+    colCounter= new int[cols];
+    for(int i=0; i<cols; i++){
         colCounter[i]=rows-1;
     }
 
@@ -82,7 +82,7 @@ void Board::updateBoardX(int inputCol){
             case 1:
                 board[colCounter[0]][playerInput-1]='X';
                 colCounter[0]=colCounter[0]-1;
-                break;    
+                break;
             case 2:
                 board[colCounter[1]][playerInput-1]='X'; 
                 colCounter[1]=colCounter[1]-1;
