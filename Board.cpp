@@ -116,41 +116,51 @@ int Board::updateBoardX(int inputCol){
                 cout<<"Invalid input: Not within range.\nTry again: "<<endl; 
                 break;     
     } 
+    cout << "Horizontal Check" << endl;
     for (int row=0; row<nRows; row++){
-                    for (int col=0; col<nCols; col++){
-                        if(board[row][col]=='X' && board[row][col+1]=='X' && board[row][col+2]=='X' && board[row][col+3]=='X'){
-                            cout<<"Player 1 Wins (4 horiztonally)"<<endl;
-                            player1Won=1;
-                            return player1Won;
-                        }
-                    }
-                }
-
-                //if player 1 gets 4 in a row vertically
-                for (int row=0; row<nRows; row++){
-                    for (int col=0; col<nCols; col++){
-                        if(board[row][col]=='X' && board[row+1][col]=='X' && board[row+2][col]=='X' && board[row+3][col]=='X'){
-                            cout<<"Player 1 Wins (4 vertically)"<<endl;
-                            player1Won=1;
-                            return player1Won;
-                        }
-                    }
-                }
-
-                //if player 1 gets 4 in a row diagonally
-                for (int row=0; row<nRows; row++){
-                    for (int col=0; col<nCols; col++){
-                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
-                            cout<<"Player 1 Wins (4 diagonally (-)slope)"<<endl;
-                            player1Won=1;
-                            return player1Won;
-                        } else if (board[row][col]=='X' && board[row-1][col+1]=='X' && board[row-2][col+2]=='X' && board[row-3][col+3]=='X'){
-                            cout<<"Player 1 Wins (4 diagonally (+)slope)"<<endl;
-                            player1Won=1;
-                            return player1Won;
-                        }
-                    }
-                }
+        cout << "Row: " << row << endl;
+        for (int col=0; col<nCols; col++){
+            cout << " | Col : " << col << endl;
+            if(board[row][col]=='X' && board[row][col+1]=='X' && board[row][col+2]=='X' && board[row][col+3]=='X'){
+                cout<<"Player 1 Wins (4 horiztonally)"<<endl;
+                player1Won=1;
+                return player1Won;
+            }
+            
+        }
+    }
+    cout << "Vertical Check" << endl;
+    //if player 1 gets 4 in a row vertically
+    for (int row=0; row<nRows; row++){
+        cout << "Row: " << row << endl;
+        for (int col=0; col<nCols; col++){
+            cout << " | col : " << col << endl;
+            // Segmentation fault here when: col = 4, row = 4 (5th column, 5th row; assuming 5x5 board)
+            if(board[row][col]=='X' && board[row+1][col]=='X' && board[row+2][col]=='X' && board[row+3][col]=='X'){
+                cout<<"Player 1 Wins (4 vertically)"<<endl;
+                player1Won=1;
+                return player1Won;
+            }
+        }
+    }
+    cout << "Diagonal Check:" << endl;
+    //if player 1 gets 4 in a row diagonally
+    for (int row=0; row<nRows; row++){
+        cout << endl << "Row: " << row << endl;
+        for (int col=0; col<nCols; col++){
+            cout << " | col : " << col;
+            // Segementation fault: row = 4, col = 0 (assuming 5x5 board)
+            if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                cout<<"Player 1 Wins (4 diagonally (-)slope)"<<endl;
+                player1Won=1;
+                return player1Won;
+            } else if (board[row][col]=='X' && board[row-1][col+1]=='X' && board[row-2][col+2]=='X' && board[row-3][col+3]=='X'){
+                cout<<"Player 1 Wins (4 diagonally (+)slope)"<<endl;
+                player1Won=1;
+                return player1Won;
+            }
+        }
+    }
     return 0;
 }
 
