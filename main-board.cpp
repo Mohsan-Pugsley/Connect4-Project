@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Person.h"
 #include "Computer.h"
+#include "Game.h"
 
 #include <iostream>
 
@@ -31,7 +32,9 @@ int main(){
     //Player P;
     Person Per;
     Computer C;
-    while (gameRunning) {
+
+    Game G;
+    while (gameRunning==true) {
         //person input and print updated board
         Per.move();
         B.updateBoardX(Per.getMove());
@@ -43,18 +46,13 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
-        if(B.updateBoardX(Per.getMove())==1){
-            gameRunning=false;
-            cout<<"Player 1 Won"<<endl;
-        } else if (B.updateBoardO(C.getMove())==2){
-            gameRunning=false;
-            cout<<"Player 2 Won"<<endl;
-        }
-
-
        // B.checkWinX();
        // B.checkWinO();
 
+       G.p1WonCondition(B.getUpdatedBoard(), nRows, nCols);
+       if (G.getP1WonFlag()==true){
+           gameRunning=false;
+       }
     }
 
     return 0;
