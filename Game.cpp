@@ -87,6 +87,7 @@ void Game::runGame(){
                 gameRunning = false;
             } else if(win ==3){
                 cout << "The game is a draw" << endl;
+                gameRunning = false;
             }
         } else {
             // Person vs Computer
@@ -114,6 +115,7 @@ void Game::runGame(){
                 gameRunning = false;
             } else if(win ==3){
                 cout << "The game is a draw" << endl;
+                gameRunning = false;
             }
         }
     }
