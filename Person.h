@@ -12,12 +12,12 @@ class Person : public Player{
 
         Person();
         ~Person();
-        virtual void move(bool * full);
-        virtual int getMove();
+        void move(bool * full);
+        int getMove();
         Menu m;
         void setMenu(Menu m);
         bool checkCondition();
-        
+
 };
 
 #endif
