@@ -20,14 +20,14 @@ int main(){
 
     M.setBoardColumns();
     int nCols=M.getBoardColumns();
+    
+    Player *person = new Person();
+    Player *computer = new Computer();
+    
+    person->setMenu(M);
 
-    Person Per;
-    Per.setMenu(M);
-
-    Computer C;
-    C.setMenu(M);
-    C.setCols(M.getBoardColumns());
-    C.setRows(M.getBoardRows());
+    computer->setMenu(M);
+    computer->setCols(M.getBoardColumns());
     
 //stage 2: game
     //assign menu inputs (player option, row, cols) into board class parameters
@@ -45,15 +45,15 @@ int main(){
             }
         }
         //person input and print updated board
-        Per.setPlayerCheck(B.check);
-        Per.move(array);
+        person->setPlayerCheck(B.check);
+        person->move(array);
     
-        B.updateBoardX(Per.getMove());
+        B.updateBoardX(person->getMove());
         B.printUpdatedBoard();
         //computer input and print updated board
-        C.setPlayerCheck(B.check);
-        C.move(array);
-        B.updateBoardO(C.getMove());
+        computer->setPlayerCheck(B.check);
+        computer->move(array);
+        B.updateBoardO(computer->getMove());
         B.printUpdatedBoard();
 
          int win = B.checkWin();
@@ -65,8 +65,7 @@ int main(){
             gameRunning = false;
         } else if(win ==3){
             cout << "The game is a draw" << endl;
-        }
-        
+        }  
     }
     return 0;
 }

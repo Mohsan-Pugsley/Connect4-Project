@@ -1,27 +1,20 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-//#include "Person.h"
-//#include "Computer.h"
+
 #include "Menu.h"
 #include <iostream>
 using namespace std;
 
 class Player{
-    /*
-    int player1;
-    int player2;
-    int computer;
-    int comRandCol;
-    int comColCount;
-    int comLastMoveCol;
-    */
-   
-
     public:
+        Menu m;
         Player(); //constructor
         virtual ~Player();
+        virtual void setCols(int cols);
         virtual void move(bool * full)=0;
         virtual int getMove();
+        virtual void setMenu(Menu m);
+        virtual bool checkCondition();
         bool ** playerCheck;
         void setPlayerCheck(bool ** playerCheck);
         

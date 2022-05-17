@@ -21,10 +21,6 @@ void Computer::setCols(int cols) {
     lastMoveCol = floor(colCount/2);
 }
 
-void Computer::setRows(int rows) {
-    rowCount = rows;
-}
-
 void Computer::move(bool * full){
     
     int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
