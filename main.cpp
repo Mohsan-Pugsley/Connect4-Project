@@ -10,7 +10,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    Game connectGame(Menu M, Person Per, Computer C);
+    Game connectGame;
     connectGame.runGame();
     return 0;
 }

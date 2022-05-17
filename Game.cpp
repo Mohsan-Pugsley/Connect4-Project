@@ -5,10 +5,10 @@
 #include "Person.h"
 #include "Computer.h"
 
-Game::Game(Menu M, Person Per, Computer C){ // Constructor capable of taking parameters for the default game settings
-    this->M=M;
-    this->C=C;
-    this->Per=Per;
+Game::Game(){ // Constructor capable of taking parameters for the default game settings
+    Menu M;
+    Person Per;
+    Computer C;
 }
 
 void Game::runGame() {  // Runs the code for the game, including the main game loop
@@ -33,7 +33,7 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     C.setCols(M.getBoardColumns());
     C.setRows(M.getBoardRows());
     
-//stage 2: game
+    //stage 2: game
     //assign menu inputs (player option, row, cols) into board class parameters
     Board B(playerOption, nRows, nCols);
     B.printEmptyBoard();
@@ -55,37 +55,51 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
             Per.move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
-            //person2 input and print updated board
-            Per.setPlayerCheck(B.check);
-            Per.move(array);
-            B.updateBoardO(Per.getMove());
-            B.printUpdatedBoard();
-
+            int win = B.checkWin();
+            if (win != 1 && win != 2 && win != 3) {
+                //person2 input and print updated board
+                Per.setPlayerCheck(B.check);
+                Per.move(array);
+                B.updateBoardO(Per.getMove());
+                B.printUpdatedBoard();
+            }
+            win = B.checkWin();
+            if (win == 1){
+                cout << "Player 1 has won!" << endl;
+                gameRunning = false;
+            } else if (win == 2){
+                cout << "Player 2 has won! " << endl;
+                gameRunning = false;
+            } else if(win ==3){
+                cout << "The game is a draw" << endl;
+            }
         } else {
+            // option 2
             //person1 input and print updated board
             Per.setPlayerCheck(B.check);
             Per.move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
-            //computer input and print updated board
-            C.setPlayerCheck(B.check);
-            C.setCols(nCols);
-            C.move(array);
-            B.updateBoardO(C.getMove());
-            B.printUpdatedBoard();
+            int win = B.checkWin();
+            if (win != 1 && win != 2 && win != 3) {
+                //computer input and print updated board
+                C.setPlayerCheck(B.check);
+                C.setCols(nCols);
+                C.move(array);
+                B.updateBoardO(C.getMove());
+                B.printUpdatedBoard();
+            }
+            win = B.checkWin();
+            if (win == 1){
+                cout << "Person has won!" << endl;
+                gameRunning = false;
+            } else if (win == 2){
+                cout << "Computer has won! " << endl;
+                gameRunning = false;
+            } else if(win ==3){
+                cout << "The game is a draw" << endl;
+            }
         }
-
-         int win = B.checkWin();
-         if (win == 1){
-             cout << "Player 1 has won!" << endl;
-             gameRunning = false;
-        } else if (win == 2){
-            cout << "Player 2 has won! " << endl;
-            gameRunning = false;
-        } else if(win ==3){
-            cout << "The game is a draw" << endl;
-        }
-        
     }
 }
 
