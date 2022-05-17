@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+// Testing the Menu class
 int main(){
     Menu m;
     m.displayMenu();

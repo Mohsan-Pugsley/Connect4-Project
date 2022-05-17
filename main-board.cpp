@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+// Tests the entire game 
 int main(){
 //stage 1: menu
     Menu M;

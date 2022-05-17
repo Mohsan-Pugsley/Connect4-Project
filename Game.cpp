@@ -5,19 +5,24 @@
 #include "Person.h"
 #include "Computer.h"
 
-Game::Game(){ // Constructor capable of taking parameters for the default game settings
+Game::Game(){ 
+    // Initalise objects 
     Menu M;
     Person Per;
     Computer C;
 }
 
-void Game::runGame() {  // Runs the code for the game, including the main game loop
+void Game::runGame(){ 
+    // Display Menu 
     M.displayMenu();
+    
     // Construct board
     B.printEmptyBoard();
+
+    // Initialise gameRunning variable
     gameRunning = true;
 
-    //set and assign menu playerOption, board rows and board columns into variables in main
+    // Set and assign menu playerOption, board rows and board columns into variables 
     M.setPlayerOption();
     int playerOption=M.getPlayerOption();
 
@@ -27,22 +32,28 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     M.setBoardColumns();
     int nCols=M.getBoardColumns();
 
-    Player *person = &Per;
-    Per.setMenu(M);
-
+    // Create base class pointer to sub class type
     Player *computer = &C;
+    Player *person = &Per;
+
+    Per.setMenu(M);
     C.setMenu(M);
     C.setCols(M.getBoardColumns());
     C.setRows(M.getBoardRows());
     
-    //stage 2: game
-    //assign menu inputs (player option, row, cols) into board class parameters
+    // Assign menu inputs (player option, row, cols) into board class parameters
     Board B(playerOption, nRows, nCols);
+
+    // Display empty board 
     B.printEmptyBoard();
-    bool gameRunning = true;
-    bool *array = new bool[nCols];
+
+    // Initialise check
     B.setCheck();
+
+    // Initialise array
+    array = new bool[nCols];
     
+    // Game loop
     while (gameRunning){
         for(int i=0; i<nCols; i++){
             array[i] = true;
@@ -51,20 +62,22 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
             }
         }
 
+        // Person vs Person
         if(playerOption==1){
-            //person1 input and print updated board
+            // Person 1 input and print updated board
             Per.setPlayerCheck(B.check);
             person->move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
-                //person2 input and print updated board
+                // Person 2 input and print updated board
                 Per.setPlayerCheck(B.check);
                 person->move(array);
                 B.updateBoardO(Per.getMove());
                 B.printUpdatedBoard();
             }
+            // Initialise win variable 
             win = B.checkWin();
             if (win == 1){
                 cout << "Player 1 has won!" << endl;
@@ -76,21 +89,22 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
                 cout << "The game is a draw" << endl;
             }
         } else {
-            // option 2
-            //person1 input and print updated board
+            // Person vs Computer
+            // Person input and print updated board
             Per.setPlayerCheck(B.check);
             person->move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
-                //computer input and print updated board
+                // Computer input and print updated board
                 C.setPlayerCheck(B.check);
                 C.setCols(nCols);
                 computer->move(array);
                 B.updateBoardO(C.getMove());
                 B.printUpdatedBoard();
             }
+            // Initialise win variable
             win = B.checkWin();
             if (win == 1){
                 cout << "Person has won!" << endl;
@@ -105,16 +119,15 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     }
 }
 
-void Game::setState(int stateNum) { // Sets the state of the game
+void Game::setState(int stateNum){ 
     gameState = stateNum;
 }
 
-int Game::getState() { // Returns the state of the game, e.g. 0: Menu, 1: In Progress, 2: Game End
+int Game::getState(){ 
     return gameState;
 }
 
-
-Game::~Game() { // Destructor that deletes any memory if necessary before exiting the game
-    // TODO?
+Game::~Game(){
+    delete[] array;
 }
 

@@ -2,14 +2,12 @@
 #include "Board.h"
 #include "Player.h"
 #include "Person.h"
-
 #include <iostream>
 #include <cassert>
 using namespace std;
 
-//Board default constructor
 Board::Board(){ 
-    //initialise class variables 
+    // Initialise class variables 
     playerOption=0;
     nRows=0;
     nCols=0;
@@ -17,33 +15,33 @@ Board::Board(){
     player1Won=0;
     player2Won=0;
     board = new char*[8];
-    // dynamically allocate memory of size `nCols` for each row 
+    colCounter= new int[8];
+
+    // Create game board and initialise size 
     for (int i = 0; i < 8; i++){
         board[i] = new char[8];
     }
-
-    colCounter= new int[8];
 }
 
-Board::Board(int option, int rows, int cols) { // constructs a Board given parameters
+Board::Board(int option, int rows, int cols){ 
     playerOption = option;
     nRows = rows;
     nCols = cols;
 
-    //empty board with input dimensions
-    board = new char*[rows];
-    // dynamically allocate memory of size `cols` for each row 
+    // Empty board with input dimensions
+    board = new char*[rows]; 
     for (int i = 0; i < rows; i++){
         board[i] = new char[cols];
     }
-    //assign space character to board array
+    
+    // Assign space character to the board array
     for (int r=0; r<rows; r++){
         for (int c=0; c<cols; c++){
             board[r][c]=' ';
         }
     }
 
-    //column counter with input rows
+    // Column counter with input rows
     colCounter= new int[cols];
     for(int i=0; i<cols; i++){
         colCounter[i]=rows-1;
@@ -52,9 +50,9 @@ Board::Board(int option, int rows, int cols) { // constructs a Board given param
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
 }
 
-//prints empty board with given parameters
+
 void Board::printEmptyBoard(){
-    //display empty board
+    // Display the empty game board
     for (int row=0; row<nRows+2; row++){
         for (int col=0; col<nCols; col++){
             if(row<=nRows-1 && col!=nCols-1){
@@ -75,11 +73,11 @@ void Board::printEmptyBoard(){
     }
 }
 
-//prints updated board with player input
 void Board::updateBoardX(int inputCol){
-    playerInput = inputCol; // col that the a player input
+    // Assign column that the player inputted
+    playerInput = inputCol; 
 
-    //update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
+    // Update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
     switch (playerInput){
             case 1:
                 board[colCounter[0]][playerInput-1]='X';
@@ -120,8 +118,10 @@ void Board::updateBoardX(int inputCol){
 }
 
 void Board::updateBoardO(int inputCol){
-    playerInput = inputCol; // col that the a player input
+    // Assign column that the player inputted
+    playerInput = inputCol; 
 
+    // Update board: assign token O to the bottom of the chosen column and if there's already a token stack them
     switch (playerInput){
         case 1:
             board[colCounter[0]][playerInput-1]='O';
@@ -162,7 +162,7 @@ void Board::updateBoardO(int inputCol){
 }
 
 void Board::printUpdatedBoard(){
-    //display the update board
+    // Display the updated board
     for (int row=0; row<nRows+2; row++){
         for (int col=0; col<nCols; col++){
             if(row<=nRows-1 && col!=nCols-1){
@@ -184,8 +184,8 @@ void Board::printUpdatedBoard(){
 }
 
 void Board::setCheck(){
-     check = new bool*[nRows];
-    // dynamically allocate memory of size `cols` for each row 
+    // Initialise the check array
+     check = new bool*[nRows]; 
     for (int i = 0; i < nRows; i++){
         check[i] = new bool[nCols];
     }
@@ -197,9 +197,9 @@ void Board::setCheck(){
 }
 
 int Board::checkWin(){
-    //checks for vertical win
-    for (int i=0; i<nCols-3; i++){ // columns
-        for (int j=0; j<nRows; j++){ // rows
+    // Check for vertical win
+    for (int i=0; i<nCols-3; i++){ 
+        for (int j=0; j<nRows; j++){ 
             if (board[j][i] == 'X' && board[j][i+1] == 'X' && board[j][i+2] == 'X' && board[j][i+3] == 'X'){
                 return 1;
             }
@@ -209,9 +209,9 @@ int Board::checkWin(){
         }
     }
 
-    //checks for horizontal win
-    for (int i=0; i<nCols; i++){ // columns
-        for (int j=0; j<nRows-3; j++){ // rows
+    // Check for horizontal win
+    for (int i=0; i<nCols; i++){ 
+        for (int j=0; j<nRows-3; j++){ 
             if (board[j][i] == 'X' && board[j+1][i] == 'X' && board[j+1][i] == 'X' && board[j+1][i] == 'X'){
                 return 1;
             }
@@ -221,45 +221,38 @@ int Board::checkWin(){
         }
     }
 
-     for (int row=0; row<nRows-3; row++){
-                    for (int col=0; col<nCols-3; col++){
-                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
-                        
-                            return 1;
-                        
-                        }
-                    }
-                }
-        for (int row=nRows-1; row>=3; row--){
-                    for (int col=nCols-1; col>=3; col--){
-                        if (board[row][col]=='X' && board[row-1][col-1]=='X' && board[row-2][col-2]=='X' && board[row-3][col-3]=='X'){
-                                return 1;
-                        }
-                     }
-
+    // Check for diagonal win
+    for (int row=0; row<nRows-3; row++){
+        for (int col=0; col<nCols-3; col++){
+            if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                return 1;      
+            }
+        }
+    }       
+    for (int row=nRows-1; row>=3; row--){
+        for (int col=nCols-1; col>=3; col--){
+            if (board[row][col]=='X' && board[row-1][col-1]=='X' && board[row-2][col-2]=='X' && board[row-3][col-3]=='X'){
+                return 1;
+            }
+        }
+    }
+    for (int row=0; row<nRows-3; row++){
+        for (int col=0; col<nCols-3; col++){
+            if(board[row][col]=='O' && board[row+1][col+1]=='O' && board[row+2][col+2]=='O' && board[row+3][col+3]=='O'){
+                return 2;            
+            }
+        }
+    }
+    for (int row=nRows-1; row>=3; row--){
+        for (int col=nCols-1; col>=3; col--){
+            if (board[row][col]=='O' && board[row-1][col-1]=='O' && board[row-2][col-2]=='O' && board[row-3][col-3]=='O'){
+                return 2;
+            }
         }
 
-             for (int row=0; row<nRows-3; row++){
-                    for (int col=0; col<nCols-3; col++){
-                        if(board[row][col]=='O' && board[row+1][col+1]=='O' && board[row+2][col+2]=='O' && board[row+3][col+3]=='O'){
-                        
-                            return 2;
-                        
-                        }
-                }
-             }
-        for (int row=nRows-1; row>=3; row--){
-                    for (int col=nCols-1; col>=3; col--){
-                        if (board[row][col]=='O' && board[row-1][col-1]=='O' && board[row-2][col-2]=='O' && board[row-3][col-3]=='O'){
-                                return 2;
-                        }
-                     }
+    }
 
-        }
-
-                
-
-    // check for draw
+    // Check for draw
     for (int i=0; i<nRows; i++){
         for (int j=0; j<nCols; j++){
             if(board[i][j] == 'X' || board[i][j] == 'O'){
@@ -269,7 +262,6 @@ int Board::checkWin(){
             }
         }
     }
-
     for(int i=0; i<nRows; i++){
         for(int j=0; j<nCols; j++){
             if(check[i][j] == false){
@@ -281,12 +273,12 @@ int Board::checkWin(){
 }
 
 bool Board::isColumnFull(int index){
+    // Check if column is full
     for (int j=0; j<nRows; j++){
-
-            if(check[j][index] == false){
+        if(check[j][index] == false){
                 return false;
-            } 
-        }
+        } 
+    }
     return true;
 }
 

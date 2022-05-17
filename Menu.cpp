@@ -3,13 +3,14 @@
 using namespace std;
 
 Menu::Menu(){
+    // Initialise variables
     playerOption = 0;
     boardRows = 0;
     boardColumns = 0;
 }
 
 void Menu::displayMenu(){
-    // display menu
+    // Display menu options
     cout << "\t\tWelcome to Connect 4!\n\n";
     cout << "Please Select a Player Option" << endl;
     cout << "1. Person vs. Person" << endl;
@@ -17,9 +18,10 @@ void Menu::displayMenu(){
 }
 
 void Menu::setPlayerOption(){
+    // User inputs player option
     cout<<"Enter the number for the corresponding option above: " << endl;
     cin>>playerOption;
-    // validate input and assign playerOption
+    // Validate input 
     switch(playerOption){
         case 1:
             cout << "You picked a Person Opponent" << endl;
@@ -48,10 +50,10 @@ int Menu::getPlayerOption(){
 }
 
 void Menu::setBoardRows(){
-    //board size: input and store rows
+    // User inputs and stores rows
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>boardRows; 
-    // validate input
+    // Validate input
     while ((boardRows < 4) || (boardRows > 8)){
         cout << "You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardRows; 
@@ -63,10 +65,10 @@ int Menu::getBoardRows(){
 }
 
 void Menu::setBoardColumns(){
-    //board size: input and store cols
+    // User inputs and stores columns
     cout<<"Enter number of columns (min:4, max:8): ";
     cin>>boardColumns;   
-    // validate input
+    // Validate input
     while ((boardColumns < 4) || (boardColumns > 8)){
         cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardColumns; 

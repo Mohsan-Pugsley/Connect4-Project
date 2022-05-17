@@ -1,23 +1,18 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-//#include "Person.h"
-//#include "Computer.h"
 #include "Menu.h"
 #include <iostream>
 using namespace std;
 
+// PLAYER: base class that returns a player's move 
 class Player{
-
     public:
-        Player(); //constructor
-        virtual ~Player();
-        virtual void move(bool * full)=0;
-        virtual int getMove();
-        bool ** playerCheck;
-        void setPlayerCheck(bool ** playerCheck);
-        
+        Player(); // Default constructor
+        virtual void move(bool * full)=0; // Pure virtual function that will be implemented by the Person and Computer classes
+        virtual int getMove(); // Returns the player's move
+        void setPlayerCheck(bool ** playerCheck); // Sets the player's check
         int playerInput;
-        
+        bool ** playerCheck;  
 };
 
 #endif

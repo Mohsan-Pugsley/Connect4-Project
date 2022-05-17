@@ -1,43 +1,45 @@
 #include "Person.h"
+#include <iostream>
 
-Person::Person() {
+Person::Person(){
+    // Initialise variable
+    nCols = 0;
 }
 
 void Person::setMenu(Menu m){
+    // Retrieve menu object
     this->m=m;
-
 }
 
 void Person::move(bool * full){
+    // User inputs the column number to place token
     cout<<"Person's move: ";
     cin>>playerInput;
-    //need to aggregate Board for nCols to work
+    // Loop to check valid input
     while (checkCondition() == false){
-        cout << "Invalid. What column will you place your piece?: ";
+        cout << "Invalid. What column will you place your token?: ";
         cin>>playerInput;
         cout << endl;
     }
 }
 
 bool Person::checkCondition(){
-nCols = m.getBoardColumns();
+    // Sets the number of columns from person's input
+    nCols = m.getBoardColumns();
 
+    // Validate user input 
     if((playerInput<1)||(playerInput>nCols)){
         return false;
     }
-
     for(int i=0; i<m.getBoardRows(); i++){
         if(playerCheck[i][playerInput] == false){
             return true;
         }
     }
     return false;
-
 }
 
 int Person::getMove(){
     return playerInput;
 }
 
-Person::~Person(){
-}
