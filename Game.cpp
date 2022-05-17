@@ -56,7 +56,6 @@ void Game::runGame(){
     // Game loop
     while (gameRunning){
         for(int i=0; i<nCols; i++){
-            array[i] = true;
             if(B.isColumnFull(i)){
                 array[i] = false;
             }
