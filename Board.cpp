@@ -220,19 +220,63 @@ int Board::checkWin(){
             }
         }
     }
+    // bool flagPerson = false;
+    // bool ** flag = new int
+    // // checks for diagonal win
+    // for (int i=0; i<nRows; i++){
+    //     for (int j=0; j<nCols; j++){
+    //         if(i == j){
+    //             if(board[i][j]=='X'){
+    //                 flagPerson = true;
+    //                 return 1;
+    //             }
+    //             else{
+    //                 flagPerson = false;
+    //             }
+    //              if(board[i][j] == 'O'){
+    //                 return 2;
+    //             }
+    //         }       
+    //     }
+    // }
 
-    // checks for diagonal win
-    for (int i=0; i<nRows-1; i++){
-        for (int j=0; j<nCols-1; j++){
-            if(i == j){
-                if(board[i][j]=='X'){
-                    return 1;
-                }else if(board[i][j] == 'O'){
-                    return 2;
+     for (int row=0; row<nRows-3; row++){
+                    for (int col=0; col<nCols-3; col++){
+                        if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
+                        
+                            return 1;
+                        
+                        }
+                    }
                 }
-            }       
+        for (int row=nRows-1; row>=3; row--){
+                    for (int col=nCols-1; col>=3; col--){
+                        if (board[row][col]=='X' && board[row-1][col-1]=='X' && board[row-2][col-2]=='X' && board[row-3][col-3]=='X'){
+                                return 1;
+                        }
+                     }
+
         }
-    }
+
+             for (int row=0; row<nRows-3; row++){
+                    for (int col=0; col<nCols-3; col++){
+                        if(board[row][col]=='O' && board[row+1][col+1]=='O' && board[row+2][col+2]=='O' && board[row+3][col+3]=='O'){
+                        
+                            return 2;
+                        
+                        }
+                }
+             }
+        for (int row=nRows-1; row>=3; row--){
+                    for (int col=nCols-1; col>=3; col--){
+                        if (board[row][col]=='O' && board[row-1][col-1]=='O' && board[row-2][col-2]=='O' && board[row-3][col-3]=='O'){
+                                return 2;
+                        }
+                     }
+
+        }
+
+                
 
     // check for draw
     for (int i=0; i<nRows; i++){
