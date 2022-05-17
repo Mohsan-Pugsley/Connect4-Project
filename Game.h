@@ -16,8 +16,8 @@ class Game {
         void setState(int state);
         void runGame();
         int getState();
-        Person Per;
-        Computer C;
+        Player* Per;
+        Player* C;
         Menu M;
         Board B;
         ~Game();

@@ -8,6 +8,10 @@ void Person::setMenu(Menu m){
 
 }
 
+void Person::setCols(int _nCols) {
+    nCols = _nCols;
+}
+
 void Person::move(bool * full){
     cout<<"Person's move: ";
     cin>>playerInput;
@@ -20,7 +24,7 @@ void Person::move(bool * full){
 }
 
 bool Person::checkCondition(){
-nCols = m.getBoardColumns();
+    //nCols = m.getBoardColumns();
 
     if((playerInput<1)||(playerInput>nCols)){
         return false;

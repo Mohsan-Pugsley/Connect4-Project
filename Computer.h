@@ -13,7 +13,6 @@ class Computer : public Player {
     public:
         Computer();
         void setCols(int cols);
-        void setRows(int cols);
         void move(bool * full);
         int getMove();
         ~Computer();

@@ -7,11 +7,14 @@
 
 Game::Game(){ // Constructor capable of taking parameters for the default game settings
     Menu M;
-    Person Per;
-    Computer C;
+    //Player* Per;
+    //Player* C;
 }
 
 void Game::runGame() {  // Runs the code for the game, including the main game loop
+    Per = new Person();
+    C = new Computer();
+
     M.displayMenu();
     // Construct board
     B.printEmptyBoard();
@@ -27,11 +30,11 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     M.setBoardColumns();
     int nCols=M.getBoardColumns();
 
-    Per.setMenu(M);
+    Per->setMenu(M);
+    Per->setCols(M.getBoardColumns());
 
-    C.setMenu(M);
-    C.setCols(M.getBoardColumns());
-    C.setRows(M.getBoardRows());
+    C->setMenu(M);
+    C->setCols(M.getBoardColumns());
     
     //stage 2: game
     //assign menu inputs (player option, row, cols) into board class parameters
@@ -51,16 +54,16 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
 
         if(playerOption==1){
             //person1 input and print updated board
-            Per.setPlayerCheck(B.check);
-            Per.move(array);
-            B.updateBoardX(Per.getMove());
+            Per->setPlayerCheck(B.check);
+            Per->move(array);
+            B.updateBoardX(Per->getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
                 //person2 input and print updated board
-                Per.setPlayerCheck(B.check);
-                Per.move(array);
-                B.updateBoardO(Per.getMove());
+                Per->setPlayerCheck(B.check);
+                Per->move(array);
+                B.updateBoardO(Per->getMove());
                 B.printUpdatedBoard();
             }
             win = B.checkWin();
@@ -76,17 +79,17 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
         } else {
             // option 2
             //person1 input and print updated board
-            Per.setPlayerCheck(B.check);
-            Per.move(array);
-            B.updateBoardX(Per.getMove());
+            Per->setPlayerCheck(B.check);
+            Per->move(array);
+            B.updateBoardX(Per->getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
                 //computer input and print updated board
-                C.setPlayerCheck(B.check);
-                C.setCols(nCols);
-                C.move(array);
-                B.updateBoardO(C.getMove());
+                C->setPlayerCheck(B.check);
+                C->setCols(nCols);
+                C->move(array);
+                B.updateBoardO(C->getMove());
                 B.printUpdatedBoard();
             }
             win = B.checkWin();

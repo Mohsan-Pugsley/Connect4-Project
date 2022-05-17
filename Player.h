@@ -21,6 +21,8 @@ class Player{
         Player(); //constructor
         virtual ~Player();
         virtual void move(bool * full)=0;
+        virtual void setMenu(Menu m)=0;
+        virtual void setCols(int nCols)=0;
         virtual int getMove();
         bool ** playerCheck;
         void setPlayerCheck(bool ** playerCheck);
