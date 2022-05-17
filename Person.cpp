@@ -20,7 +20,7 @@ void Person::move(bool * full){
 }
 
 bool Person::checkCondition(){
-    nCols = m.getBoardColumns();
+nCols = m.getBoardColumns();
 
     if((playerInput<1)||(playerInput>nCols)){
         return false;
