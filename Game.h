@@ -16,6 +16,7 @@ class Game {
         void setState(int state);
         void runGame();
         int getState();
+        Player *player;
         Person Per;
         Computer C;
         Menu M;

@@ -27,8 +27,10 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
     M.setBoardColumns();
     int nCols=M.getBoardColumns();
 
+    Player *person = &Per;
     Per.setMenu(M);
 
+    Player *computer = &C;
     C.setMenu(M);
     C.setCols(M.getBoardColumns());
     C.setRows(M.getBoardRows());
@@ -52,14 +54,14 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
         if(playerOption==1){
             //person1 input and print updated board
             Per.setPlayerCheck(B.check);
-            Per.move(array);
+            person->move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
                 //person2 input and print updated board
                 Per.setPlayerCheck(B.check);
-                Per.move(array);
+                person->move(array);
                 B.updateBoardO(Per.getMove());
                 B.printUpdatedBoard();
             }
@@ -77,7 +79,7 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
             // option 2
             //person1 input and print updated board
             Per.setPlayerCheck(B.check);
-            Per.move(array);
+            person->move(array);
             B.updateBoardX(Per.getMove());
             B.printUpdatedBoard();
             int win = B.checkWin();
@@ -85,7 +87,7 @@ void Game::runGame() {  // Runs the code for the game, including the main game l
                 //computer input and print updated board
                 C.setPlayerCheck(B.check);
                 C.setCols(nCols);
-                C.move(array);
+                computer->move(array);
                 B.updateBoardO(C.getMove());
                 B.printUpdatedBoard();
             }
