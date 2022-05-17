@@ -16,26 +16,28 @@ void Person::move(bool * full){
     cout<<"Person's move: ";
     cin>>playerInput;
     // Loop to check valid input
-    while (checkCondition() == false){
+    while (checkCondition(full) == false){
         cout << "Invalid. What column will you place your token?: ";
         cin>>playerInput;
         cout << endl;
     }
 }
 
-bool Person::checkCondition(){
+bool Person::checkCondition(bool * full){
     // Sets the number of columns from person's input
     nCols = m.getBoardColumns();
 
-    // Validate user input 
+    // Validate user input
+    // Range
     if((playerInput<1)||(playerInput>nCols)){
         return false;
     }
-    for(int i=0; i<m.getBoardRows(); i++){
-        if(playerCheck[i][playerInput] == false){
-            return true;
-        }
+
+    // Column isn't full
+    if (full[playerInput] == false) {
+        return true;
     }
+
     return false;
 }
 
