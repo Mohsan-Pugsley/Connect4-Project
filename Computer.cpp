@@ -4,8 +4,14 @@
 #include <random>
 #include <time.h>
 #include <iostream>
+
+void Computer::setMenu(Menu m){
+    this->m=m;
+}
+
 Computer::Computer() {
-    colCount = 4; // Does this need to be set to nCols?
+    colCount = 0; 
+    rowCount = 0;
     lastMoveCol = floor(colCount/2);
     srand(time(NULL)); // Generates random seed for random using time
 }
@@ -14,21 +20,35 @@ void Computer::setCols(int cols) {
     colCount = cols;
 }
 
-void Computer::move(){
-    cout<<"Computer's move: ";
-    int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
-     if (randomCol < lastMoveCol) {
-         if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-             randomCol++; // move the randomCol closer to lastMoveCol
-         }
-     } else if (randomCol > lastMoveCol) {
-         if (rand() % 3 + 1 < 3) {
-             randomCol--; // move the randomCol closer to lastMoveCol
-         }
-     } // current result of this is that the computer chooses the edge columns less as well
+void Computer::setRows(int rows) {
+    rowCount = rows;
+}
 
-    lastMoveCol = randomCol;
-    cout<<lastMoveCol<<endl;
+void Computer::move(bool * full){
+    cout<<"Computer's move: ";
+    while (checkCondition() == false){
+        int randomCol = rand() % colCount + 1 ; // + 1 offsets from 0
+            if (randomCol < lastMoveCol) {
+                if (rand() % 3 + 1 < 3) { // 2/3rds of the time
+                     randomCol++; // move the randomCol closer to lastMoveCol
+                }
+            } else if (randomCol > lastMoveCol) {
+                if (rand() % 3 + 1 < 3) {
+                    randomCol--; // move the randomCol closer to lastMoveCol
+                }
+            } // current result of this is that the computer chooses the edge columns less as well
+
+        lastMoveCol = randomCol;
+    }   
+}
+
+bool Computer::checkCondition(){
+    for(int i=0; i<rowCount; i++){
+        if(playerCheck[i][lastMoveCol] == false){
+            return true;
+        }
+    }
+    return false;
 }
 
 int Computer::getMove(){

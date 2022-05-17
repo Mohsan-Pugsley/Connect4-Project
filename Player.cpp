@@ -26,6 +26,10 @@ int Player::getMove(){
     return playerInput;
 }
 
+void Player::setPlayerCheck(bool ** playerCheck){
+    this->playerCheck=playerCheck;
+}
+
 /*
 void Player::p1Input(){
     cout<<"player 1 move: "; 

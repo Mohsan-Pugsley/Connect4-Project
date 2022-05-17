@@ -11,7 +11,10 @@ class Board{
     int player1Won;
     int player2Won;
     
+    //bool ** full;
+    
     public:
+        bool ** check;
         int nCols;
         Board();
         Board(int rows, int cols, int option); //board constructor with parameters
@@ -20,6 +23,8 @@ class Board{
         void updateBoardO(int inputCol);
         void printUpdatedBoard();//display updated board
         int checkWin(); 
+        bool isColumnFull(int index);
+        void setCheck();
 };
 
 #endif

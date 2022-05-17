@@ -20,8 +20,10 @@ class Player{
     public:
         Player(); //constructor
         virtual ~Player();
-        virtual void move()=0;
+        virtual void move(bool * full)=0;
         virtual int getMove();
+        bool ** playerCheck;
+        void setPlayerCheck(bool ** playerCheck);
         
         int playerInput;
         

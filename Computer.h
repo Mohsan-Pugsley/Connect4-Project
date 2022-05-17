@@ -9,6 +9,7 @@ class Computer : public Player {
     private:
         int colCount;
         int lastMoveCol;
+        int rowCount;
     public:
         /*
         Computer();
@@ -20,9 +21,14 @@ class Computer : public Player {
 
         Computer();
         void setCols(int cols);
-        virtual void move();
-        virtual int getMove();
+        void move(bool * full);
+        int getMove();
         ~Computer();
+        Menu m;
+        void setMenu(Menu m);
+        bool checkCondition();
+        void setRows(int rows);
+
 };
 
 #endif

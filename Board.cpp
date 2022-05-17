@@ -4,6 +4,7 @@
 #include "Person.h"
 
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 //Board default constructor
@@ -182,6 +183,19 @@ void Board::printUpdatedBoard(){
     }
 }
 
+void Board::setCheck(){
+     check = new bool*[nRows];
+    // dynamically allocate memory of size `cols` for each row 
+    for (int i = 0; i < nRows; i++){
+        check[i] = new bool[nCols];
+    }
+    for(int i=0; i<nRows; i++){
+        for(int j=0; j<nCols; j++){
+            check[i][j] = false;
+        }
+    }
+}
+
 int Board::checkWin(){
     //checks for vertical win
     for (int i=0; i<nCols-3; i++){ // columns
@@ -208,29 +222,46 @@ int Board::checkWin(){
     }
 
     // checks for diagonal win
-    /*for (int i=0; i<nRows; i++){
-        for (int j=0; j<nCols; j++){
-            if(board[i][j]=='X' && board[i+1][j+1]=='X' && board[i+2][j+2]=='X' && board[i+3][j+3]=='X'){
-                return 1;
-            } else if (board[i][j]=='X' && board[i-1][j+1]=='X' && board[i-2][j+2]=='X' && board[i-3][j+3]=='X'){
-                return 1;
-            }
-            if(board[i][j]=='O' && board[i+1][j+1]=='O' && board[i+2][j+2]=='O' && board[i+3][j+3]=='O'){
-                return 2;
-            } else if (board[i][j]=='O' && board[i-1][j+1]=='O' && board[i-2][j+2]=='O' && board[i-3][j+3]=='O'){
-                return 2;
-            }
+    for (int i=0; i<nRows-1; i++){
+        for (int j=0; j<nCols-1; j++){
+            if(i == j){
+                if(board[i][j]=='X'){
+                    return 1;
+                }else if(board[i][j] == 'O'){
+                    return 2;
+                }
+            }       
         }
-    }*/
+    }
 
     // check for draw
-    /*for (int i=0; i<nRows; i++){
+    for (int i=0; i<nRows; i++){
         for (int j=0; j<nCols; j++){
-            if(board[i][j] != ' '){
-                return 3;
+            if(board[i][j] == 'X' || board[i][j] == 'O'){
+                check[i][j] = true;
+            } else{
+                check[i][j] = false;
             }
         }
-    }*/
-    return 0;
+    }
+
+    for(int i=0; i<nRows; i++){
+        for(int j=0; j<nCols; j++){
+            if(check[i][j] == false){
+                return 0;
+            }
+        }
+    }
+    return 3;
+}
+
+bool Board::isColumnFull(int index){
+    for (int j=0; j<nRows; j++){
+
+            if(check[j][index] == false){
+                return false;
+            } 
+        }
+    return true;
 }
 
