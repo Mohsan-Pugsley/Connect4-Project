@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 
+// MENU: First stage of game. User interacts through inputting player option, and board size.
 class Menu{
     int playerOption;
     int boardRows;
@@ -12,10 +13,10 @@ class Menu{
         void displayMenu(); // Displays the main menu
         void setPlayerOption(); // Sets the player option
         int getPlayerOption(); // Returns the player option
-        void setBoardRows(); // 
-        int getBoardRows();
-        void setBoardColumns();
-        int getBoardColumns(); 
+        void setBoardRows(); // User inputs number of board rows
+        int getBoardRows(); // Return number of board rows
+        void setBoardColumns(); // User inputs number of board columns
+        int getBoardColumns(); // Return number of board columns
 };
 
 #endif

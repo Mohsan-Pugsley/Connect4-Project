@@ -2,24 +2,24 @@
 #include <iostream>
 using namespace std;
 
-Menu::Menu(){
+Menu::Menu(){ //initialise variables
     playerOption = 0;
     boardRows = 0;
     boardColumns = 0;
 }
 
-void Menu::displayMenu(){
-    // display menu
+void Menu::displayMenu(){// display menu description
     cout << "\t\tWelcome to Connect 4!\n\n";
     cout << "Please Select a Player Option" << endl;
     cout << "1. Person vs. Person" << endl;
     cout << "2. Person vs. Computer" << endl;
 }
 
-void Menu::setPlayerOption(){
+void Menu::setPlayerOption(){ 
+    //User input
     cout<<"Enter the number for the corresponding option above: " << endl;
     cin>>playerOption;
-    // validate input and assign playerOption
+    // validate input
     switch(playerOption){
         case 1:
             cout << "You picked a Person Opponent" << endl;
@@ -76,5 +76,4 @@ void Menu::setBoardColumns(){
 int Menu::getBoardColumns(){
     return boardColumns;  
 }
-
 

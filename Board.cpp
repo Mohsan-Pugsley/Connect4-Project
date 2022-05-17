@@ -16,16 +16,18 @@ Board::Board(){
     playerInput=0;
     player1Won=0;
     player2Won=0;
+
+    //create game board and initialise size
     board = new char*[8];
-    // dynamically allocate memory of size `nCols` for each row 
     for (int i = 0; i < 8; i++){
         board[i] = new char[8];
     }
 
+    //counts number of rows left within each column
     colCounter= new int[8];
 }
 
-Board::Board(int option, int rows, int cols) { // constructs a Board given parameters
+Board::Board(int option, int rows, int cols) { // constructs the board given parameters
     playerOption = option;
     nRows = rows;
     nCols = cols;
