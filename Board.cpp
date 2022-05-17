@@ -220,25 +220,6 @@ int Board::checkWin(){
             }
         }
     }
-    // bool flagPerson = false;
-    // bool ** flag = new int
-    // // checks for diagonal win
-    // for (int i=0; i<nRows; i++){
-    //     for (int j=0; j<nCols; j++){
-    //         if(i == j){
-    //             if(board[i][j]=='X'){
-    //                 flagPerson = true;
-    //                 return 1;
-    //             }
-    //             else{
-    //                 flagPerson = false;
-    //             }
-    //              if(board[i][j] == 'O'){
-    //                 return 2;
-    //             }
-    //         }       
-    //     }
-    // }
 
      for (int row=0; row<nRows-3; row++){
                     for (int col=0; col<nCols-3; col++){
