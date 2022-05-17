@@ -56,7 +56,6 @@ int main(){
         B.updateBoardO(C.getMove());
         B.printUpdatedBoard();
 
-
          int win = B.checkWin();
          if (win == 1){
              cout << "Person has won!" << endl;
