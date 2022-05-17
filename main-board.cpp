@@ -71,7 +71,6 @@ int main(){
             B.printUpdatedBoard();
         }
 
-
          int win = B.checkWin();
          if (win == 1){
              cout << "Player 1 has won!" << endl;
