@@ -1,5 +1,6 @@
 CC = g++
-CFlags = -Wall -lncurses
+CFlags = -Wall
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp game.cpp menu.cpp board.cpp
+main.o: main-board.cpp 
+	$(CC) $(CFlags) Menu.cpp Player.cpp Person.cpp Computer.cpp Game.cpp Board.cpp main-board.cpp
+

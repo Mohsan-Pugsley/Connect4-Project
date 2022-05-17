@@ -44,25 +44,40 @@ int main(){
                 array[i] = false;
             }
         }
-        //person input and print updated board
-        Per.setPlayerCheck(B.check);
-        Per.move(array);
-    
-        B.updateBoardX(Per.getMove());
-        B.printUpdatedBoard();
-        //computer input and print updated board
-        C.setPlayerCheck(B.check);
-        C.move(array);
-        B.updateBoardO(C.getMove());
-        B.printUpdatedBoard();
+
+        if(playerOption==1){
+            //person1 input and print updated board
+            Per.setPlayerCheck(B.check);
+            Per.move(array);
+            B.updateBoardX(Per.getMove());
+            B.printUpdatedBoard();
+            //person2 input and print updated board
+            Per.setPlayerCheck(B.check);
+            Per.move(array);
+            B.updateBoardO(Per.getMove());
+            B.printUpdatedBoard();
+
+        } else {
+            //person1 input and print updated board
+            Per.setPlayerCheck(B.check);
+            Per.move(array);
+            B.updateBoardX(Per.getMove());
+            B.printUpdatedBoard();
+            //computer input and print updated board
+            C.setPlayerCheck(B.check);
+            C.setCols(nCols);
+            C.move(array);
+            B.updateBoardO(C.getMove());
+            B.printUpdatedBoard();
+        }
 
 
          int win = B.checkWin();
          if (win == 1){
-             cout << "Person has won!" << endl;
+             cout << "Player 1 has won!" << endl;
              gameRunning = false;
         } else if (win == 2){
-            cout << "Computer has won! " << endl;
+            cout << "Player 2 has won! " << endl;
             gameRunning = false;
         } else if(win ==3){
             cout << "The game is a draw" << endl;
