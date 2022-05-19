@@ -15,7 +15,7 @@ Board::Board(){
     player1Won=0;
     player2Won=0;
     board = new char*[8];
-    colCounter= new int[8];
+    rowCounter= new int[8];
 
     // Create game board and initialise size 
     for (int i = 0; i < 8; i++){
@@ -42,9 +42,9 @@ Board::Board(int option, int rows, int cols){
     }
 
     // Column counter with input rows
-    colCounter= new int[cols];
+    rowCounter= new int[cols];
     for(int i=0; i<cols; i++){
-        colCounter[i]=rows-1;
+        rowCounter[i]=rows-1;
     }
 
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
@@ -73,6 +73,16 @@ void Board::printEmptyBoard(){
     }
 }
 
+void Board::updateBoard(int inputCol, char inputChar) {
+// Assign column that the player inputted
+    playerInput = inputCol;
+
+    // Update board: assign token X to the bottom of the chosen column and if there's already a token stack them
+    int arrayIndex = inputCol-1;
+    board[rowCounter[arrayIndex]][playerInput-1] = inputChar;
+    rowCounter[arrayIndex] = rowCounter[arrayIndex] - 1; 
+}
+
 void Board::updateBoardX(int inputCol){
     // Assign column that the player inputted
     playerInput = inputCol; 
@@ -80,36 +90,36 @@ void Board::updateBoardX(int inputCol){
     // Update board: assign token X to the bottom of the chosen column and if there's already a token stack them            
     switch (playerInput){
             case 1:
-                board[colCounter[0]][playerInput-1]='X';
-                colCounter[0]=colCounter[0]-1;
+                board[rowCounter[0]][playerInput-1]='X';
+                rowCounter[0]=rowCounter[0]-1;
                 break;
             case 2:
-                board[colCounter[1]][playerInput-1]='X'; 
-                colCounter[1]=colCounter[1]-1;
+                board[rowCounter[1]][playerInput-1]='X'; 
+                rowCounter[1]=rowCounter[1]-1;
                 break;
             case 3:
-                board[colCounter[2]][playerInput-1]='X';
-                colCounter[2]=colCounter[2]-1;
+                board[rowCounter[2]][playerInput-1]='X';
+                rowCounter[2]=rowCounter[2]-1;
                 break;
             case 4:
-                board[colCounter[3]][playerInput-1]='X';
-                colCounter[3]=colCounter[3]-1;
+                board[rowCounter[3]][playerInput-1]='X';
+                rowCounter[3]=rowCounter[3]-1;
                 break;
             case 5:
-                board[colCounter[4]][playerInput-1]='X';
-                colCounter[4]=colCounter[4]-1;
+                board[rowCounter[4]][playerInput-1]='X';
+                rowCounter[4]=rowCounter[4]-1;
                 break;
             case 6:
-                board[colCounter[5]][playerInput-1]='X';
-                colCounter[5]=colCounter[5]-1;
+                board[rowCounter[5]][playerInput-1]='X';
+                rowCounter[5]=rowCounter[5]-1;
                 break;
             case 7:
-                board[colCounter[6]][playerInput-1]='X';
-                colCounter[6]=colCounter[6]-1;
+                board[rowCounter[6]][playerInput-1]='X';
+                rowCounter[6]=rowCounter[6]-1;
                 break;
             case 8:
-                board[colCounter[7]][playerInput-1]='X';
-                colCounter[7]=colCounter[7]-1;
+                board[rowCounter[7]][playerInput-1]='X';
+                rowCounter[7]=rowCounter[7]-1;
                 break;
             default:
                 cout<<"Invalid input: Not within range.\nTry again: "<<endl; 
@@ -124,36 +134,36 @@ void Board::updateBoardO(int inputCol){
     // Update board: assign token O to the bottom of the chosen column and if there's already a token stack them
     switch (playerInput){
         case 1:
-            board[colCounter[0]][playerInput-1]='O';
-            colCounter[0]=colCounter[0]-1;
+            board[rowCounter[0]][playerInput-1]='O';
+            rowCounter[0]=rowCounter[0]-1;
             break;    
         case 2:
-            board[colCounter[1]][playerInput-1]='O'; 
-            colCounter[1]=colCounter[1]-1;
+            board[rowCounter[1]][playerInput-1]='O'; 
+            rowCounter[1]=rowCounter[1]-1;
             break;
         case 3:
-            board[colCounter[2]][playerInput-1]='O';
-            colCounter[2]=colCounter[2]-1;
+            board[rowCounter[2]][playerInput-1]='O';
+            rowCounter[2]=rowCounter[2]-1;
             break;
         case 4:
-            board[colCounter[3]][playerInput-1]='O';
-            colCounter[3]=colCounter[3]-1;
+            board[rowCounter[3]][playerInput-1]='O';
+            rowCounter[3]=rowCounter[3]-1;
             break;
         case 5:
-            board[colCounter[4]][playerInput-1]='O';
-            colCounter[4]=colCounter[4]-1;
+            board[rowCounter[4]][playerInput-1]='O';
+            rowCounter[4]=rowCounter[4]-1;
             break;
         case 6:
-            board[colCounter[5]][playerInput-1]='O';
-            colCounter[5]=colCounter[5]-1;
+            board[rowCounter[5]][playerInput-1]='O';
+            rowCounter[5]=rowCounter[5]-1;
             break;
         case 7:
-            board[colCounter[6]][playerInput-1]='O';
-            colCounter[6]=colCounter[6]-1;
+            board[rowCounter[6]][playerInput-1]='O';
+            rowCounter[6]=rowCounter[6]-1;
             break;
         case 8:
-            board[colCounter[7]][playerInput-1]='O';
-            colCounter[7]=colCounter[7]-1;
+            board[rowCounter[7]][playerInput-1]='O';
+            rowCounter[7]=rowCounter[7]-1;
             break;
         default:
             cout<<"Invalid input: Not within range.\nTry again: "<<endl;
@@ -276,7 +286,7 @@ bool Board::isColumnFull(int index){
     // Check if column is full
     for (int j=0; j<nRows; j++){
         if(check[j][index] == false){
-                return false;
+            return false;
         } 
     }
     return true;

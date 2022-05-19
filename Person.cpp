@@ -34,11 +34,13 @@ bool Person::checkCondition(bool * full){
     }
 
     // Column isn't full
-    if (full[playerInput] == false) {
-        return true;
+    //cout << full[playerInput] << endl;
+    //cout << playerInput << endl;
+    if (full[playerInput-1] == false) {
+        return false;
     }
 
-    return false;
+    return true;
 }
 
 int Person::getMove(){
