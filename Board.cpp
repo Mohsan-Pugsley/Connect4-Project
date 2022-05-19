@@ -260,3 +260,11 @@ bool Board::isColumnFull(int index){
     return true;
 }
 
+Board::~Board(){
+    delete[] board;
+    delete[] colCounter;
+    delete[] check;
+}
+
+
+

@@ -22,6 +22,7 @@ class Board{
         int checkWin(); // Returns 1 if player 1 wins, 2 if player 2 wins and 3 if the game is a draw
         bool isColumnFull(int index); // Determines if a column is full of tokens
         void setCheck(); // Initialises the check array
+        ~Board(); // Destructor
 };
 
 #endif

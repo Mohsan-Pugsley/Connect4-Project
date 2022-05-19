@@ -13,7 +13,7 @@ void Person::setMenu(Menu m){
 
 void Person::move(bool * full){
     // User inputs the column number to place token
-    cout<<"Person's move: ";
+    cout<<"Person's move (enter column number): ";
     cin>>playerInput;
     // Loop to check valid input
     while (checkCondition(full) == false){
@@ -23,7 +23,7 @@ void Person::move(bool * full){
     }
 }
 
-bool Person::checkCondition(bool * full){
+bool Person::checkCondition(bool *full){
     // Sets the number of columns from person's input
     nCols = m.getBoardColumns();
 
