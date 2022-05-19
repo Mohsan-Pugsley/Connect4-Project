@@ -29,47 +29,38 @@ void Computer::setRows(int rows){
 }
 
 void Computer::move(bool * full){
-    // + 1 offsets from 0
-    int randomCol = rand() % colCount + 1; 
-
     // Validates randomly generated integer
-    if (checkCondition() == true){
-        if (randomCol < lastMoveCol) {
+    while (checkCondition(full) == false) {
+        int computerMove = rand() % colCount + 1; // + 1 offsets from 0
+        if (computerMove < colCount || computerMove < lastMoveCol) {
             if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-                randomCol++; // Move the randomCol closer to lastMoveCol
+                computerMove++; // Move the randomCol closer to lastMoveCol
             }
-        } else if (randomCol > lastMoveCol) {
-            if (rand() % 3 + 1 < 3) {
-                randomCol--; // Move the randomCol closer to lastMoveCol
+        } else if (computerMove > colCount || computerMove > lastMoveCol) {
+            if (rand() % 3 + 1 < 3) { // 2/3rds of the time
+                    computerMove--; // Move the randomCol closer to lastMoveCol
             }
-        } // Current result of this is that the computer chooses the edge columns less as well
-    } else {
-        while (checkCondition() == false){
-            randomCol = rand() % colCount + 1 ;
-            if (randomCol < lastMoveCol) {
-                if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-                     randomCol++; // Move the randomCol closer to lastMoveCol
-                }
-            } else if (randomCol > lastMoveCol) {
-                if (rand() % 3 + 1 < 3) {
-                    randomCol--; // Move the randomCol closer to lastMoveCol
-                }
-            } // Current result of this is that the computer chooses the edge columns less as well
-        }   
+        }    // Current result of this is that the computer chooses the edge columns less as well
+        lastMoveCol = computerMove;
     }
-    lastMoveCol = randomCol;
+    
     // Displays the computer's move
     cout<<"Computer's move: " << lastMoveCol << endl; 
 }
 
-bool Computer::checkCondition(){
+bool Computer::checkCondition(bool * full){
     // Validates input
-    for(int i=0; i<rowCount; i++){
-        if(playerCheck[i][lastMoveCol] == false){
-            return true;
-        }
+    // for(int i=0; i<rowCount; i++){
+    //     if(playerCheck[i][lastMoveCol] == false){
+    //         return false;
+    //     }
+    // }
+
+    if (full[lastMoveCol-1] == false) {
+        return false;
     }
-    return false;
+
+    return true;
 }
 
 int Computer::getMove(){
