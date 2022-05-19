@@ -52,7 +52,10 @@ void Game::runGame(){
 
     // Initialise array
     array = new bool[nCols];
-    
+    for(int i=0; i<nCols; i++){
+        array[i] = true;
+    }
+
     // Game loop
     while (gameRunning){
         for(int i=0; i<nCols; i++){
@@ -60,7 +63,6 @@ void Game::runGame(){
                 array[i] = false;
             }
         }
-
         // Person vs Person
         if(playerOption==1){
             // Person 1 input and print updated board

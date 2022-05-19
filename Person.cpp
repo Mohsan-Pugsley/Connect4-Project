@@ -32,13 +32,12 @@ bool Person::checkCondition(bool *full){
     if((playerInput<1)||(playerInput>nCols)){
         return false;
     }
-
     // Column isn't full
-    if (full[playerInput] == false) {
-        return true;
+    if (full[playerInput-1] == false) {
+        return false;
     }
 
-    return false;
+    return true;
 }
 
 int Person::getMove(){

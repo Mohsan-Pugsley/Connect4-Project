@@ -72,7 +72,7 @@ void Board::printBoard(){
         cout<<endl;
     }
 }
-
+  
 void Board::updateBoardX(int inputCol){
     // Assign column that the player inputted
     playerInput = inputCol; 
