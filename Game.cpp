@@ -17,7 +17,7 @@ void Game::runGame(){
     M.displayMenu();
     
     // Construct board
-    B.printEmptyBoard();
+    B.printBoard();
 
     // Initialise gameRunning variable
     gameRunning = true;
@@ -45,7 +45,7 @@ void Game::runGame(){
     Board B(playerOption, nRows, nCols);
 
     // Display empty board 
-    B.printEmptyBoard();
+    B.printBoard();
 
     // Initialise check
     B.setCheck();
@@ -67,14 +67,14 @@ void Game::runGame(){
             Per.setPlayerCheck(B.check);
             person->move(array);
             B.updateBoardX(Per.getMove());
-            B.printUpdatedBoard();
+            B.printBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
                 // Person 2 input and print updated board
                 Per.setPlayerCheck(B.check);
                 person->move(array);
                 B.updateBoardO(Per.getMove());
-                B.printUpdatedBoard();
+                B.printBoard();
             }
             // Initialise win variable 
             win = B.checkWin();
@@ -94,7 +94,7 @@ void Game::runGame(){
             Per.setPlayerCheck(B.check);
             person->move(array);
             B.updateBoardX(Per.getMove());
-            B.printUpdatedBoard();
+            B.printBoard();
             int win = B.checkWin();
             if (win != 1 && win != 2 && win != 3) {
                 // Computer input and print updated board
@@ -102,7 +102,7 @@ void Game::runGame(){
                 C.setCols(nCols);
                 computer->move(array);
                 B.updateBoardO(C.getMove());
-                B.printUpdatedBoard();
+                B.printBoard();
             }
             // Initialise win variable
             win = B.checkWin();

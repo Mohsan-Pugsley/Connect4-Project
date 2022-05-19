@@ -51,22 +51,22 @@ Board::Board(int option, int rows, int cols){
 }
 
 
-void Board::printEmptyBoard(){
+void Board::printBoard(){
     // Display the empty game board
     for (int row=0; row<nRows+2; row++){
         for (int col=0; col<nCols; col++){
             if(row<=nRows-1 && col!=nCols-1){
-                cout<<'|'<<board[row][col];
+                cout<<'|'<<' '<<board[row][col]<<' ';
             } else if (row<=nRows-1 && col==nCols-1){
-                cout<<'|'<<board[row][col]<<'|';
+                cout<<'|'<<' '<<board[row][col]<<' '<<'|';
             } else if(row==nRows && col!=nCols-1){
-                cout<<'='<<'=';
+                cout<<'='<<'='<<'='<<'=';
             } else if (row==nRows && col==nCols-1){
-                cout<<'='<<'='<<'=';
+                cout<<'='<<'='<<'='<<'='<<'=';
             } else if (row==nRows+1 && col!=nCols-1){
-                cout<<'|'<<col+1;
+                cout<<'|'<<' '<<col+1<<' ';
             } else if (row==nRows+1 && col==nCols-1){
-                cout<<'|'<<col+1<<'|';
+                cout<<'|'<<' '<<col+1<<' '<<'|';
             }
         }
         cout<<endl;
@@ -158,28 +158,6 @@ void Board::updateBoardO(int inputCol){
         default:
             cout<<"Invalid input: Not within range.\nTry again: "<<endl;
             break;
-    }
-}
-
-void Board::printUpdatedBoard(){
-    // Display the updated board
-    for (int row=0; row<nRows+2; row++){
-        for (int col=0; col<nCols; col++){
-            if(row<=nRows-1 && col!=nCols-1){
-                cout<<'|'<<board[row][col];
-            } else if (row<=nRows-1 && col==nCols-1){
-                cout<<'|'<<board[row][col]<<'|';
-            } else if(row==nRows && col!=nCols-1){
-                cout<<'='<<'=';
-            } else if (row==nRows && col==nCols-1){
-            cout<<'='<<'='<<'=';
-            } else if (row==nRows+1 && col!=nCols-1){
-                cout<<'|'<<col+1;
-            } else if (row==nRows+1 && col==nCols-1){
-                cout<<'|'<<col+1<<'|';
-            }
-        }
-        cout<<endl;
     }
 }
 
