@@ -263,7 +263,6 @@ bool Board::isColumnFull(int index){
 Board::~Board(){
     delete[] board;
     delete[] colCounter;
-    delete[] check;
 }
 
 
