@@ -11,6 +11,7 @@
 class Game {
     private:
         int gameState;
+        int playerTurn;
         bool gameRunning;
         bool *array;
     public:

@@ -15,8 +15,7 @@ Game::Game(){
 void Game::runGame(){ 
     // Display Menu 
     M.displayMenu();
-    
-    // Construct board
+
     B.printBoard();
 
     // Initialise gameRunning variable
@@ -56,6 +55,8 @@ void Game::runGame(){
         array[i] = true;
     }
 
+    playerTurn = 1; // current player's turn
+
     // Game loop
     while (gameRunning){
         for(int i=0; i<nCols; i++){
@@ -64,22 +65,25 @@ void Game::runGame(){
             }
         }
         // Person vs Person
-        if(playerOption==1){
-            // Person 1 input and print updated board
-            Per.setPlayerCheck(B.check);
-            person->move(array);
-            B.updateBoardX(Per.getMove());
-            B.printBoard();
-            int win = B.checkWin();
-            if (win != 1 && win != 2 && win != 3) {
+        if (playerOption == 1) {
+            if (playerTurn == 1) {
+                // Person 1 input and print updated board
+                Per.setPlayerCheck(B.check);
+                person->move(array);
+                B.updateBoard(Per.getMove(), 'X');
+                B.printBoard();
+                playerTurn = 2;
+
+            } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
                 Per.setPlayerCheck(B.check);
                 person->move(array);
-                B.updateBoardO(Per.getMove());
+                B.updateBoard(Per.getMove(), 'O');
                 B.printBoard();
+                playerTurn = 1;
             }
-            // Initialise win variable 
-            win = B.checkWin();
+
+            int win = B.checkWin();
             if (win == 1){
                 cout << "Player 1 has won!" << endl;
                 gameRunning = false;
@@ -90,24 +94,28 @@ void Game::runGame(){
                 cout << "The game is a draw" << endl;
                 gameRunning = false;
             }
-        } else {
+        } else if (playerOption==2){
             // Person vs Computer
             // Person input and print updated board
-            Per.setPlayerCheck(B.check);
-            person->move(array);
-            B.updateBoardX(Per.getMove());
-            B.printBoard();
-            int win = B.checkWin();
-            if (win != 1 && win != 2 && win != 3) {
-                // Computer input and print updated board
-                C.setPlayerCheck(B.check);
-                C.setCols(nCols);
-                computer->move(array);
-                B.updateBoardO(C.getMove());
+            if (playerTurn == 1) {
+                // Person 1 input and print updated board
+                Per.setPlayerCheck(B.check);
+                person->move(array);
+                B.updateBoard(Per.getMove(), 'X');
                 B.printBoard();
+                playerTurn = 2;
+
+            } else if (playerTurn == 2) {
+                // Person 2 input and print updated board
+                C.setPlayerCheck(B.check);
+                computer->move(array);
+                B.updateBoard(C.getMove(), 'O');
+                B.printBoard();
+                playerTurn = 1;
             }
+
             // Initialise win variable
-            win = B.checkWin();
+            int win = B.checkWin();
             if (win == 1){
                 cout << "Person has won!" << endl;
                 gameRunning = false;
