@@ -82,15 +82,15 @@ void Board::printBoard(){
     }
 }
 
-void Board::setCheck(){
-    // Initialise the check array
-     check = new bool*[nRows]; 
+void Board::setBoardCheck(){
+    // Initialise the boardCheck array
+    boardCheck = new bool*[nRows]; 
     for (int i = 0; i < nRows; i++){
-        check[i] = new bool[nCols];
+        boardCheck[i] = new bool[nCols];
     }
     for(int i=0; i<nRows; i++){
         for(int j=0; j<nCols; j++){
-            check[i][j] = false;
+            boardCheck[i][j] = false;
         }
     }
 }
@@ -155,15 +155,15 @@ int Board::checkWin(){
     for (int i=0; i<nRows; i++){
         for (int j=0; j<nCols; j++){
             if(board[i][j] == 'X' || board[i][j] == 'O'){
-                check[i][j] = true;
+                boardCheck[i][j] = true;
             } else{
-                check[i][j] = false;
+                boardCheck[i][j] = false;
             }
         }
     }
     for(int i=0; i<nRows; i++){
         for(int j=0; j<nCols; j++){
-            if(check[i][j] == false){
+            if(boardCheck[i][j] == false){
                 return 0;
             }
         }
@@ -171,10 +171,10 @@ int Board::checkWin(){
     return 3;
 }
 
-bool Board::isColumnFull(int index){
+bool Board::columnFull(int index){
     // Check if column is full
     for (int j=0; j<nRows; j++){
-        if(check[j][index] == false){
+        if(boardCheck[j][index] == false){
                 return false;
         } 
     }

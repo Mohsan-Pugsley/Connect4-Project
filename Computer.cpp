@@ -59,7 +59,8 @@ void Computer::move(bool * full){
     }
     lastMoveCol = randomCol;
     // Displays the computer's move
-    cout<<"Computer's move: " << lastMoveCol << endl; 
+    cout<<"It is the Computer's turn!"<<endl;
+    cout<<"The Computer's move is " << lastMoveCol << endl; 
 }
 
 bool Computer::checkCondition(){

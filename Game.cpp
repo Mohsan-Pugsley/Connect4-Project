@@ -46,13 +46,13 @@ void Game::runGame(){
     // Display empty board 
     B.printBoard();
 
-    // Initialise check
-    B.setCheck();
+    // Initialise boardCheck
+    B.setBoardCheck();
 
     // Initialise array
-    array = new bool[nCols];
+    columns = new bool[nCols];
     for(int i=0; i<nCols; i++){
-        array[i] = true;
+        columns[i] = true;
     }
 
     playerTurn = 1; // current player's turn
@@ -60,24 +60,24 @@ void Game::runGame(){
     // Game loop
     while (gameRunning){
         for(int i=0; i<nCols; i++){
-            if(B.isColumnFull(i)){
-                array[i] = false;
+            if(B.columnFull(i)){
+                columns[i] = false;
             }
         }
         // Person vs Person
         if (playerOption == 1) {
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
-                Per.setPlayerCheck(B.check);
-                person->move(array);
+                Per.setPlayerCheck(B.boardCheck);
+                person->move(columns);
                 B.updateBoard(Per.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
 
             } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
-                Per.setPlayerCheck(B.check);
-                person->move(array);
+                Per.setPlayerCheck(B.boardCheck);
+                person->move(columns);
                 B.updateBoard(Per.getMove(), 'O');
                 B.printBoard();
                 playerTurn = 1;
@@ -99,16 +99,16 @@ void Game::runGame(){
             // Person input and print updated board
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
-                Per.setPlayerCheck(B.check);
-                person->move(array);
+                Per.setPlayerCheck(B.boardCheck);
+                person->move(columns);
                 B.updateBoard(Per.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
 
             } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
-                C.setPlayerCheck(B.check);
-                computer->move(array);
+                C.setPlayerCheck(B.boardCheck);
+                computer->move(columns);
                 B.updateBoard(C.getMove(), 'O');
                 B.printBoard();
                 playerTurn = 1;
@@ -139,6 +139,6 @@ int Game::getState(){
 }
 
 Game::~Game(){
-    delete[] array;
+    delete[] columns;
 }
 
