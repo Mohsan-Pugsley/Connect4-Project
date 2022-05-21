@@ -17,8 +17,9 @@ class Computer : public Player{
         void setRows(int cols); // Sets the number of rows
         void move(bool *full); // Sets the computer's move
         int getMove(); // Returns the move
+        void setGeneratedMove(); // Sets the computer's somewhat random move
         void setMenu(Menu m); // Sets the Menu object
-        bool checkCondition(); // Checks if valid input
+        bool checkCondition(bool * full); // Checks if valid input
         Menu m;
 
 };

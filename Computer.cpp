@@ -10,6 +10,7 @@ Computer::Computer(){
     colCount = 0; 
     rowCount = 0;
     lastMoveCol = floor(colCount/2);
+    srand(time(nullptr));
 }
 
 void Computer::setMenu(Menu m){
@@ -27,50 +28,43 @@ void Computer::setRows(int rows){
     // Sets the number of rows
     rowCount = rows;
 }
+void Computer::setGeneratedMove() {
+    int computerMove = rand() % colCount + 1; // + 1 offsets from 0
+
+    if (computerMove < colCount && computerMove < lastMoveCol) {
+        if (rand() % 5 + 1 < 5) { // 4/5ths of the time
+            cout << "Hey1" << endl;
+            computerMove++; // Move the randomCol closer to lastMoveCol
+        }
+    } else if (computerMove > 1 && computerMove > lastMoveCol) {
+        if (rand() % 5 + 1 < 5) { // 4/5ths of the time
+            cout << "Hey2" << endl;
+            computerMove--; // Move the randomCol closer to lastMoveCol
+        }
+    }    // Current result of this is that the computer chooses the edge columns less as well
+    
+    // Sets the computerMove
+    lastMoveCol = computerMove;
+}
 
 void Computer::move(bool * full){
-    // + 1 offsets from 0
-    int randomCol = rand() % colCount + 1; 
-
     // Validates randomly generated integer
-    if (checkCondition() == true){
-        if (randomCol < lastMoveCol) {
-            if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-                randomCol++; // Move the randomCol closer to lastMoveCol
-            }
-        } else if (randomCol > lastMoveCol) {
-            if (rand() % 3 + 1 < 3) {
-                randomCol--; // Move the randomCol closer to lastMoveCol
-            }
-        } // Current result of this is that the computer chooses the edge columns less as well
-    } else {
-        while (checkCondition() == false){
-            randomCol = rand() % colCount + 1 ;
-            if (randomCol < lastMoveCol) {
-                if (rand() % 3 + 1 < 3) { // 2/3rds of the time
-                     randomCol++; // Move the randomCol closer to lastMoveCol
-                }
-            } else if (randomCol > lastMoveCol) {
-                if (rand() % 3 + 1 < 3) {
-                    randomCol--; // Move the randomCol closer to lastMoveCol
-                }
-            } // Current result of this is that the computer chooses the edge columns less as well
-        }   
+    setGeneratedMove();
+    while (checkCondition(full) == false) {
+        setGeneratedMove();
     }
-    lastMoveCol = randomCol;
+
     // Displays the computer's move
     cout<<"It is the Computer's turn!"<<endl;
     cout<<"The Computer's move is " << lastMoveCol << endl; 
 }
 
-bool Computer::checkCondition(){
-    // Validates input
-    for(int i=0; i<rowCount; i++){
-        if(playerCheck[i][lastMoveCol] == false){
-            return true;
-        }
+bool Computer::checkCondition(bool * full){
+    if (full[lastMoveCol-1] == false) {
+        return false;
     }
-    return false;
+
+    return true;
 }
 
 int Computer::getMove(){

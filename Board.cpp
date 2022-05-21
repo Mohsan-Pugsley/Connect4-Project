@@ -110,7 +110,7 @@ int Board::checkWin(){
     // Check for horizontal win
     for (int i=0; i<nCols; i++){ 
         for (int j=0; j<nRows-3; j++){ 
-            if (board[j][i] == 'X' && board[j+1][i] == 'X' && board[j+1][i] == 'X' && board[j+1][i] == 'X'){
+            if (board[j][i] == 'X' && board[j+1][i] == 'X' && board[j+2][i] == 'X' && board[j+3][i] == 'X'){
                 return 1;
             }
             if (board[j][i] == 'O' && board[j+1][i] == 'O' && board[j+2][i] == 'O' && board[j+3][i] == 'O'){
@@ -121,37 +121,28 @@ int Board::checkWin(){
 
     // Check for diagonal win
     for (int row=0; row<nRows-3; row++){
+        // Negative slope diagonal check
         for (int col=0; col<nCols-3; col++){
             if(board[row][col]=='X' && board[row+1][col+1]=='X' && board[row+2][col+2]=='X' && board[row+3][col+3]=='X'){
                 return 1;      
             }
-        }
-    }       
-    for (int row=nRows-1; row>=3; row--){
-        for (int col=nCols-1; col>=3; col--){
-            if (board[row][col]=='X' && board[row-1][col-1]=='X' && board[row-2][col-2]=='X' && board[row-3][col-3]=='X'){
-                return 1;
-            }
-        }
-    }
-    for (int row=0; row<nRows-3; row++){
-        for (int col=0; col<nCols-3; col++){
             if(board[row][col]=='O' && board[row+1][col+1]=='O' && board[row+2][col+2]=='O' && board[row+3][col+3]=='O'){
-                return 2;            
+                return 2;      
             }
         }
-    }
-    for (int row=nRows-1; row>=3; row--){
+        // Positive slope diagonal check
         for (int col=nCols-1; col>=3; col--){
-            if (board[row][col]=='O' && board[row-1][col-1]=='O' && board[row-2][col-2]=='O' && board[row-3][col-3]=='O'){
-                return 2;
+            if(board[row][col]=='X' && board[row+1][col-1]=='X' && board[row+2][col-2]=='X' && board[row+3][col-3]=='X'){
+                return 1;      
+            }
+            if(board[row][col]=='O' && board[row+1][col-1]=='O' && board[row+2][col-2]=='O' && board[row+3][col-3]=='O'){
+                return 2;      
             }
         }
-
     }
 
     // Check for draw
-    for (int i=0; i<nRows; i++){
+    for (int i=0; i<nRows; i++){ // Sets check array
         for (int j=0; j<nCols; j++){
             if(board[i][j] == 'X' || board[i][j] == 'O'){
                 boardCheck[i][j] = true;
@@ -160,13 +151,15 @@ int Board::checkWin(){
             }
         }
     }
-    for(int i=0; i<nRows; i++){
+    for(int i=0; i<nRows; i++){ // Evaulates the check array
         for(int j=0; j<nCols; j++){
             if(boardCheck[i][j] == false){
                 return 0;
             }
         }
     }
+
+    // If no win or draw conditions
     return 3;
 }
 
