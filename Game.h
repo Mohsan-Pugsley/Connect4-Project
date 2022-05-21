@@ -13,7 +13,7 @@ class Game {
         int gameState;
         int playerTurn;
         bool gameRunning;
-        bool *array;
+        bool *columns;
     public:
         Game(); // Default Constructor
         void setState(int state); // Sets the state of the game

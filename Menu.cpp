@@ -21,6 +21,7 @@ void Menu::setPlayerOption(){
     // User inputs player option
     cout<<"Enter the number for the corresponding option above: " << endl;
     cin>>playerOption;
+
     // Validate input 
     switch(playerOption){
         case 1:
