@@ -3,7 +3,6 @@
 #include "Player.h"
 #include "Person.h"
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 Board::Board(){ 

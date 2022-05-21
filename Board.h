@@ -12,6 +12,7 @@ class Board{
     int player2Won;   
     
     public:
+        char marker;
         bool ** boardCheck;
         int nCols;
         Board(); // Default constructor
