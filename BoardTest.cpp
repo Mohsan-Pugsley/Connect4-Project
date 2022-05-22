@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+// Board Test: testing the Board class to ensure that a board is printed and updated given inputted values
 int main(){  
     // Check if prints option: 1 | rows: 4 | cols: 4 and prints board to exact size
     int board1Cols = 4;

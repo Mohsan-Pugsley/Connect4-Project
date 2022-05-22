@@ -6,6 +6,7 @@
 #include <iostream>
 using namespace std;
 
+// Player Test: testing the Player base class including Person and Computer subclasses to ensure that the user can input a column number and the token will be placed in such column
 int main(){
     Menu menu;
     Person person;

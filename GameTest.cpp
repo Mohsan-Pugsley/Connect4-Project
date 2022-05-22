@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+// Game Test: testing the Game class to ensure that the game runs and ends when a check condition is met
     Menu M;
     Person Per;
     Computer C;

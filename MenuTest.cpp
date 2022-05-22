@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+// Menu Test: testing the Menu class to ensure that the user can input the playerOption, number of rows and number of columns
 int main(){
     Menu menu;
     menu.displayMenu();
