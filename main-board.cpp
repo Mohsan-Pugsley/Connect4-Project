@@ -33,43 +33,43 @@ int main(){
 //stage 2: game
     //assign menu inputs (player option, row, cols) into board class parameters
     Board B(playerOption, nRows, nCols);
-    B.printEmptyBoard();
+    B.printBoard();
     bool gameRunning = true;
     bool *array = new bool[nCols];
-    B.setCheck();
+    B.setBoardCheck();
     
     while (gameRunning){
         for(int i=0; i<nCols; i++){
             array[i] = true;
-            if(B.isColumnFull(i)){
+            if(B.columnFull(i)){
                 array[i] = false;
             }
         }
 
         if(playerOption==1){
             //person1 input and print updated board
-            Per.setPlayerCheck(B.check);
+            Per.setPlayerCheck(B.boardCheck);
             Per.move(array);
-            B.updateBoardX(Per.getMove());
-            B.printUpdatedBoard();
+            B.updateBoard(Per.getMove(), 'X');
+            B.printBoard();
             //person2 input and print updated board
-            Per.setPlayerCheck(B.check);
+            Per.setPlayerCheck(B.boardCheck);
             Per.move(array);
-            B.updateBoardO(Per.getMove());
-            B.printUpdatedBoard();
+            B.updateBoard(Per.getMove(),'O');
+            B.printBoard();
 
         } else {
             //person1 input and print updated board
-            Per.setPlayerCheck(B.check);
+            Per.setPlayerCheck(B.boardCheck);
             Per.move(array);
-            B.updateBoardX(Per.getMove());
-            B.printUpdatedBoard();
+            B.updateBoard(Per.getMove(),'X');
+            B.printBoard();
             //computer input and print updated board
-            C.setPlayerCheck(B.check);
+            C.setPlayerCheck(B.boardCheck);
             C.setCols(nCols);
             C.move(array);
-            B.updateBoardO(C.getMove());
-            B.printUpdatedBoard();
+            B.updateBoard(C.getMove(),'O');
+            B.printBoard();
         }
 
          int win = B.checkWin();

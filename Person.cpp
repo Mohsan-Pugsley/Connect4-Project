@@ -4,6 +4,7 @@
 Person::Person(){
     // Initialise variable
     nCols = 0;
+    playerTracker=0;
 }
 
 void Person::setMenu(Menu m){
@@ -11,15 +12,34 @@ void Person::setMenu(Menu m){
     this->m=m;
 }
 
-void Person::move(bool * full){
-    // User inputs the column number to place token
-    cout<<"Person's move (enter column number): ";
-    cin>>playerInput;
-    // Loop to check valid input
-    while (checkCondition(full) == false){
-        cout << "Invalid. What column will you place your token?: ";
+void Person::move(bool * full, int playerOption){
+    if (playerOption==1){
+        // User inputs the column number to place token
+        playerTracker=playerTracker+1;
+        
+        if(playerTracker==3){
+            playerTracker=playerTracker-2;
+        }
+
+        cout<<"Person "<<playerTracker<<"'s move (enter column number): ";
         cin>>playerInput;
-        cout << endl;
+        // Loop to check valid input
+        while (checkCondition(full) == false){
+            cout << "Invalid. What column will you place your token?: ";
+            cin>>playerInput;
+            cout << endl;
+        }
+    } else {
+        playerTracker=1;
+
+        cout<<"Your turn (enter column number): ";
+        cin>>playerInput;
+        // Loop to check valid input
+        while (checkCondition(full) == false){
+            cout << "Invalid. What column will you place your token?: ";
+            cin>>playerInput;
+            cout << endl;
+        }
     }
 }
 

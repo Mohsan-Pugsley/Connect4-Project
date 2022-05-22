@@ -6,9 +6,10 @@
 // PERSON: User can input a column to place their taken
 class Person : public Player{
     int nCols;
+    int playerTracker;
     public:
         Person(); // Default constructor
-        void move(bool *full); // Sets person's move
+        void move(bool *full, int playerOption); // Sets person's move
         int getMove(); // Returns the move
         void setMenu(Menu m); // Sets the Menu object
         bool checkCondition(bool * full); // Checks if valid input

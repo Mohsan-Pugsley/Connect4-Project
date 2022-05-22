@@ -69,7 +69,7 @@ void Game::runGame(){
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
                 Per.setPlayerCheck(B.boardCheck);
-                person->move(columns);
+                person->move(columns, playerOption);
                 B.updateBoard(Per.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
@@ -77,7 +77,7 @@ void Game::runGame(){
             } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
                 Per.setPlayerCheck(B.boardCheck);
-                person->move(columns);
+                person->move(columns, playerOption);
                 B.updateBoard(Per.getMove(), 'O');
                 B.printBoard();
                 playerTurn = 1;
@@ -100,7 +100,7 @@ void Game::runGame(){
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
                 Per.setPlayerCheck(B.boardCheck);
-                person->move(columns);
+                person->move(columns, playerOption);
                 B.updateBoard(Per.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
@@ -108,7 +108,7 @@ void Game::runGame(){
             } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
                 C.setPlayerCheck(B.boardCheck);
-                computer->move(columns);
+                computer->move(columns, playerOption);
                 B.updateBoard(C.getMove(), 'O');
                 B.printBoard();
                 playerTurn = 1;
@@ -117,7 +117,7 @@ void Game::runGame(){
             // Initialise win variable
             int win = B.checkWin();
             if (win == 1){
-                cout << "Person has won!" << endl;
+                cout << "You won!" << endl;
                 gameRunning = false;
             } else if (win == 2){
                 cout << "Computer has won! " << endl;

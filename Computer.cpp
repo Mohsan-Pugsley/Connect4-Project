@@ -47,7 +47,7 @@ void Computer::setGeneratedMove() {
     lastMoveCol = computerMove;
 }
 
-void Computer::move(bool * full){
+void Computer::move(bool * full, int playerOption){
     // Validates randomly generated integer
     setGeneratedMove();
     while (checkCondition(full) == false) {

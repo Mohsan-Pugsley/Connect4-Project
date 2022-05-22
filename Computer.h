@@ -15,7 +15,7 @@ class Computer : public Player{
         Computer(); // Default constructor
         void setCols(int cols); // Sets the number of columns
         void setRows(int cols); // Sets the number of rows
-        void move(bool *full); // Sets the computer's move
+        void move(bool *full, int playerOption); // Sets the computer's move
         int getMove(); // Returns the move
         void setGeneratedMove(); // Sets the computer's somewhat random move
         void setMenu(Menu m); // Sets the Menu object
