@@ -1,8 +1,10 @@
 #include "Person.h"
 #include <iostream>
+#include <string>
+#include <limits>
 
 Person::Person(){
-    // Initialise variable
+    // Initialise variables
     nCols = 0;
     playerTracker=0;
 }
@@ -14,29 +16,63 @@ void Person::setMenu(Menu m){
 
 void Person::move(bool * full, int playerOption){
     if (playerOption==1){
-        // User inputs the column number to place token
+        //alternates player 1 and player 2
         playerTracker=playerTracker+1;
         
         if(playerTracker==3){
             playerTracker=playerTracker-2;
         }
 
+        // User inputs the column number to place token
         cout<<"Person "<<playerTracker<<"'s move (enter column number): ";
         cin>>playerInput;
-        // Loop to check valid input
-        while (checkCondition(full) == false){
-            cout << "Invalid. What column will you place your token?: ";
+        cout << endl;
+
+        // Loop to check for valid integer inputs within board
+        while (playerInput<1||playerInput>m.getBoardColumns()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+            cout << "Invalid input. Please input a column number between 1 and "<< m.getBoardColumns()<<": ";
             cin>>playerInput;
             cout << endl;
         }
-    } else {
+
+        //Loop to check for valid inputs when column is full
+        while (checkCondition(full) == false){
+            //ignore input if its not inside the board or if its a non-integer input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+            cout << "Invalid input. Column "<<playerInput<< " is full. Try again: ";
+            cin>>playerInput;
+            cout << endl;
+        }
+
+    } else if (playerOption==2){
+        //person's turn
         playerTracker=1;
 
         cout<<"Your turn (enter column number): ";
         cin>>playerInput;
-        // Loop to check valid input
+        
+        // Loop to check for valid integer inputs within board
+        while (playerInput<1||playerInput>m.getBoardColumns()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+            cout << "Invalid input. Please input a column number between 1 and "<< m.getBoardColumns()<<": ";
+            cin>>playerInput;
+            cout << endl;
+        }
+
+        //Loop to check for valid inputs when column is full
         while (checkCondition(full) == false){
-            cout << "Invalid. What column will you place your token?: ";
+            //ignore input if its not inside the board or if its a non-integer input
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+
+            cout << "Invalid input. Column "<<playerInput<< " is full. Try again: ";
             cin>>playerInput;
             cout << endl;
         }
@@ -63,4 +99,5 @@ bool Person::checkCondition(bool *full){
 int Person::getMove(){
     return playerInput;
 }
+
 

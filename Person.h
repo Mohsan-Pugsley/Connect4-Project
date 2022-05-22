@@ -6,7 +6,7 @@
 // PERSON: User can input a column to place their taken
 class Person : public Player{
     int nCols;
-    int playerTracker;
+    int playerTracker; //tracks who the current player is
     public:
         Person(); // Default constructor
         void move(bool *full, int playerOption); // Sets person's move
