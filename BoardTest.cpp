@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+// Board Test: testing the Board class to ensure that a board is printed and updated given inputted values
 int main(){  
     // Check if prints option: 1 | rows: 4 | cols: 4 and prints board to exact size
     int board1Cols = 4;
@@ -12,18 +13,6 @@ int main(){
     // Check if prints option: 2 | rows: 5 | cols: 6 and prints board to exact size
     Board board2(2, 5, 6);
     board2.printBoard();
-
-
-    // Added this, not sure if it really counts as unit testing though - mohsan
-    board1.updateBoard(3, 'O');
-    board1.printBoard();
-    for (int i = 0; i < 5; i++) {
-        board1.updateBoard(2, 'X');
-        if (i == 2) {
-            board1.updateBoard(2, 'O');
-        }
-        board1.printBoard();
-    }
 
     // Check if user input matches board size and player option
     Menu menu;
@@ -37,5 +26,15 @@ int main(){
     Board board3(playerOption, nRows, nCols);
     board3.printBoard();
 
+    // Check if updates board1 with player's tokens 
+    board1.updateBoard(3, 'O');
+    board1.printBoard();
+    for (int i = 0; i < 5; i++) {
+        board1.updateBoard(2, 'X');
+        if (i == 2) {
+            board1.updateBoard(2, 'O');
+        }
+        board1.printBoard();
+    }
     return 0;
 }

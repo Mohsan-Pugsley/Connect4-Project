@@ -23,8 +23,12 @@ void Person::move(bool * full, int playerOption){
             playerTracker=playerTracker-2;
         }
 
+<<<<<<< HEAD
         // User inputs the column number to place token
         cout<<"Person "<<playerTracker<<"'s move (enter column number): ";
+=======
+        cout<<"Player "<<playerTracker<<"'s move (enter column number): ";
+>>>>>>> 3458c25f9eaf9e787c96d0dfbb1f0b098402e68f
         cin>>playerInput;
         cout << endl;
 
@@ -55,7 +59,7 @@ void Person::move(bool * full, int playerOption){
 
         cout<<"Your turn (enter column number): ";
         cin>>playerInput;
-        
+
         // Loop to check for valid integer inputs within board
         while (playerInput<1||playerInput>m.getBoardColumns()){
             cin.clear();
