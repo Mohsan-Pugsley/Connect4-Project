@@ -21,7 +21,7 @@ void Person::move(bool * full, int playerOption){
             playerTracker=playerTracker-2;
         }
 
-        cout<<"Person "<<playerTracker<<"'s move (enter column number): ";
+        cout<<"Player "<<playerTracker<<"'s move (enter column number): ";
         cin>>playerInput;
         // Loop to check valid input
         while (checkCondition(full) == false){
