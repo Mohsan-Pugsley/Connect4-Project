@@ -49,25 +49,25 @@ int main(){
         if(playerOption==1){
             //person1 input and print updated board
             Per.setPlayerCheck(B.boardCheck);
-            Per.move(array);
+            Per.move(array, playerOption);
             B.updateBoard(Per.getMove(), 'X');
             B.printBoard();
             //person2 input and print updated board
             Per.setPlayerCheck(B.boardCheck);
-            Per.move(array);
+            Per.move(array, playerOption);
             B.updateBoard(Per.getMove(),'O');
             B.printBoard();
 
         } else {
             //person1 input and print updated board
             Per.setPlayerCheck(B.boardCheck);
-            Per.move(array);
+            Per.move(array, playerOption);
             B.updateBoard(Per.getMove(),'X');
             B.printBoard();
             //computer input and print updated board
             C.setPlayerCheck(B.boardCheck);
             C.setCols(nCols);
-            C.move(array);
+            C.move(array, playerOption);
             B.updateBoard(C.getMove(),'O');
             B.printBoard();
         }
