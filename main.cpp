@@ -5,15 +5,15 @@
 #include "Person.h"
 #include "Computer.h"
 #include <iostream>
-
 using namespace std;
 
+// Main: Runs the Connect 4 Game
 int main(int argc, char const *argv[]){
     // Initialise Game object
     Game connectGame;
 
     // Run the Connect 4 Game
     connectGame.runGame();
-    
+
     return 0;
 }
