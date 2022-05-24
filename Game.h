@@ -21,7 +21,7 @@ class Game {
         int getState(); // Returns the state of the game, e.g. 0: Menu, 1: In Progress, 2: Game End
         ~Game(); // Destructor 
         Player *player; 
-        Person Per;
+        Person P;
         Computer C;
         Menu M;
         Board B;

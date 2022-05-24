@@ -46,6 +46,7 @@ Board::Board(int option, int rows, int cols){
         rowCounter[i]=rows-1;
     }
 
+    // Display the menu inputs
     cout << "Option: " << playerOption << " | Rows: " << nRows << "| Cols: " << nCols << endl;
 }
 
