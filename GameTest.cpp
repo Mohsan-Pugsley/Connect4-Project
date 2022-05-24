@@ -8,6 +8,7 @@
 using namespace std;
 
 // Game Test: testing the Game class to ensure that the game runs and ends when a check condition is met
+int main(){
     Menu M;
     Person Per;
     Computer C;
@@ -46,7 +47,6 @@ using namespace std;
     }
 
     int playerTurn = 1;
-
 
     // Check if continually loops game until a check win condition is met 
     // Game loop
