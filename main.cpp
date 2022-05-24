@@ -8,9 +8,12 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
+    // Initialise Game object
     Game connectGame;
+
+    // Run the Connect 4 Game
     connectGame.runGame();
+    
     return 0;
 }

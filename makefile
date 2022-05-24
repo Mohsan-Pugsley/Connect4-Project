@@ -1,3 +1,5 @@
+#MAKEFILE for Connect4 Project
+
 CC = g++
 CFlags = -Wall
 HEADERS = Menu.h Player.h Person.h Computer.h Game.h Board.h 
