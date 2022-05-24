@@ -16,9 +16,7 @@ class Game {
         bool *columns;
     public:
         Game(); // Default Constructor
-        void setState(int state); // Sets the state of the game
         void runGame(); // Runs the code for the game, including the main game loop
-        int getState(); // Returns the state of the game, e.g. 0: Menu, 1: In Progress, 2: Game End
         ~Game(); // Destructor 
         Player *player; 
         Person P;

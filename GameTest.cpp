@@ -14,7 +14,6 @@ int main(){
     Computer C;
 
     M.displayMenu();
-    B.printBoard();
 
     bool gameRunning = true;
 

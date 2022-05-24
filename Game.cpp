@@ -129,14 +129,6 @@ void Game::runGame(){
     }
 }
 
-void Game::setState(int stateNum){ 
-    gameState = stateNum;
-}
-
-int Game::getState(){ 
-    return gameState;
-}
-
 Game::~Game(){
     delete[] columns;
 }
