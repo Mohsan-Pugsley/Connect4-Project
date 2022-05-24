@@ -36,7 +36,7 @@ void Menu::setPlayerOption(){
             break;
         default: 
             while((playerOption != 1) && (playerOption != 2)){
-            cout << "Your choice is invalid" << endl;
+            cout << "Your choice is invalid." << endl;
             cout<<"Enter the number for the corresponding option above: " << endl;
             cin>>playerOption;
             cin.clear();
@@ -60,11 +60,12 @@ void Menu::setBoardRows(){
     // User inputs and stores rows
     cout<<"Enter number of rows (min:4, max:8): ";
     cin>>boardRows; 
+
     // Validate input
     while ((boardRows < 4) || (boardRows > 8)){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "You have entered a number outside the range [4,8]. Please try again!: ";
+        cout << "Invalid input. \nEnter a number in the range [4,8]. Please try again!: ";
         cin>>boardRows; 
     }
 }
@@ -76,12 +77,13 @@ int Menu::getBoardRows(){
 void Menu::setBoardColumns(){
     // User inputs and stores columns
     cout<<"Enter number of columns (min:4, max:8): ";
-    cin>>boardColumns;   
+    cin>>boardColumns;  
+
     // Validate input
     while ((boardColumns < 4) || (boardColumns > 8)){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
+        cout << "Invalid input. \nEnter a number in the range [4,8]. Please try again!: ";
         cin>>boardColumns; 
     }
 }
