@@ -10,7 +10,6 @@
 // GAME: Runs the Connect 4 Game
 class Game {
     private:
-        int gameState;
         int playerTurn;
         bool gameRunning;
         bool *columns;
