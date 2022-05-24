@@ -8,15 +8,13 @@
 Game::Game(){ 
     // Initalise objects 
     Menu M;
-    Person Per;
+    Person P;
     Computer C;
 }
 
 void Game::runGame(){ 
     // Display Menu 
     M.displayMenu();
-
-    B.printBoard();
 
     // Initialise gameRunning variable
     gameRunning = true;
@@ -33,9 +31,9 @@ void Game::runGame(){
 
     // Create base class pointer to sub class type
     Player *computer = &C;
-    Player *person = &Per;
+    Player *person = &P;
 
-    Per.setMenu(M);
+    P.setMenu(M);
     C.setMenu(M);
     C.setCols(M.getBoardColumns());
     C.setRows(M.getBoardRows());
@@ -49,13 +47,14 @@ void Game::runGame(){
     // Initialise boardCheck
     B.setBoardCheck();
 
-    // Initialise array
+    // Initialise column array
     columns = new bool[nCols];
     for(int i=0; i<nCols; i++){
         columns[i] = true;
     }
 
-    playerTurn = 1; // current player's turn
+    // Current player's turn
+    playerTurn = 1; 
 
     // Game loop
     while (gameRunning){
@@ -68,17 +67,17 @@ void Game::runGame(){
         if (playerOption == 1) {
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
-                Per.setPlayerCheck(B.boardCheck);
+                P.setPlayerCheck(B.boardCheck);
                 person->move(columns, playerOption);
-                B.updateBoard(Per.getMove(), 'X');
+                B.updateBoard(P.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
 
             } else if (playerTurn == 2) {
                 // Person 2 input and print updated board
-                Per.setPlayerCheck(B.boardCheck);
+                P.setPlayerCheck(B.boardCheck);
                 person->move(columns, playerOption);
-                B.updateBoard(Per.getMove(), 'O');
+                B.updateBoard(P.getMove(), 'O');
                 B.printBoard();
                 playerTurn = 1;
             }
@@ -99,9 +98,9 @@ void Game::runGame(){
             // Person input and print updated board
             if (playerTurn == 1) {
                 // Person 1 input and print updated board
-                Per.setPlayerCheck(B.boardCheck);
+                P.setPlayerCheck(B.boardCheck);
                 person->move(columns, playerOption);
-                B.updateBoard(Per.getMove(), 'X');
+                B.updateBoard(P.getMove(), 'X');
                 B.printBoard();
                 playerTurn = 2;
 
