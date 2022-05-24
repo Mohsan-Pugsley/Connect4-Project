@@ -70,5 +70,3 @@ bool Computer::checkCondition(bool * full){
 int Computer::getMove(){
     return lastMoveCol;
 }
-
-

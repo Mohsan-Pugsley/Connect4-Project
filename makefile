@@ -11,4 +11,3 @@ main: $(FILES)
 
 clean:
 	rm -f core *.o 
-	

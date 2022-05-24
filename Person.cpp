@@ -99,5 +99,3 @@ bool Person::checkCondition(bool *full){
 int Person::getMove(){
     return playerInput;
 }
-
-

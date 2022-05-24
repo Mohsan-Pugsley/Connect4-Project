@@ -140,4 +140,3 @@ int Game::getState(){
 Game::~Game(){
     delete[] columns;
 }
-

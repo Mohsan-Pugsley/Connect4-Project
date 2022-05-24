@@ -79,5 +79,3 @@ void Menu::setBoardColumns(){
 int Menu::getBoardColumns(){
     return boardColumns;  
 }
-
-

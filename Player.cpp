@@ -17,6 +17,3 @@ void Player::setPlayerCheck(bool ** playerCheck){
     // Retrieve playerCheck
     this->playerCheck=playerCheck;
 }
-
-
-
