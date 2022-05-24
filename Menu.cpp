@@ -21,6 +21,8 @@ void Menu::setPlayerOption(){
     // User inputs player option
     cout<<"Enter the number for the corresponding option above: " << endl;
     cin>>playerOption;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
     // Validate input 
     switch(playerOption){
@@ -35,6 +37,8 @@ void Menu::setPlayerOption(){
             cout << "Your choice is invalid" << endl;
             cout<<"Enter the number for the corresponding option above: " << endl;
             cin>>playerOption;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
             if(playerOption == 1){
                 cout << "You picked a Person Opponent" << endl;
             }
@@ -56,6 +60,8 @@ void Menu::setBoardRows(){
     cin>>boardRows; 
     // Validate input
     while ((boardRows < 4) || (boardRows > 8)){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout << "You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardRows; 
     }
@@ -71,6 +77,8 @@ void Menu::setBoardColumns(){
     cin>>boardColumns;   
     // Validate input
     while ((boardColumns < 4) || (boardColumns > 8)){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
         cout<<"You have entered a number outside the range [4,8]. Please try again!: ";
         cin>>boardColumns; 
     }
