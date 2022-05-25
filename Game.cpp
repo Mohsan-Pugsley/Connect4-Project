@@ -4,12 +4,14 @@
 #include "Player.h"
 #include "Person.h"
 #include "Computer.h"
+#include "Statistics.h"
 
 Game::Game(){ 
     // Initalise objects 
     Menu M;
     Person P;
     Computer C;
+    Statistics Stats;
 }
 
 void Game::runGame(){ 
@@ -83,16 +85,20 @@ void Game::runGame(){
             }
 
             int win = B.checkWin();
+            // Person Vs. Person win
             if (win == 1){
                 cout << "Player 1 has won!" << endl;
+                Stats.updateData("Person1Wins", 1);
                 gameRunning = false;
             } else if (win == 2){
                 cout << "Player 2 has won! " << endl;
+                Stats.updateData("Person2Wins", 1);
                 gameRunning = false;
             } else if(win ==3){
                 cout << "The game is a draw" << endl;
                 gameRunning = false;
             }
+
         } else if (playerOption==2){
             // Person vs Computer
             // Person input and print updated board
@@ -115,11 +121,14 @@ void Game::runGame(){
 
             // Initialise win variable
             int win = B.checkWin();
+            // Person Vs. Computer win
             if (win == 1){
                 cout << "You won!" << endl;
+                Stats.updateData("Person1Wins", 1);
                 gameRunning = false;
             } else if (win == 2){
                 cout << "Computer has won! " << endl;
+                Stats.updateData("ComputerWins", 1);
                 gameRunning = false;
             } else if(win ==3){
                 cout << "The game is a draw" << endl;
@@ -127,6 +136,18 @@ void Game::runGame(){
             }
         }
     }
+
+    // Post game instructions
+    Stats.updateData("TotalGames", 1);
+    // Statistics display (line-by-line)
+    cout << endl;
+    cout << "The game has ended!" << endl;
+    cout << endl;
+    cout << "All time game statistics: " << endl;
+    cout << "\t- Player 1 has won: " << Stats.getData("Person1Wins") << " times!" << endl;
+    cout << "\t- Player 2 has won: " << Stats.getData("Person2Wins") << " times!" << endl;
+    cout << "\t- The computer has won: " << Stats.getData("ComputerWins") << " times!" << endl;
+    cout << "\t- A total of " << Stats.getData("TotalGames") << " games have been finished!" << endl;
 }
 
 Game::~Game(){

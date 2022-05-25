@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Person.h"
 #include "Computer.h"
+#include "Statistics.h"
 
 // GAME: Runs the Connect 4 Game
 class Game {
@@ -22,6 +23,7 @@ class Game {
         Computer C;
         Menu M;
         Board B;
+        Statistics Stats;
 };
  
 #endif
