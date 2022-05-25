@@ -7,7 +7,7 @@
 Statistics::Statistics() {
 }
 
-int Statistics::getLineNumber(std::string dataName) {
+int Statistics::getLineNumber(std::string dataName) { // Must be edited manually for new data entries
     if (dataName == "Person1Wins") {
         return 0; // Line 1
     } else if (dataName == "Person2Wins") {
